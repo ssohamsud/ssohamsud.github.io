@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academic Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+
+        nav ul li a, footer a {
+            color: #fff; /* White links */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #FFD700; /* Gold hover effect */
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        button {
+            background-color: #fff; /* White buttons */
+            color: #000; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FFD700; /* Gold on hover */
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Soham Sud </strong></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <hgroup>
+                <h1>About Me</h2>
+                <p>Hello, I’m Soham. I’m in my 2nd year studying Mathematics and Statistics @ Imperial College London.</p>
+            </hgroup>
+            <p>
+                My Mathematical Interests lie in:
+                <ul>
+                    <li>Statistical Modelling</li>
+                    <li>Machine Learning</li>
+                    <li>Mathematical Finance</li>
+                    <li>Game Theory</li>
+                </ul>
+            </p>
+            <h3>Selected Experiences</h3>
+            <p>
+                <strong>Quantitative Research Intern @ Angel Lane Partners (2024-Present)</strong><br>
+                I am working at ALP as a Quant Research Intern. I am working on deriving and robustly testing options pricing models using results in statistical physics.
+            </p>
+            <p>
+                <strong>Spring Intern @ Various Quant Firms (2024)</strong><br>
+                I was fortunate enough to be selected for Spring Weeks/Insight Programmes at the following firms:
+                <ul>
+                    <li>Jane Street – Won the estimathon</li>
+                    <li>Optiver – Placed 1st out of all 1st years in market making game, 4th/40 overall</li>
+                    <li>Citadel – Completed 4-hour ETF arb challenge in Python, placed top 10% in market maker game</li>
+                    <li>IMC – Won 2/3 trading rounds in the final game and placed highly in poker</li>
+                    <li>SIG – Placed joint 1st/200 in market making game</li>
+                    <li>Flow Traders – Placed highly in trading quiz</li>
+                </ul>
+            </p>
+            <p>
+                <strong>Private Tutor</strong><br>
+                I have been tutoring for over 4 years now and have accumulated over 350 hours in teaching. I primarily teach mathematics and specialize in admission tests such as STEP, MAT, TMUA. If you would like tutoring for pre-uni examinations (GCSEs, A-Levels, Uni Admission Exams), please drop an email <a href="contact.html">here</a> to check for availability.
+            </p>
+            <h3>Education</h3>
+            <p>
+                <strong>Imperial College London</strong><br>
+                Bachelor of Mathematics and Statistics<br>
+                <ul>
+                    <li>
+                        <strong>Y1 Modules:</strong> Compulsory: Intro to Uni Maths, Analysis 1, Linear Algebra and Groups, Calculus and Applications, Probability and Statistics (R), Intro to Computing (Python), Intro to Applied Maths (MatLab), M1R – Individual Research Project (Deriving and Evaluating the Merton Jump Diffusion Model).
+                    </li>
+                    <li>
+                        <strong>Y2 Modules:</strong> Compulsory: Real Analysis, Complex Analysis, Multivariable Calculus, Differential Equations, Linear Algebra, Numerical Analysis (Julia). Optional: Probability for Statistics, Principles of Programming (Python), Statistical Modelling (R), Lebesgue Measure and Integration. Self Studying: Network Science.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                <strong>Sutton Grammar School</strong><br>
+                GCSE Prize, A-Level Prize for best examination grades across the year group.
+                <ul>
+                    <li>Founded Mathematics Society, Mathematics Magazine, Maths Mentor, Hans Woyda team captain</li>
+                    <li>UKMT Maths Challenges (Gold/Medals/Distinction in all Challenges/Olympiads)</li>
+                    <li>Physics Challenge Gold, Salter’s Chemistry Festival, Longitude Explorer Prize</li>
+                    <li>Chess Team, Cricket Team, 12+ concert performances, DofE (Bronze/Silver/Gold)</li>
+                </ul>
+            </p>
+            <h3>Projects</h3>
+            <p>
+                <strong>Cricket Score Predictor</strong><br>
+                Designed and implemented a Random Forest Regression model to predict cricket scores by identifying relevant parameters. Currently enhancing the model by incorporating qualitative metrics, such as a ‘pressure’ index, to account for situational performance variations. Writing a research paper outlining these improvements and their statistical significance.
+            </p>
+            <p>
+                <strong>Published Mathematics Magazine</strong><br>
+                Founded and managed a school mathematics magazine, editing and proof-checking over 30 articles, including original problem sets and solutions. The magazine achieved over 3000 views within the school and is now entered into a national competition for academic publications.
+            </p>
+            <p>
+                <strong>Merton Jump Diffusion Model Research Project</strong><br>
+                Developed a variant of the Merton Jump Diffusion Model, explaining volatility surfaces through stochastic differential equations. Compared the model’s results to Black-Scholes dynamics, highlighting differences in volatility smile behavior. Presented the research to statistics professors, earning high praise for innovation and clarity.
+            </p>
+            <h3>Competitions</h3>
+            <p>
+                <strong>Competitions</strong>
+                <ul>
+                    <li><b>IMC Prosperity Trading Challenge:</b> Placed 167/~10000 teams, Top 10 in UK. Used bunch of cool analysis techniques like ADF, Kalman Filters, Time Series Analysis, Monte Carlo Simulations etc...</li>
+                    <li><b>Imperial Algothon:</b>: 1st place Undergraduate/3rd place overall out of ~ 200 participants in selective Algothon Competition hosted by Imperial. Tasked to predict electricity futures. </li>
+                    <li><b>Maths Olympiads:</b> Qualified for BMO1,BMO2 twice with distinction. Gold Medals in all UKMT challenges I've taken.</li>
+                    
+                </ul>
+            </p>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>
+            <a href="index.html">About</a> • <a href="blog.html">Blog</a> • <a href="resources.html">Resources</a> •<a href="contact.html">Contact</a>
+        </small>
+    </footer>
+</body>
+</html>

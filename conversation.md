@@ -1,0 +1,1 @@
+User requested a complete cleanup of the academic portfolio. The design now uses the Playfair Display font and a black-white palette. All pages follow a consistent structure and refined aesthetic.

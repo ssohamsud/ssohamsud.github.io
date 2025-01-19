@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog - Academic Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+
+        nav ul li a, footer a {
+            color: #fff; /* White links */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #FFD700; /* Gold hover effect */
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        .blog-preview {
+            background-color: #111; /* White box */
+            color: #000; /* Black text */
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border: 1px solid #FFD700; /* Gold border */
+        }
+
+        .blog-preview h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .blog-preview p {
+            margin: 0.5rem 0;
+        }
+
+        .blog-preview a {
+            color: #FFD700; /* Gold link */
+            font-weight: 700;
+        }
+
+        .blog-preview a:hover {
+            color: #fff; /* White on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Soham Sud</strong></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="blog">
+            <hgroup>
+                <h2>Blog</h2>
+                <h3>Thoughts and Insights</h3>
+            </hgroup>
+            <p>Welcome to my blog, where I share insights and reflections on topics related to mathematics, statistics, and beyond.</p>
+            
+            <div class="blog-preview">
+                <h4>Differentiator using Dual Numbers in Julia</h4>
+                <p>Evaluating complex derivatives at points can be complex and time consuimg the traditional way. This extract explores how we can quickly compute good approximations of these derivatives in Julia with the use of Dual Numbers</p>
+                <a href="first-blog.html">Read More</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>
+            <a href="index.html">About</a> • <a href="blog.html">Blog</a> • <a href="resources.html">Resources</a> • <a href="contact.html">Contact</a>
+        </small>
+    </footer>
+</body>
+</html>
