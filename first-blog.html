@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -59,9 +60,130 @@
     <main class="container">
         <article>
             <h1>Differentiator Using Dual Numbers in Julia</h1>
-            <p>
-                Coming soon...
-            </p>
+                <h2>What Are Dual Numbers?</h2>
+                <p>
+                  Dual numbers extend the real numbers by introducing a new element, 
+                  \( \epsilon \), with the property:
+                </p>
+                <div>
+                  \[
+                    \epsilon^2 = 0, \quad \text{but} \quad \epsilon \neq 0.
+                  \]
+                </div>
+                <p>
+                  A dual number can be written in the form:
+                </p>
+                <div>
+                  \[
+                    x + \epsilon y,
+                  \]
+                </div>
+                <p>
+                  where \(x\) is the "real" part and \(y\) is the "dual" part. The key idea is 
+                  that \( \epsilon^2 = 0 \), which allows us to elegantly encode derivatives.
+                </p>
+                
+                <h2>How Do Dual Numbers Enable Differentiation?</h2>
+                <p>
+                  Suppose we have a function \( f(x) \). When evaluated with a dual number input 
+                  \( x + \epsilon y \), the function returns:
+                </p>
+                <div>
+                  \[
+                    f(x + \epsilon y) = f(x) + \epsilon f'(x) y.
+                  \]
+                </div>
+                <p>
+                  The term \( f(x) \) represents the value of the function, and the term 
+                  \( \epsilon f'(x) y \) encodes the derivative. By setting \( y = 1 \), we 
+                  extract both \( f(x) \) and \( f'(x) \) in one evaluation. This is the essence 
+                  of <em>forward-mode automatic differentiation</em>.
+                </p>
+                
+                <h2>How Does Our Code Work?</h2>
+                <p>
+                  Our implementation defines a custom data type for dual numbers, supports 
+                  arithmetic operations (addition, multiplication, etc.), and overloads common 
+                  mathematical functions like \( \sin(x) \), \( \cos(x) \), and \( \exp(x) \). 
+                  These overloaded operations propagate the dual part of a number, enabling us 
+                  to compute derivatives as follows:
+                </p>
+                <ul>
+                  <li>
+                    \( \text{Addition: } (a + \epsilon b) + (c + \epsilon d) = (a + c) + \epsilon (b + d) \)
+                  </li>
+                  <li>
+                    \( \text{Multiplication: } (a + \epsilon b) \cdot (c + \epsilon d) = ac + \epsilon (ad + bc) \)
+                  </li>
+                  <li>
+                    \( \text{Trigonometric Functions: } \sin(a + \epsilon b) = \sin(a) + \epsilon b \cos(a) \)
+                  </li>
+                </ul>
+                <p>
+                  By evaluating a function with a dual number \( \text{Dual}(x, 1.0) \), the 
+                  "epsilon part" of the result directly gives the derivative.
+                </p>
+                
+                <h3>Example Code for Derivative Calculation</h3>
+                <p>
+                  Here is how we implemented the dual number differentiator:
+                </p>
+                <pre>
+                  <code>
+                    struct Dual
+                        value::Float64
+                        epsilon::Float64
+                    end
+              
+                    function derivative(f::Function, x0::Float64)
+                        f(Dual(x0, 1.0)).epsilon
+                    end
+              
+                    f(x) = x^2 + sin(x)
+                    derivative(f, 2.0)  # Output: 4.0 + cos(2.0)
+                  </code>
+                </pre>
+                <p>
+                  This code outputs the derivative of \( f(x) \) at \( x = 2.0 \) by leveraging 
+                  the propagation of the dual number's \( \epsilon \)-part.
+                </p>
+                
+                <h2>Results from Our Code</h2>
+                <p>
+                  Let's verify two examples:
+                </p>
+                <ol>
+                  <li>
+                    \( f(x, y) = x^2 + \sin(y) \):  
+                    At \((x, y) = (2, \pi/4)\), the gradient is:
+                    \[
+                      \nabla f(2, \pi/4) = [4, \cos(\pi/4)] = [4, 0.7071].
+                    \]
+                  </li>
+                  <li>
+                    \( g(x, y, z) = e^x + y^3 - \cos(z) \):  
+                    At \((x, y, z) = (1, 2, \pi/3)\), the gradient is:
+                    \[
+                      \nabla g(1, 2, \pi/3) = [e^1, 3 \cdot 2^2, \sin(\pi/3)] = [2.718, 12, 0.866].
+                    \]
+                  </li>
+                </ol>
+                <p>
+                  These results demonstrate the power of dual numbers for automatic differentiation.
+                </p>
+                
+                <h2>Conclusion</h2>
+                <p>
+                  Dual numbers provide an elegant way to compute derivatives through forward-mode 
+                  automatic differentiation. By representing a number as \( x + \epsilon y \), where 
+                  \( \epsilon^2 = 0 \), we can propagate derivatives through functions using simple 
+                  arithmetic. This approach is efficient and well-suited for tasks like gradient 
+                  computation in optimization problems.
+                </p>
+
+                <p>
+                    If you would like to use a Differentiator using the Dual Numbers method, I have implemented this (for both single and multivariate functions) on my github page.
+                  </p>
         </article>
     </main>
 
