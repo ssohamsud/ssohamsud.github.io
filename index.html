@@ -29,45 +29,15 @@
             text-transform: uppercase;
         }
 
-        button {
-            background-color: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-weight: 700;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
-        button:hover {
-            background-color: #FFD700;
-            color: #000;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            border-bottom: 1px solid #FFD700;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #FFD700;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #fff;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         footer {
@@ -93,14 +63,12 @@
     </nav>
 
     <main class="container">
-        <section class="hero">
-            <hgroup>
-                <h1>Soham Sud</h1>
-                <h2>Mathematics & Statistics Student</h2>
-            </hgroup>
-            <p>Passionate about quantitative finance, machine learning, and solving complex problems through mathematical modeling.</p>
-            <a href="about.html"><button>Explore My Journey</button></a>
-        </section>
+        <div class="content">
+            <h1>Soham Sud</h1>
+            <h2>Mathematics & Statistics Student</h2>
+            <p>Passionate about quantitative finance, machine learning, and solving complex problems through mathematical modeling. Currently in my second year at Imperial College London.</p>
+            <p>Explore my <a href="about.html">academic journey</a>, read technical articles on my <a href="blog.html">blog</a>, or find useful <a href="resources.html">learning resources</a> I've curated.</p>
+        </div>
     </main>
 
     <footer class="container">
