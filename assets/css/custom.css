@@ -1,0 +1,23 @@
+/* Custom CSS for timeline company names */
+.timeline-description strong {
+  color: #d97706 !important;
+  font-weight: 700 !important;
+}
+
+.timeline-content .timeline-description strong {
+  color: #d97706 !important;
+  font-weight: 700 !important;
+}
+
+/* Additional specificity to override theme styles */
+#main .timeline-description strong,
+.main .timeline-description strong,
+.content .timeline-description strong {
+  color: #d97706 !important;
+  font-weight: 700 !important;
+}
+
+/* Sidebar avatar position adjustment */
+#sidebar .profile-wrapper .avatar {
+  margin-top: -20px;
+} 
