@@ -1,7 +1,7 @@
 - date: 2024-10-01
   title: "Quantitative Research Intern"
   subtitle: "Angel Lane Partners"
-  description: "Lead author on a <a href='/posts/2024-07-16-dual-numbers-julia/' target='_blank'>research paper</a> that evaluated diffusing‑diffusivity—a recent advancement in statistical physics—in stochastic‑volatility modelling. I now design, calibrate and document pricing models for more than sixty derivatives across FX, equity, commodity, interest‑rate and bond markets, producing clear valuation reports and validating results against Murex pricing."
+  description: "Lead author on a <a href='/posts/stochastic-volatility-physics/' target='_blank'>research paper</a> that evaluated diffusing‑diffusivity—a recent advancement in statistical physics—in stochastic‑volatility modelling. I now design, calibrate and document pricing models for more than sixty derivatives across FX, equity, commodity, interest‑rate and bond markets, producing clear valuation reports and validating results against Murex pricing."
   tags: ["Quant Finance", "Derivatives Markets", "Research"]
 
 - date: 2024-03-01
@@ -25,7 +25,7 @@
 - date: 2023-10-01
   title: "Master of Mathematics and Statistics"
   subtitle: "Imperial College London"
-  description: "<span style='color: #D4AF37 !important; font-weight: bold;'>Year 2:</span> Real Analysis, Complex Analysis, Multivariable Calculus, Differential Equations, Linear Algebra, Numerical Analysis (Julia), Probability for Statistics, Principles of Programming (Python), Statistical Modelling (R), Lebesgue Measure and Integration, Network Science, M2R Individual Research Project (<a href='/posts/2024-07-16-dual-numbers-julia/' target='_blank'>Stem Cell Differentiation Modelling</a>)
+  description: "<span style='color: #D4AF37 !important; font-weight: bold;'>Year 2:</span> Real Analysis, Complex Analysis, Multivariable Calculus, Differential Equations, Linear Algebra, Numerical Analysis (Julia), Probability for Statistics, Principles of Programming (Python), Statistical Modelling (R), Lebesgue Measure and Integration,Network Science, M2R Individual Research Project (<a href='/posts/intestinal-cell-fate-single-cell/' target='_blank'>Stem Cell Differentiation Modelling</a>)
 
 <span style='color: #D4AF37 !important; font-weight: bold;'>Year 1:</span> Intro to Uni Maths, Analysis 1, Linear Algebra and Groups, Calculus and Applications, Probability and Statistics (R), Intro to Computing (Python), Intro to Applied Maths (MatLab), M1R Individual Research Project (Merton Jump Diffusion Model)"
   tags: ["Applied Mathematics", "Pure Mathematics", "Julia", "Python", "R", "Matlab"]

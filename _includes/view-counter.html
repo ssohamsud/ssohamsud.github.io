@@ -1,0 +1,42 @@
+<style>
+.view-counter-widget {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(90deg, #23272f 0%, #374151 100%);
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin: 16px 0 10px 0;
+  box-shadow: 0 1px 6px rgba(31, 41, 55, 0.10);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #f9fafb;
+  font-size: 0.98em;
+  font-weight: 500;
+  border-left: 4px solid #d97706;
+  max-width: 210px;
+  min-height: 32px;
+}
+.view-counter-icon {
+  font-size: 1.1em;
+  color: #d97706;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 1px #23272f);
+}
+.view-counter-label {
+  color: #9ca3af;
+  font-size: 0.92em;
+  margin-right: 7px;
+  letter-spacing: 0.3px;
+}
+.view-counter-number {
+  color: #fbbf24;
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+</style>
+<div class="view-counter-widget">
+  <span class="view-counter-icon"><i class="fas fa-eye"></i></span>
+  <span class="view-counter-label">{{ include.label | default: 'Live Views' }}:</span>
+  <span class="view-counter-number" id="fake-view-count-{{ include.counter_id | default: 'default' }}">{{ include.initial | default: '0000' }}</span>
+</div> 

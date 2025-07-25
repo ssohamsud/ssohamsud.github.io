@@ -4,8 +4,7 @@ icon: fas fa-user
 order: 1
 ---
 
-# Hello, I’m Soham
-
+<style>
 .timeline-content .timeline-description strong {
   color: #d97706 !important;
   font-weight: 700 !important;
@@ -106,3 +105,5 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
 - Guitar for over 10 years, performed in over 15 concerts - Youtube Channel Coming Soon!
 - Black Belt Karate (2018)
 - Poker Player 
+
+{% include view-counter.html counter_id="about" label="Total Site Views" initial=2345 %}

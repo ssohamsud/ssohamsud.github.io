@@ -1,11 +1,13 @@
 ---
-title: "Differentiator Using Dual Numbers in Julia"
-date: 2024-07-16 12:00:00 +0000
+title: "Building a Differentiator Using Dual Numbers In Julia"
+date: 2025-01-14 12:00:00 +0000
 author: Soham Sud
-categories: [math, julia, differentiation]
+categories: [machine-learning, misc-maths, projects]
 tags: [julia, math, differentiation, dual-numbers]
 math: true
 ---
+
+{% include view-counter.html counter_id="dual-numbers-julia" label="Live Views" initial=1123 %}
 
 ## What Are Dual Numbers?
 
