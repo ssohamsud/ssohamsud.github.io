@@ -169,10 +169,6 @@ $$
 
 Later we wrap this with Bayesian shrinkage to get **CWBPI**, so a two‑ball cameo doesn’t outrank AB de Villiers’ decade of carnage—but the core engine is the formula above.
 
-
-# Case Study – 2024 IPL Leaderboards
-![Leaderboard (rrr flavour)](/assets/img/leaderboard_rrr.png)
-
 ## Observations 🎯
 
 * **RRR only** — Jos Buttler, Nicholas Pooran, Andre Russell: pure chasers.  
@@ -200,7 +196,8 @@ When math and folklore shake hands, you know you’re onto something.
 
 ---
 
-## <a id="bphi-leaderboards"></a>BPHI Leaderboards: Top 10 by Each Alpha
+## <a id="bphi-leaderboards" href="#bphi-leaderboards"></a>BPHI Leaderboards: Top 10 by Each Alpha
+
 
 Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (CWBPI) column is the final, shrunk pressure index for each player.
 
