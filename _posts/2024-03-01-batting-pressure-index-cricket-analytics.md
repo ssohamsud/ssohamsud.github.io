@@ -62,7 +62,7 @@ And crucially, it should do all that without being a black box—because if Ravi
   * Impute missing extras as 0 — looking at you, multi‑page scorecards.  
   * Drop super‑overs because they break every normal distribution known to humankind.
 
-## Feature Kitchen – How the potion is brewed 🧪
+## Feature Engineering
 
 For every ball \(j\) we cook up
 
@@ -169,7 +169,7 @@ $$
 
 Later we wrap this with Bayesian shrinkage to get **CWBPI**, so a two‑ball cameo doesn’t outrank AB de Villiers’ decade of carnage—but the core engine is the formula above.
 
-## Observations 🎯
+## Observations 
 
 * **RRR only** — Jos Buttler, Nicholas Pooran, Andre Russell: pure chasers.  
 * **Wickets only** — MS Dhoni & Kieron Pollard are your goats for IPL finishers
