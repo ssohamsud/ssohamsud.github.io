@@ -9,13 +9,13 @@ math: true
 
 **[Download the full research paper (PDF)](/M2R%20Research%20Project.pdf)**
 
-# Mapping the Intestinal "Social Network" — A Math‑Forward Tour of Single‑Cell Interactions
+# Mapping the Intestinal "Social Network" — Quick Tour of Single‑Cell Interactions
 
 > *A friendly walk‑through of how linear algebra, random walks and consensus statistics uncover who talks to whom inside the mouse gut.*
 
 ---
 
-## 1 Why the crypt is the perfect playground for maths ![Schematic of the crypt‑villus axis](/assets/img/biology-graphs/intestine_model.png)
+## 1 Understanding the Bio ![Schematic of the crypt‑villus axis](/assets/img/biology-graphs/intestine_model.png)
 
 Stem cells live at the bottom of each intestinal crypt, crank out transient‑amplifying daughters, and those daughters sprint up the villus to become one of several mature cell types (enterocytes, goblets, Paneth, Tuft, …).  
 Biologists know *that* story; here we'll focus on **how the data science works** behind the scenes.
@@ -24,7 +24,7 @@ Our raw material: a single‑cell RNA‑seq cohort (≈ 5 000 cells, ~24 000 gen
 
 ---
 
-## 2 From 24 000‑D gene space to a colourful UMAP ![Leiden clustering on UMAP](/assets/img/biology-graphs/leiden_clustering.png)
+## 2 From a 24000 Dimension gene space to a colourful UMAP ![Leiden clustering on UMAP](/assets/img/biology-graphs/leiden_clustering.png)
 
 ### 2.1 k‑NN + Leiden ≥ k‑means  
 
@@ -51,7 +51,7 @@ A second Leiden round on each broad group + differential‑expression tests clea
 
 ---
 
-## 3 A Swiss‑army knife for ligand–receptor maths ![LIANA meta‑framework](/assets/img/biology-graphs/liana.png)
+## 3 A summary of ligand–receptor maths ![LIANA meta‑framework](/assets/img/biology-graphs/liana.png)
 
 Instead of betting on a single L‑R scoring scheme, **LIANA** pipes our clustered counts into *six* independent algorithms (CellPhoneDB, NATMI, logFC, …) and spits out a **consensus z‑score** per sender/receiver pair.
 
@@ -65,7 +65,7 @@ $$
 
 ---
 
-## 4 The static interaction atlas ![Mean z‑score heatmap](/assets/img/biology-graphs/complete_heatmap.png)
+## 4 Static interaction analysis ![Mean z‑score heatmap](/assets/img/biology-graphs/complete_heatmap.png)
 
 Rows = senders, columns = receivers, colour = mean LIANA z‑score (blue → positive, yellow → negative).
 
@@ -78,9 +78,9 @@ Rows = senders, columns = receivers, colour = mean LIANA z‑score (blue → pos
 
 ---
 
-## 5 Adding time: random walks through pseudotime
+## 5 Random walks through pseudotime
 
-### 5.1 Diffusion pseudotime in one paragraph
+### 5.1 Diffusion pseudotime summary
 
 * Construct the **diffusion kernel** $K=\exp(-D^2/\sigma)$ from the PC‑space distances $D$.  
 * Normalise rows → Markov matrix $P$.  
@@ -112,7 +112,7 @@ Paneth → Paneth tops the chart (slope ≈ 8 × 10⁻³), reinforcing the idea 
 
 ---
 
-## 6 Wet‑lab reality checks
+## 6 Wet‑lab validation
 
 | Prediction → Validation | Evidence |
 |---|---|
@@ -121,7 +121,7 @@ Paneth → Paneth tops the chart (slope ≈ 8 × 10⁻³), reinforcing the idea 
 
 ---
 
-## 7 Wrap‑up — the maths is portable
+## 7 Conclusion — the maths is portable
 
 1. **Graph theory** (Leiden, k‑NN) finds the cast.  
 2. **Spectral kernels** (Diffusion map) supply a clock.  
