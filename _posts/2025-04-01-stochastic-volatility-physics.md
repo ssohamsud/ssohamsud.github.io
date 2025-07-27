@@ -1,5 +1,5 @@
 ---
-title: "Evaluating Diffusing Diffusivity in Quantitative Finance"
+title: "Evaluating Diffusing Diffusivity Models in Quantitative Finance - A non-technical summary"
 date: 2025-04-01 12:00:00 +0000
 author: Soham Sud
 categories: [research, physics, stochastic-processes]
@@ -9,18 +9,38 @@ math: false
 
 **[Download the full research paper (PDF)](/Stochastic%20Volatility%20Physics.pdf)**
 
-# Stochastic Volatility in Physics: Technical Research Summary
+# Evaluating Diffusing Diffusivity Models in Quantitative Finance - A non-technical summary.
 
-## Technical Summary
+## 1. What does it mean?
 
-- Development and analysis of stochastic volatility models for physical systems using stochastic differential equations (SDEs) and Fokker-Planck equations.
-- Exploration of both analytically tractable and numerically integrated models (Euler-Maruyama, Milstein methods), focusing on time-dependent and non-Gaussian volatility processes.
-- Extensive Monte Carlo simulations and empirical validation with real-world datasets from statistical mechanics and condensed matter physics.
-- Investigation of the impact of stochastic volatility on observable quantities: correlation functions, relaxation times, and fluctuation spectra.
-- Quantitative link established between microscopic randomness and macroscopic physical behavior.
-- **Novelty:** Introduction of a generalized stochastic volatility framework capturing memory effects and non-Markovian dynamics, extending classical models.
-- Analytical solutions for limiting cases and demonstration of volatility-induced phase transitions and anomalous diffusion regimes.
-- Empirical validation of theoretical predictions using real-world physical datasets.
+Imagine that price moves as you driving. **Volatility** = tyre grip. Most days: dry road; now and then: black ice. Old models say grip never changes. **Stochastic vol** says the road surface changes texture at random. Our physics trick ("diffusing diffusivity") lets the road's conditions change randomly.
+
+## 2. What I tried
+
+* I ran two road‑texture models on VIX:
+
+  * **OU** – dry, predictable tarmac that regains grip quickly after small bumps.
+  * **Lévy** – same road but with hidden black‑ice patches that send the car skidding now and then.
+* Compared to the usual classics (Heston, Hull‑White) using rolling forecasts.
+
+## 3. What popped out
+
+* **OU**: great for everyday bumps.
+* **Lévy**: best for the crazy spikes.
+* Heston's OK; Hull‑White did not perform as well as others.
+
+## 4. Use cases
+
+* **Routine hedging:** OU / Heston.
+* **Panic planning:** Lévy.
+
+## 5. What I plan to do next 
+
+Flip the models into option‑pricing (risk‑neutral) land.
+
+* Test on more than VIX such as SPX, variance swaps, maybe crypto.
+
+**TL;DR** Volatility is slippery. Choose your model based on how much black ice you expect.
 
 ---
 
