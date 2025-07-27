@@ -18,8 +18,7 @@ Turning such a complex, in‑the‑moment feeling into a mathematical truth soun
 
 But that’s exactly what I am trying to do.  
 
-I’m a maths nerd who also happens to play some seam.  
-Across these posts I’ll use hard data to peek behind cricket’s curtain—starting with a metric I call the **Batting Pressure Handling Index (BPHI)**.
+I’m a maths nerd that can swing the ball a bit and across these posts I’ll use hard data to peek behind cricket’s curtain—starting with a metric I call the **Batting Pressure Handling Index (BPHI)**.
 
 <br/>
 
