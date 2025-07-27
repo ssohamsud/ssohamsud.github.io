@@ -184,22 +184,11 @@ When math and folklore shake hands, you know you’re onto something.
 
 ---
 
-# How Good Is This Metric?
-
-
-
-* **Explainability** — CWBPI boils down to
-
-  > “(runs + boundary bonus – dismissals × 10) per pressure‑weighted ball.”  
-
-  Even granny gets it by the second ad break.
-
----
 
 ## <a id="bphi-leaderboards" href="#bphi-leaderboards"></a>BPHI Leaderboards: Top 10 by Each Alpha
 
-
-Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (CWBPI) column is the final, shrunk pressure index for each player.
+**How are these values mapped?**  
+To make comparisons fair, we normalize each player’s CWBPI so the top player in each alpha is set to 100.0, and all others are scaled as a fraction of that (rounded to 4 significant figures). This “Normalized (Top = 100)” column lets you see at a glance how close each player is to the best in class.
 
 ### High Run Rate Pressure
 <table style="width:100%; border-collapse: collapse; margin: 20px 0; background: #23272f; border-radius: 8px; overflow: hidden;">
@@ -208,19 +197,20 @@ Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Rank</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Player</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">BPHI (CWBPI)</th>
+<th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Normalized (Top = 100)</th>
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">1.214</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">1.212</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">1.205</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">1.199</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">1.177</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">KL Rahul</td><td style="padding: 12px; color: #f9fafb;">1.173</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">YBK Jaiswal</td><td style="padding: 12px; color: #f9fafb;">1.166</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">Shubman Gill</td><td style="padding: 12px; color: #f9fafb;">1.165</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">H Klaasen</td><td style="padding: 12px; color: #f9fafb;">1.159</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">Abhishek Sharma</td><td style="padding: 12px; color: #f9fafb;">1.158</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">1.214</td><td style="padding: 12px; color: #f9fafb;">100.0</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">1.212</td><td style="padding: 12px; color: #f9fafb;">99.80</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">1.205</td><td style="padding: 12px; color: #f9fafb;">99.25</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">1.199</td><td style="padding: 12px; color: #f9fafb;">98.74</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">1.177</td><td style="padding: 12px; color: #f9fafb;">96.90</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">KL Rahul</td><td style="padding: 12px; color: #f9fafb;">1.173</td><td style="padding: 12px; color: #f9fafb;">96.59</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">YBK Jaiswal</td><td style="padding: 12px; color: #f9fafb;">1.166</td><td style="padding: 12px; color: #f9fafb;">96.01</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">Shubman Gill</td><td style="padding: 12px; color: #f9fafb;">1.165</td><td style="padding: 12px; color: #f9fafb;">95.91</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">H Klaasen</td><td style="padding: 12px; color: #f9fafb;">1.159</td><td style="padding: 12px; color: #f9fafb;">95.45</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">Abhishek Sharma</td><td style="padding: 12px; color: #f9fafb;">1.158</td><td style="padding: 12px; color: #f9fafb;">95.40</td></tr>
 </tbody>
 </table>
 
@@ -231,19 +221,20 @@ Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Rank</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Player</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">BPHI (CWBPI)</th>
+<th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Normalized (Top = 100)</th>
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.975</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.950</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">0.924</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.923</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">MS Dhoni</td><td style="padding: 12px; color: #f9fafb;">0.920</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">0.917</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">RR Pant</td><td style="padding: 12px; color: #f9fafb;">0.905</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">KD Karthik</td><td style="padding: 12px; color: #f9fafb;">0.897</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">HH Pandya</td><td style="padding: 12px; color: #f9fafb;">0.896</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">GJ Maxwell</td><td style="padding: 12px; color: #f9fafb;">0.891</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.975</td><td style="padding: 12px; color: #f9fafb;">100.0</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.950</td><td style="padding: 12px; color: #f9fafb;">97.48</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">0.924</td><td style="padding: 12px; color: #f9fafb;">94.83</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.923</td><td style="padding: 12px; color: #f9fafb;">94.72</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">MS Dhoni</td><td style="padding: 12px; color: #f9fafb;">0.920</td><td style="padding: 12px; color: #f9fafb;">93.95</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">0.917</td><td style="padding: 12px; color: #f9fafb;">94.04</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">RR Pant</td><td style="padding: 12px; color: #f9fafb;">0.905</td><td style="padding: 12px; color: #f9fafb;">92.90</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">KD Karthik</td><td style="padding: 12px; color: #f9fafb;">0.897</td><td style="padding: 12px; color: #f9fafb;">92.03</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">HH Pandya</td><td style="padding: 12px; color: #f9fafb;">0.896</td><td style="padding: 12px; color: #f9fafb;">91.94</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">GJ Maxwell</td><td style="padding: 12px; color: #f9fafb;">0.891</td><td style="padding: 12px; color: #f9fafb;">91.43</td></tr>
 </tbody>
 </table>
 
@@ -254,19 +245,20 @@ Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Rank</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Player</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">BPHI (CWBPI)</th>
+<th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Normalized (Top = 100)</th>
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.398</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">MS Dhoni</td><td style="padding: 12px; color: #f9fafb;">0.378</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.372</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.369</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">CH Gayle</td><td style="padding: 12px; color: #f9fafb;">0.358</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">RR Pant</td><td style="padding: 12px; color: #f9fafb;">0.358</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">V Kohli</td><td style="padding: 12px; color: #f9fafb;">0.357</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">0.355</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">0.354</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">DA Warner</td><td style="padding: 12px; color: #f9fafb;">0.354</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.398</td><td style="padding: 12px; color: #f9fafb;">100.0</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">MS Dhoni</td><td style="padding: 12px; color: #f9fafb;">0.378</td><td style="padding: 12px; color: #f9fafb;">94.93</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.372</td><td style="padding: 12px; color: #f9fafb;">93.40</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.369</td><td style="padding: 12px; color: #f9fafb;">92.71</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">CH Gayle</td><td style="padding: 12px; color: #f9fafb;">0.358</td><td style="padding: 12px; color: #f9fafb;">90.10</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">RR Pant</td><td style="padding: 12px; color: #f9fafb;">0.358</td><td style="padding: 12px; color: #f9fafb;">89.86</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">V Kohli</td><td style="padding: 12px; color: #f9fafb;">0.357</td><td style="padding: 12px; color: #f9fafb;">89.73</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">0.355</td><td style="padding: 12px; color: #f9fafb;">89.28</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">0.354</td><td style="padding: 12px; color: #f9fafb;">89.08</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">DA Warner</td><td style="padding: 12px; color: #f9fafb;">0.354</td><td style="padding: 12px; color: #f9fafb;">89.01</td></tr>
 </tbody>
 </table>
 
@@ -277,19 +269,20 @@ Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Rank</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Player</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">BPHI (CWBPI)</th>
+<th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Normalized (Top = 100)</th>
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.402</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.393</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">CH Gayle</td><td style="padding: 12px; color: #f9fafb;">0.390</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">V Sehwag</td><td style="padding: 12px; color: #f9fafb;">0.389</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.387</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">0.387</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">0.385</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">SP Narine</td><td style="padding: 12px; color: #f9fafb;">0.384</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">GJ Maxwell</td><td style="padding: 12px; color: #f9fafb;">0.382</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">YBK Jaiswal</td><td style="padding: 12px; color: #f9fafb;">0.379</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">AD Russell</td><td style="padding: 12px; color: #f9fafb;">0.402</td><td style="padding: 12px; color: #f9fafb;">100.0</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">SA Yadav</td><td style="padding: 12px; color: #f9fafb;">0.393</td><td style="padding: 12px; color: #f9fafb;">97.79</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">CH Gayle</td><td style="padding: 12px; color: #f9fafb;">0.390</td><td style="padding: 12px; color: #f9fafb;">96.99</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">V Sehwag</td><td style="padding: 12px; color: #f9fafb;">0.389</td><td style="padding: 12px; color: #f9fafb;">96.83</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">AB de Villiers</td><td style="padding: 12px; color: #f9fafb;">0.387</td><td style="padding: 12px; color: #f9fafb;">96.34</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">N Pooran</td><td style="padding: 12px; color: #f9fafb;">0.387</td><td style="padding: 12px; color: #f9fafb;">96.31</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">JC Buttler</td><td style="padding: 12px; color: #f9fafb;">0.385</td><td style="padding: 12px; color: #f9fafb;">95.71</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">SP Narine</td><td style="padding: 12px; color: #f9fafb;">0.384</td><td style="padding: 12px; color: #f9fafb;">95.67</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">GJ Maxwell</td><td style="padding: 12px; color: #f9fafb;">0.382</td><td style="padding: 12px; color: #f9fafb;">95.03</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">YBK Jaiswal</td><td style="padding: 12px; color: #f9fafb;">0.379</td><td style="padding: 12px; color: #f9fafb;">94.36</td></tr>
 </tbody>
 </table>
 
@@ -300,30 +293,151 @@ Below are the top 10 IPL batters for each pressure weighting (alpha). The BPHI (
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Rank</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Player</th>
 <th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">BPHI (CWBPI)</th>
+<th style="padding: 12px; text-align: left; color: #fbbf24; border-bottom: 2px solid #4b5563;">Normalized (Top = 100)</th>
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">1.051</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">SR Watson</td><td style="padding: 12px; color: #f9fafb;">1.030</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">B Sai Sudharsan</td><td style="padding: 12px; color: #f9fafb;">0.975</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">WP Saha</td><td style="padding: 12px; color: #f9fafb;">0.974</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">MS Bisla</td><td style="padding: 12px; color: #f9fafb;">0.972</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">M Vijay</td><td style="padding: 12px; color: #f9fafb;">0.961</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">SK Raina</td><td style="padding: 12px; color: #f9fafb;">0.959</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">VR Iyer</td><td style="padding: 12px; color: #f9fafb;">0.945</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">YK Pathan</td><td style="padding: 12px; color: #f9fafb;">0.945</td></tr>
-<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">Shashank Singh</td><td style="padding: 12px; color: #f9fafb;">0.942</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">1</td><td style="padding: 12px; color: #f9fafb;">KA Pollard</td><td style="padding: 12px; color: #f9fafb;">1.051</td><td style="padding: 12px; color: #f9fafb;">100.0</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">2</td><td style="padding: 12px; color: #f9fafb;">SR Watson</td><td style="padding: 12px; color: #f9fafb;">1.030</td><td style="padding: 12px; color: #f9fafb;">98.00</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">3</td><td style="padding: 12px; color: #f9fafb;">B Sai Sudharsan</td><td style="padding: 12px; color: #f9fafb;">0.9753</td><td style="padding: 12px; color: #f9fafb;">92.79</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">4</td><td style="padding: 12px; color: #f9fafb;">WP Saha</td><td style="padding: 12px; color: #f9fafb;">0.9741</td><td style="padding: 12px; color: #f9fafb;">92.67</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">5</td><td style="padding: 12px; color: #f9fafb;">MS Bisla</td><td style="padding: 12px; color: #f9fafb;">0.9719</td><td style="padding: 12px; color: #f9fafb;">92.46</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">6</td><td style="padding: 12px; color: #f9fafb;">M Vijay</td><td style="padding: 12px; color: #f9fafb;">0.9608</td><td style="padding: 12px; color: #f9fafb;">91.41</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">7</td><td style="padding: 12px; color: #f9fafb;">SK Raina</td><td style="padding: 12px; color: #f9fafb;">0.9591</td><td style="padding: 12px; color: #f9fafb;">91.25</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">8</td><td style="padding: 12px; color: #f9fafb;">VR Iyer</td><td style="padding: 12px; color: #f9fafb;">0.9455</td><td style="padding: 12px; color: #f9fafb;">89.95</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">9</td><td style="padding: 12px; color: #f9fafb;">YK Pathan</td><td style="padding: 12px; color: #f9fafb;">0.9451</td><td style="padding: 12px; color: #f9fafb;">89.91</td></tr>
+<tr style="border-bottom: 1px solid #374151;"><td style="padding: 12px; color: #f9fafb;">10</td><td style="padding: 12px; color: #f9fafb;">Shashank Singh</td><td style="padding: 12px; color: #f9fafb;">0.9423</td><td style="padding: 12px; color: #f9fafb;">89.65</td></tr>
 </tbody>
 </table>
 
-*Scroll down for interpretation and discussion.*
 
 ---
 
-# Feedback & Freebies
 
-Spotted a bug? Want a custom dashboard for your club?  
-Drop me an email.  
-If BPHI wins you a Dream11 mini‑grand, I accept chai, samosas, or a lifetime supply of bat tape.
+# Team‑Level Deep‑Dive 
+
+| Fig | File | Quick description |
+|-----|------|-------------------|
+| 1 | **Fig 1** | Stacked bars of average team pressure, 2008‑2025 |
+| 2 | **Fig 2** | Scatter: pressure vs *raw* final rank |
+| 3 | **Fig 3** | Four‑panel: raw vs log(rank) + pre/post cleaning |
+| 4 | **Fig 4** | Scatter after pruning three statistical outliers |
+| 5 | **Fig 5** | Diagnostic grid showing which points were dropped |
+| 6 | **Fig 6** | Residual (actual – predicted) per team‑season |
+
+*(Match‑importance weight is 0 throughout → no “free” points for winning the final.)*
+
+---
+
+## 1 · Stacked bars – who wears the crown?
+
+![Fig 1 – Stacked bar of average team pressure by season](/assets/img/yearly_team_performance_unified.png)
+
+| Era | Team(s) hugging the **bottom** ⇒ highest pressure score | Trophy cabinet |
+|-----|---------------------------------------------------------|----------------|
+| 2008‑10 | **RR** then **CSK** | RR champs ’08, CSK champs ’10 |
+| 2011‑15 | **MI** & **KKR** | 3 titles combined |
+| 2016‑19 | **SRH**, **MI** again | SRH champs ’16, MI champs ’17 + ’19 |
+| 2020‑23 | **GT** (debut ’22), **CSK** | GT champs ’22, CSK champs ’23 |
+| 2024‑25 | **KKR**, **RCB** | KKR champs '24, PBKS runners‑up ’25, CSK worst season ever |
+
+> **Hit‑rate:** 13 of 17 seasons feature a future finalist inside that bottom‑three band.
+
+Rebels:
+
+* **PBKS 2025** – second‑worst pressure score yet topped the table before wilting in the final. A PBKS fan (me), will know how true this is...
+* **MI 2019** – middle‑of‑the‑pack pressure but still champions; Lasith’s yorkers > math. (seriously though - one player can only have so much of an impact on the numbers...)
+* **SRH 2016** – first time IPL champs but still second lowest pressure handling, was it batting that won them the IPL or was it the Bolt-Bhuvi power duo?
+
+---
+
+## 2 · Does pressure predict rank?
+
+![Fig 2 – Raw rank correlation](/assets/img/updated_year_specific_pressure_scatter.png)
+
+**All 156 team‑seasons**
+
+| Coefficient | Definition | Value |
+|-------------|------------|-------|
+| Pearson *r* | straight‑line relationship | **–0.168** |
+| Spearman ρ  | monotone relationship | **–0.189** |
+| Kendall τ   | pure rank agreement   | **–0.115** |
+
+*Interpretation* All three land in the –0.11 → –0.19 range ⇒ a **weak‑to‑moderate, but consistent, negative link**: more calm, better table finish (rank 1 = good, so negative).
+
+![Fig 3 – Four‑panel log‑rank & clean‑up](/assets/img/outlier_comparison.png)
+
+Log‑transforming rank tightens the cloud a touch; the lower‑right pane (cleaned + log) gives the steepest slope.
+
+![Fig 4 – After dropping three anomalies](/assets/img/updated_year_specific_pressure_scatter_clean.png)
+
+**Clean sample (153 points)** — Pearson *r* deepens to **–0.186**, Spearman ρ to **–0.206**, Kendall τ to **–0.133**.  
+A 10 % slope‑gain with just three rows removed screams “real but noisy signal.”
+
+![Fig 5 – Outlier diagnostics](/assets/img/outlier_identification.png)
+
+
+
+---
+
+## 3 · Residual‑by‑season (Fig 6) – which teams beat the model?
+
+![Fig 6 – Season‑by‑season residuals](/assets/img/team_season_residuals_plot.png)
+
+*Recall:*  residual  =  **Actual pressure score – Predicted (from rank)**  
+* **Positive**  →  calmer than their ladder spot suggests  
+* **Negative**  →  wilted more than the points table shows  
+
+### Biggest positive shocks (ice‑in‑the‑veins years)
+
+| Season | Team | Residual (≈) | Narrative hook |
+|--------|------|--------------|----------------|
+| **2022** | **GT** | **+0.014** | Debut title run powered by Miller‑Tewatia rescue acts. |
+| **2023** | **CSK** | +0.012 | Dhoni‑ball: veterans dragged the clutch metric above expectation. |
+| **2008** | **RR** | +0.010 | Early Moneyball: cheap squad, but panic‑proof. |
+
+### Deepest negative dips (nerve failures or bowling bail‑outs)
+
+| Season | Team | Residual (≈) | What probably happened |
+|--------|------|--------------|------------------------|
+| **2017** | **RPS** | **–0.035** | Tiny batting core; Stokes & Dhoni heroics masked pressure shakes. |
+| **2019** | **MI**  | –0.034 | Won on Malinga’s last‑ball yorker; batting index lagged trophy. |
+| **2011** | **RCB** | –0.020 | Gayle storms reflated points, but clutch score exposed fragility. |
+
+### How to read the spaghetti
+
+* Lines hovering **above** zero across years (e.g. **CSK**, **GT**) hint a culture of calm.  
+* Lines dancing **below** imply repeat nerves (**RCB** fans, breathe).  
+* Large one‑off spikes (RPS ’17, MI ’19) are story seeds: scout bowling impact or small‑sample quirks.
+
+> **Range check:** residuals mostly live in ±0.015; the three red‑flag seasons punch to –0.035.  
+> That’s > 2 σ from the mean—worth treating as statistical “black‑swan” campaigns.
+
+Use this chart as a **lie‑detector** the next time a pundit shouts “Team X choked” or “Team Y is clutch.”  The numbers rarely lie for long.
+
+
+---
+
+## 4 · 2026 cheat‑sheet
+
+* **Buy‑list** — high individual BPHI, but negative 2025 residuals: think **SRH** or **DC**.  
+* **Caution** — PBKS‑style flat‑track bullies unless they draft death‑over finishers.  
+* **Broadcast nugget** — if a mid‑table slice is sinking lower in Fig 1 each week, punt a futures bet.
+
+Across the blog posts in this series we will improve this cheat sheet to get you ready for the Dream11 season!
+---
+
+> ### Key takeaway  
+> BPHI won’t hand you a crystal ball, but paired with bowling pressure and light match‑importance weighting it upgrades from polite whisper to **actionable edge.**
+
+Next post: which bowlers land yorkers when palms are sweaty, knees weak, arms are heavy?
+
+---
+
+# Feedback & Freebies
+
+Spot a bug? Want a custom dashboard for your club?  
+Drop me a line on my email (contacts section).   
+If BPHI wins you a mini‑grand, I accept samosas—or a lifetime supply of bat tape.
 
 *Happy number‑crunching, and may your pressure never spike!*
