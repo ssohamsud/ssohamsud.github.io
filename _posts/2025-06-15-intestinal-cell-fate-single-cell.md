@@ -1,5 +1,5 @@
 ---
-title: "Mapping the Intestinal 'Social Network' — A Math‑Forward Tour of Single‑Cell Interactions"
+title: "Mapping the Intestinal Social Network using Data"
 date: 2025-06-15 12:00:00 +0000
 author: Soham Sud
 categories: [research, stem-cells, single-cell, biology]
@@ -9,9 +9,7 @@ math: true
 
 **[Download the full research paper (PDF)](/M2R%20Research%20Project.pdf)**
 
-# Mapping the Intestinal "Social Network" — Quick Tour of Single‑Cell Interactions
-
-> *A friendly walk‑through of how linear algebra, random walks and consensus statistics uncover who talks to whom inside the mouse gut.*
+> *This is a friendly walk through of how linear algebra, random walks and consensus statistics uncover who talks to whom inside the mouse gut. Thanks to all of Group 19 for the joint-effort on this!*
 
 ---
 
