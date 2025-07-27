@@ -1,7 +1,7 @@
 ---
 title: Resources
 icon: fas fa-book
-order: 5
+order: 4
 ---
 
 # Resources
