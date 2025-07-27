@@ -9,8 +9,6 @@ math: false
 
 **[Download the full research paper (PDF)](/Stochastic%20Volatility%20Physics.pdf)**
 
-# Evaluating Diffusing Diffusivity Models in Quantitative Finance - A non-technical summary.
-
 ## 1. What does it mean?
 
 Imagine that price moves as you driving. **Volatility** = tyre grip. Most days: dry road; now and then: black ice. Old models say grip never changes. **Stochastic vol** says the road surface changes texture at random. Our physics trick ("diffusing diffusivity") lets the road's conditions change randomly.
