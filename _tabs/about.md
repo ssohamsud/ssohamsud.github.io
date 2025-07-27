@@ -1,6 +1,6 @@
 ---
-title: About
-icon: fas fa-user
+title: Home
+icon: fas fa-home
 order: 1
 ---
 
