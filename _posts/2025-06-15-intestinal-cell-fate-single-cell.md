@@ -112,10 +112,67 @@ Paneth → Paneth tops the chart (slope ≈ 8 × 10⁻³), reinforcing the idea 
 
 ## 6 Wet‑lab validation
 
-| Prediction → Validation | Evidence |
-|---|---|
-| **Paneth niche drives budding** ![Organoid time‑lapse](/assets/img/biology-graphs/real_stem_paneth.png) | Live imaging shows crypts sprout exactly where a Paneth cell (green, red triangles) contacts ISCs (white asterisk). Frames map almost 1:1 onto Paneth → ISC spike in Bin 7‑9. |
-| **EECs modulate organism‑level metabolism** ![Energy expenditure curve](/assets/img/biology-graphs/enteroendocrine_paper.png) | Knock‑out of EECs ⇒ mice burn *extra* calories (red line). High EEC → Global signaling in complete heatmap predicted they're key metabolic broadcasters. |
+<div class="wetlab-validation">
+  <div class="validation-item">
+    <h4>Paneth niche drives budding</h4>
+    <img src="/assets/img/biology-graphs/real_stem_paneth.png" alt="Organoid time‑lapse" class="validation-image">
+    <p><strong>Evidence:</strong> Live imaging shows crypts sprout exactly where a Paneth cell (green, red triangles) contacts ISCs (white asterisk). Frames map almost 1:1 onto Paneth → ISC spike in Bin 7‑9.</p>
+  </div>
+  
+  <div class="validation-item">
+    <h4>EECs modulate organism‑level metabolism</h4>
+    <img src="/assets/img/biology-graphs/enteroendocrine_paper.png" alt="Energy expenditure curve" class="validation-image">
+    <p><strong>Evidence:</strong> Knock‑out of EECs ⇒ mice burn *extra* calories (red line). High EEC → Global signaling in complete heatmap predicted they're key metabolic broadcasters.</p>
+  </div>
+</div>
+
+<style>
+.wetlab-validation {
+  margin: 2rem 0;
+}
+
+.validation-item {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #007bff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.validation-item h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.validation-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: block;
+}
+
+.validation-item p {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+@media (max-width: 768px) {
+  .validation-item {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .validation-item h4 {
+    font-size: 1.1rem;
+  }
+}
+</style>
 
 ---
 
