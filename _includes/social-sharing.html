@@ -1,0 +1,99 @@
+{% if page.title %}
+<div class="social-sharing-post">
+  <h4>Share this post</h4>
+  <div class="share-buttons-post">
+    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" target="_blank" class="share-btn-post twitter" title="Share on Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" class="share-btn-post linkedin" title="Share on LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" class="share-btn-post facebook" title="Share on Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://wa.me/?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" target="_blank" class="share-btn-post whatsapp" title="Share on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:?subject={{ page.title | url_encode }}&body=Check out this interesting post: {{ site.url }}{{ page.url }}" class="share-btn-post email" title="Share via Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+
+<style>
+.social-sharing-post {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  color: white;
+}
+
+.social-sharing-post h4 {
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.share-buttons-post {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-btn-post {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.share-btn-post:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+.share-btn-post.twitter:hover {
+  background: #1da1f2;
+}
+
+.share-btn-post.linkedin:hover {
+  background: #0077b5;
+}
+
+.share-btn-post.facebook:hover {
+  background: #4267b2;
+}
+
+.share-btn-post.whatsapp:hover {
+  background: #25d366;
+}
+
+.share-btn-post.email:hover {
+  background: #ea4335;
+}
+
+@media (max-width: 768px) {
+  .share-buttons-post {
+    gap: 0.75rem;
+  }
+  
+  .share-btn-post {
+    width: 45px;
+    height: 45px;
+  }
+}
+</style>
+{% endif %} 

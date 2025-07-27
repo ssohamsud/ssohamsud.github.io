@@ -97,6 +97,190 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
 
 ---
 
+## GitHub Activity
+
+<div class="github-activity">
+  <h3>My Coding Activity</h3>
+  <div class="github-stats">
+    <img src="https://github-readme-stats.vercel.app/api?username=ssohamsud&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=ssohamsud&theme=radical&hide_border=true" alt="GitHub Streak" />
+  </div>
+  <div class="github-contributions">
+    <h4>Recent Contributions</h4>
+    <img src="https://ghchart.rshah.org/0366d6/ssohamsud" alt="GitHub Contributions" />
+  </div>
+  <div class="github-top-languages">
+    <h4>Top Languages</h4>
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ssohamsud&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
+  </div>
+</div>
+
+<style>
+.github-activity {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.github-activity h3 {
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.github-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.github-stats img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.github-contributions, .github-top-languages {
+  margin: 1.5rem 0;
+}
+
+.github-contributions h4, .github-top-languages h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.github-contributions img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.github-top-languages img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .github-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .github-stats img {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+</style>
+
+---
+
+## Social Sharing
+
+<div class="social-sharing">
+  <h3>Share This Page</h3>
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?text=Check out Soham Sud's amazing portfolio!&url={{ site.url }}{{ page.url }}" target="_blank" class="share-btn twitter">
+      <i class="fab fa-twitter"></i> Twitter
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" class="share-btn linkedin">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" class="share-btn facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="https://wa.me/?text=Check out Soham Sud's portfolio: {{ site.url }}{{ page.url }}" target="_blank" class="share-btn whatsapp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="mailto:?subject=Check out Soham Sud's Portfolio&body=Hi! I found this amazing portfolio: {{ site.url }}{{ page.url }}" class="share-btn email">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+  </div>
+</div>
+
+<style>
+.social-sharing {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.social-sharing h3 {
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.share-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+.share-btn.twitter:hover {
+  background: #1da1f2;
+}
+
+.share-btn.linkedin:hover {
+  background: #0077b5;
+}
+
+.share-btn.facebook:hover {
+  background: #4267b2;
+}
+
+.share-btn.whatsapp:hover {
+  background: #25d366;
+}
+
+.share-btn.email:hover {
+  background: #ea4335;
+}
+
+@media (max-width: 768px) {
+  .share-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .share-btn {
+    width: 200px;
+    justify-content: center;
+  }
+}
+</style>
+
+---
+
 ## Societies & Hobbies
 
 - Head of Quant Research at Cauchy Capital (Imperial Maths Quant Fund)
