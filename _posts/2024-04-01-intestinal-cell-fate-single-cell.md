@@ -1,6 +1,6 @@
 ---
 title: " Data-Driven Modelling of Cell Differentiation Trajectories in the Intestine"
-date: 2025-06-15 12:00:00 +0000
+date: 2024-04-01 12:00:00 +0000
 author: Soham Sud
 categories: [research, stem-cells, single-cell, biology]
 tags: [stem cells, single-cell RNA-seq, cell fate, intestinal biology, research]

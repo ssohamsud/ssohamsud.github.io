@@ -1,6 +1,6 @@
 ---
 title: "Evaluating Diffusing Diffusivity in Quantitative Finance"
-date: 2025-04-01 12:00:00 +0000
+date: 2024-07-16 12:00:00 +0000
 author: Soham Sud
 categories: [research, physics, stochastic-processes]
 tags: [stochastic volatility, physics, research, modeling]

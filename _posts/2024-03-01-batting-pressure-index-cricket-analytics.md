@@ -1,6 +1,6 @@
 ---
 title: "Under the Helmet: Quantifying Pressure in IPL Batting"
-date: 2025-07-20 12:00:00 +0000
+date: 2024-03-01 12:00:00 +0000
 author: Soham Sud
 categories: [sports-analytics, competitions, misc-maths]
 tags: [cricket, statistics, analytics, pressure-index, batting]
