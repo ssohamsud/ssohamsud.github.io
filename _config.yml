@@ -26,14 +26,14 @@ description: >- # used by seo meta and the atom feed
 url: "https://ssohamsud.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  username: ssohamsud # change to your GitHub username
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: SudSoham # change to your Twitter username
 
 social:
   name: Soham Sud
-  email: example@domain.com # change to your email address
+  email: my firstname secondname at gmail dot com # change to your email address
   links:
     - https://twitter.com/username # change to your Twitter homepage
     - https://github.com/username # change to your GitHub homepage
@@ -58,7 +58,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: # fill in your GoatCounter ID
+    id: sohamsud.goatcounter.com
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -72,7 +72,7 @@ analytics:
 
 # Page views settings
 pageviews:
-  provider: # now only supports 'goatcounter'
+  provider: goatcounter
 
 # Prefer color scheme setting.
 #
