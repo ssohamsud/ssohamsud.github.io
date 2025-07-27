@@ -84,4 +84,6 @@ These results demonstrate the power of dual numbers for automatic differentiatio
 
 Dual numbers provide an elegant way to compute derivatives through forward-mode automatic differentiation. By representing a number as $x + \epsilon y$, where $\epsilon^2 = 0$, we can propagate derivatives through functions using simple arithmetic. This approach is efficient and well-suited for tasks like gradient computation in optimization problems.
 
-If you would like to use a Differentiator using the Dual Numbers method, I have implemented this (for both single and multivariate functions) on my [GitHub page](https://github.com/ssohamsud). 
+If you would like to use a Differentiator using the Dual Numbers method, I have implemented this (for both single and multivariate functions) on my [GitHub page](https://github.com/ssohamsud).
+
+{% include social-sharing.html %} 

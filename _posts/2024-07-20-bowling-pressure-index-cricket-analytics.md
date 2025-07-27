@@ -9,4 +9,6 @@ math: true
 
 # Coming soon...
 
-The ultimate guide of who to send in to bowl based on a statistical summary of IPL batsmen's Spin vs Pace 
+The ultimate guide of who to send in to bowl based on a statistical summary of IPL batsmen's Spin vs Pace
+
+{% include social-sharing.html %} 

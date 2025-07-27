@@ -27,4 +27,6 @@ math: false
 
 ---
 
-*For further details, see the attached PDF or contact the author for discussion.* 
+*For further details, see the attached PDF or contact the author for discussion.*
+
+{% include social-sharing.html %} 

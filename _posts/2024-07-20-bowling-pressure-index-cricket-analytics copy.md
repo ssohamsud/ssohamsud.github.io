@@ -9,4 +9,6 @@ math: true
 
 Coming soon...
 
-Stay tuned for the deep dive into quantifying pressure for bowlers in the IPL! 
+Stay tuned for the deep dive into quantifying pressure for bowlers in the IPL!
+
+{% include social-sharing.html %} 
