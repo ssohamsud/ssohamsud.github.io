@@ -97,6 +97,17 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
 
 ---
 
+## Societies & Hobbies
+
+- Head of Quant Research at Cauchy Capital (Imperial Maths Quant Fund)
+- Societies: Badminton/Cricket Team, Indian, Punjabi and Hindu Society
+
+- Guitar for over 10 years, performed in over 15 concerts - Youtube Channel Coming Soon!
+- Black Belt Karate (2018)
+- Poker Player
+
+---
+
 ## GitHub Activity
 
 <div class="github-activity">
@@ -278,14 +289,3 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
   }
 }
 </style>
-
----
-
-## Societies & Hobbies
-
-- Head of Quant Research at Cauchy Capital (Imperial Maths Quant Fund)
-- Societies: Badminton/Cricket Team, Indian, Punjabi and Hindu Society
-
-- Guitar for over 10 years, performed in over 15 concerts - Youtube Channel Coming Soon!
-- Black Belt Karate (2018)
-- Poker Player
