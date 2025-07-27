@@ -197,7 +197,7 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
     <a href="https://wa.me/?text=Check out Soham Sud's portfolio: {{ site.url }}{{ page.url }}" target="_blank" class="share-btn whatsapp">
       <i class="fab fa-whatsapp"></i> WhatsApp
     </a>
-    <a href="mailto:?subject=Check out Soham Sud's Portfolio&body=Hi! I found this amazing portfolio: {{ site.url }}{{ page.url }}" class="share-btn email">
+    <a href="mailto:ss8323@ic.ac.uk?subject=Check out Soham Sud's Portfolio&body=Hi! I found this amazing portfolio: {{ site.url }}{{ page.url }}" class="share-btn email">
       <i class="fas fa-envelope"></i> Email
     </a>
   </div>
