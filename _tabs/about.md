@@ -104,6 +104,4 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
 
 - Guitar for over 10 years, performed in over 15 concerts - Youtube Channel Coming Soon!
 - Black Belt Karate (2018)
-- Poker Player 
-
-{% include view-counter.html counter_id="about" label="Total Site Views" initial=2345 %}
+- Poker Player

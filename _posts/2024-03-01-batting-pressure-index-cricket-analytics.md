@@ -10,13 +10,15 @@ math: true
 # Introduction
 
 *Pressure.*  
-We’ve all felt it—hands a little colder, heart a little louder.  
-Professional athletes train for years to tame that chemical chaos, yet every fan senses the moments when even the greats look mortal:  
-the last ball before tea with eight wickets down, *60 off 24* in a T20 chase, or simply knowing the tail won’t finish the job after you.
+We’ve all felt it, hands a little colder, heartbeat a little quicker.  
+Professional athletes train for years to control that chemical chaos, yet every fan senses the moments when even the greats look mortal:  
+the last ball before tea with eight wickets down, 60 off 24 in a T20 chase, or simply knowing the tailenders won’t finish the job for you.
 
-Turning such a visceral, in‑the‑moment feeling into a *number* sounds borderline heretical.  
-But that’s the quest of this blog series.  
-I’m a dyed‑in‑the‑wool math nerd who also happens to play village‑standard leg‑spin.  
+Turning such a complex, in‑the‑moment feeling into a mathematical truth sounds borderline heretical.  
+
+But that’s exactly what I am trying to do.  
+
+I’m a maths nerd who also happens to play some seam.  
 Across these posts I’ll use hard data to peek behind cricket’s curtain—starting with a metric I call the **Batting Pressure Handling Index (BPHI)**.
 
 <br/>

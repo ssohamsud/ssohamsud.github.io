@@ -105,6 +105,18 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 # Remove all Disqus/comments provider config
+comments:
+  provider: giscus
+  giscus:
+    repo: ssohamsud/ssohamsud.github.io
+    repo_id: R_kgDONsR6EA
+    category: [ENTER CATEGORY NAME HERE]
+    category_id: [ENTER CATEGORY ID HERE]
+    mapping: pathname
+    input_position: top
+    lang: en
+    reactions_enabled: 1
+    theme: preferred_color_scheme
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:

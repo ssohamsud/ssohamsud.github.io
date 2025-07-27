@@ -7,8 +7,6 @@ tags: [julia, math, differentiation, dual-numbers]
 math: true
 ---
 
-{% include view-counter.html counter_id="dual-numbers-julia" label="Live Views" initial=1123 %}
-
 ## What Are Dual Numbers?
 
 Dual numbers extend the real numbers by introducing a new element, $\epsilon$, with the property:
