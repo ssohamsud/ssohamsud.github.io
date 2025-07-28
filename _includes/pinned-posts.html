@@ -24,9 +24,21 @@
         </span>
         {% endif %}
       </div>
-      <p class="pinned-post-excerpt">
-        {{ post.excerpt | strip_html | truncate: 200 }}
-      </p>
+      {% if post.pinned_description %}
+        <p class="pinned-post-excerpt">
+          {{ post.pinned_description }}
+        </p>
+      {% else %}
+        <p class="pinned-post-excerpt">
+          {{ post.excerpt | strip_html | truncate: 200 }}
+        </p>
+      {% endif %}
+      
+      {% if post.pinned_image %}
+      <div class="pinned-post-image">
+        <img src="{{ post.pinned_image | relative_url }}" alt="{{ post.title }}" />
+      </div>
+      {% endif %}
     </article>
     {% endfor %}
   </div>
@@ -119,7 +131,25 @@
 .pinned-post-excerpt {
   color: #475569;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+
+.pinned-post-image {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pinned-post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.pinned-post-image img:hover {
+  transform: scale(1.02);
 }
 
 @media (max-width: 768px) {

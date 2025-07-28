@@ -6,6 +6,8 @@ categories: [research, physics, stochastic-processes]
 tags: [stochastic volatility, physics, research, modeling]
 math: false
 pinned: true
+pinned_description: "Non-technical exploration of diffusing diffusivity models in quantitative finance, making complex financial mathematics accessible through intuitive analogies and real-world applications."
+pinned_image: /assets/img/profilepicture.png
 ---
 
 **[Download the full research paper (PDF)](/Stochastic%20Volatility%20Physics.pdf)**

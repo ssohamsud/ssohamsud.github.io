@@ -6,6 +6,8 @@ categories: [research, stem-cells, single-cell, biology]
 tags: [stem cells, single-cell RNA-seq, cell fate, intestinal biology, research]
 math: true
 pinned: true
+pinned_description: "Mathematical modeling of single-cell interactions in intestinal development using advanced statistical techniques. A deep dive into the 'social network' of cells and their fate decisions."
+pinned_image: /assets/img/biology-graphs/intestine_model.png
 ---
 
 **[Download the full research paper (PDF)](/M2R%20Research%20Project.pdf)**

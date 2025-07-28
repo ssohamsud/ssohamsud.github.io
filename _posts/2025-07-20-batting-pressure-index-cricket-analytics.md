@@ -6,6 +6,8 @@ categories: [sports-analytics, competitions, misc-maths]
 tags: [cricket, statistics, analytics, pressure-index, batting]
 math: true
 pinned: true
+pinned_description: "Advanced statistical analysis of cricket performance using pressure metrics and team dynamics. Features 6 comprehensive visualizations and deep-dive analysis of how players handle high-pressure situations in IPL matches."
+pinned_image: /assets/img/yearly_team_performance_unified.png
 ---
 
 # Introduction
