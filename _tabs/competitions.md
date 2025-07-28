@@ -44,8 +44,8 @@ Here's a showcase of my competition experience across quantitative finance, mach
     <h3>QRT Quant Challenge</h3>
     <p><strong>Mathematical modeling excellence</strong> - Applied advanced mathematical techniques to solve complex financial problems, showcasing strong quantitative skills.</p>
     <div class="competition-details">
-      <span class="competition-type">Mathematical Modeling</span>
-      <span class="competition-focus">Quantitative Finance</span>
+      <span class="competition-type">Mathematics</span>
+      <span class="competition-focus">Organisation</span>
     </div>
   </div>
 </div>
@@ -82,27 +82,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 ---
 
-## Academic Excellence
 
-<div class="competition-section">
-  <div class="competition-card academic">
-    <h3>UKMT Mathematical Challenges</h3>
-    <p><strong>Gold Medals & Distinctions</strong> - Consistently achieved top honors in all UKMT challenges and Olympiads, demonstrating exceptional mathematical ability.</p>
-    <div class="competition-details">
-      <span class="competition-type">Mathematical Olympiads</span>
-      <span class="competition-focus">Problem Solving</span>
-    </div>
-  </div>
-
-  <div class="competition-card academic">
-    <h3>Physics & Chemistry Challenges</h3>
-    <p><strong>Physics Challenge Gold, Salter's Chemistry Festival</strong> - Excelled across multiple scientific disciplines, showing versatility and depth of knowledge.</p>
-    <div class="competition-details">
-      <span class="competition-type">Multi-disciplinary</span>
-      <span class="competition-focus">Scientific Excellence</span>
-    </div>
-  </div>
-</div>
 
 ---
 
@@ -159,29 +139,41 @@ Here's a showcase of my competition experience across quantitative finance, mach
 /* Dark mode support */
 .dark .competition-card,
 [data-theme="dark"] .competition-card,
-.theme-dark .competition-card {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-  border: 1px solid #4b5563;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
-  color: #f9fafb;
+.theme-dark .competition-card,
+html[data-theme="dark"] .competition-card,
+body.dark .competition-card,
+body[data-theme="dark"] .competition-card {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%) !important;
+  border: 1px solid #4b5563 !important;
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4) !important;
+  color: #f9fafb !important;
 }
 
 .dark .competition-card h3,
 [data-theme="dark"] .competition-card h3,
-.theme-dark .competition-card h3 {
-  color: #ffffff;
+.theme-dark .competition-card h3,
+html[data-theme="dark"] .competition-card h3,
+body.dark .competition-card h3,
+body[data-theme="dark"] .competition-card h3 {
+  color: #ffffff !important;
 }
 
 .dark .competition-card p,
 [data-theme="dark"] .competition-card p,
-.theme-dark .competition-card p {
-  color: #d1d5db;
+.theme-dark .competition-card p,
+html[data-theme="dark"] .competition-card p,
+body.dark .competition-card p,
+body[data-theme="dark"] .competition-card p {
+  color: #d1d5db !important;
 }
 
 .dark .competition-card strong,
 [data-theme="dark"] .competition-card strong,
-.theme-dark .competition-card strong {
-  color: #ffffff;
+.theme-dark .competition-card strong,
+html[data-theme="dark"] .competition-card strong,
+body.dark .competition-card strong,
+body[data-theme="dark"] .competition-card strong {
+  color: #ffffff !important;
 }
 
 .competition-card:hover {
@@ -322,30 +314,42 @@ Here's a showcase of my competition experience across quantitative finance, mach
 /* Dark mode support for gallery */
 .dark .gallery-item,
 [data-theme="dark"] .gallery-item,
-.theme-dark .gallery-item {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-  border: 1px solid #4b5563;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
+.theme-dark .gallery-item,
+html[data-theme="dark"] .gallery-item,
+body.dark .gallery-item,
+body[data-theme="dark"] .gallery-item {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%) !important;
+  border: 1px solid #4b5563 !important;
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4) !important;
 }
 
 .dark .gallery-caption,
 [data-theme="dark"] .gallery-caption,
-.theme-dark .gallery-caption {
-  background: #374151;
-  border-top: 1px solid #4b5563;
-  color: #f9fafb;
+.theme-dark .gallery-caption,
+html[data-theme="dark"] .gallery-caption,
+body.dark .gallery-caption,
+body[data-theme="dark"] .gallery-caption {
+  background: #374151 !important;
+  border-top: 1px solid #4b5563 !important;
+  color: #f9fafb !important;
 }
 
 .dark .gallery-caption h4,
 [data-theme="dark"] .gallery-caption h4,
-.theme-dark .gallery-caption h4 {
-  color: #ffffff;
+.theme-dark .gallery-caption h4,
+html[data-theme="dark"] .gallery-caption h4,
+body.dark .gallery-caption h4,
+body[data-theme="dark"] .gallery-caption h4 {
+  color: #ffffff !important;
 }
 
 .dark .gallery-caption p,
 [data-theme="dark"] .gallery-caption p,
-.theme-dark .gallery-caption p {
-  color: #d1d5db;
+.theme-dark .gallery-caption p,
+html[data-theme="dark"] .gallery-caption p,
+body.dark .gallery-caption p,
+body[data-theme="dark"] .gallery-caption p {
+  color: #d1d5db !important;
 }
 
 .gallery-item:hover {
