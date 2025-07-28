@@ -156,6 +156,26 @@ Here's a showcase of my competition experience across quantitative finance, mach
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Dark mode support */
+[data-theme="dark"] .competition-card {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border: 1px solid #4b5563;
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .competition-card h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .competition-card p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .competition-card strong {
+  color: #ffffff;
+}
+
 .competition-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -289,6 +309,27 @@ Here's a showcase of my competition experience across quantitative finance, mach
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+}
+
+/* Dark mode support for gallery */
+[data-theme="dark"] .gallery-item {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border: 1px solid #4b5563;
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
+}
+
+[data-theme="dark"] .gallery-caption {
+  background: #374151;
+  border-top: 1px solid #4b5563;
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .gallery-caption h4 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .gallery-caption p {
+  color: #d1d5db;
 }
 
 .gallery-item:hover {
