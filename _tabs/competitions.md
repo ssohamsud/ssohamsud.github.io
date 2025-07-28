@@ -114,10 +114,30 @@ Here's a showcase of my competition experience across quantitative finance, mach
       <img src="/assets/img/qrtdatawin.png" alt="QRT Data Challenge Achievement" />
       <div class="gallery-caption">
         <h4>QRT Data Challenge</h4>
-        <p>Algothon 2023 - Advanced quantitative analysis</p>
+        <p>Caption coming soon...</p>
       </div>
     </div>
-    <!-- Add more gallery items here as you add more images -->
+    <div class="gallery-item">
+      <img src="/assets/img/imcprosperity.png" alt="IMC Prosperity Challenge" />
+      <div class="gallery-caption">
+        <h4>IMC Prosperity Challenge</h4>
+        <p>Caption coming soon...</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="/assets/img/qrtquantchallenge.png" alt="QRT Quant Challenge" />
+      <div class="gallery-caption">
+        <h4>QRT Quant Challenge</h4>
+        <p>Caption coming soon...</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="/assets/img/qrtchallengeleaderboard.png" alt="QRT Challenge Leaderboard" />
+      <div class="gallery-caption">
+        <h4>QRT Challenge Leaderboard</h4>
+        <p>Caption coming soon...</p>
+      </div>
+    </div>
   </div>
 </div>
 
