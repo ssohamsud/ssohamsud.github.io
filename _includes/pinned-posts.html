@@ -1,0 +1,135 @@
+{% assign pinned_posts = site.posts | where: "pinned", true | sort: "date" | reverse %}
+
+{% if pinned_posts.size > 0 %}
+<div class="pinned-posts-section">
+  <h2 class="pinned-title">📌 Featured Projects</h2>
+  <div class="pinned-posts-grid">
+    {% for post in pinned_posts %}
+    <article class="pinned-post-card">
+      <div class="pinned-badge">📌 Pinned</div>
+      <h3 class="pinned-post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <div class="pinned-post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %d, %Y" }}
+        </time>
+        {% if post.categories.size > 0 %}
+        <span class="pinned-post-categories">
+          {% for category in post.categories %}
+          <a href="{{ category | url_encode | prepend: '/categories/' | relative_url }}" class="pinned-category-link">
+            {{ category }}
+          </a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      <p class="pinned-post-excerpt">
+        {{ post.excerpt | strip_html | truncate: 200 }}
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.pinned-posts-section {
+  margin: 2rem 0 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+  border-radius: 12px;
+  border: 2px solid #d97706;
+}
+
+.pinned-title {
+  color: #d97706;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.pinned-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pinned-post-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pinned-post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.pinned-badge {
+  position: absolute;
+  top: -8px;
+  right: 1rem;
+  background: #d97706;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pinned-post-title {
+  margin-bottom: 0.75rem;
+}
+
+.pinned-post-title a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.pinned-post-title a:hover {
+  color: #d97706;
+}
+
+.pinned-post-meta {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.pinned-post-categories {
+  margin-left: 1rem;
+}
+
+.pinned-category-link {
+  color: #d97706;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.pinned-category-link:hover {
+  text-decoration: underline;
+}
+
+.pinned-post-excerpt {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pinned-posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pinned-posts-section {
+    padding: 1rem;
+  }
+}
+</style>
+{% endif %} 
