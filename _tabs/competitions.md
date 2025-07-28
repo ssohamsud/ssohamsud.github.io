@@ -157,22 +157,30 @@ Here's a showcase of my competition experience across quantitative finance, mach
 }
 
 /* Dark mode support */
-[data-theme="dark"] .competition-card {
+.dark .competition-card,
+[data-theme="dark"] .competition-card,
+.theme-dark .competition-card {
   background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   border: 1px solid #4b5563;
   box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
   color: #f9fafb;
 }
 
-[data-theme="dark"] .competition-card h3 {
+.dark .competition-card h3,
+[data-theme="dark"] .competition-card h3,
+.theme-dark .competition-card h3 {
   color: #ffffff;
 }
 
-[data-theme="dark"] .competition-card p {
+.dark .competition-card p,
+[data-theme="dark"] .competition-card p,
+.theme-dark .competition-card p {
   color: #d1d5db;
 }
 
-[data-theme="dark"] .competition-card strong {
+.dark .competition-card strong,
+[data-theme="dark"] .competition-card strong,
+.theme-dark .competition-card strong {
   color: #ffffff;
 }
 
@@ -312,23 +320,31 @@ Here's a showcase of my competition experience across quantitative finance, mach
 }
 
 /* Dark mode support for gallery */
-[data-theme="dark"] .gallery-item {
+.dark .gallery-item,
+[data-theme="dark"] .gallery-item,
+.theme-dark .gallery-item {
   background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   border: 1px solid #4b5563;
   box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
 }
 
-[data-theme="dark"] .gallery-caption {
+.dark .gallery-caption,
+[data-theme="dark"] .gallery-caption,
+.theme-dark .gallery-caption {
   background: #374151;
   border-top: 1px solid #4b5563;
   color: #f9fafb;
 }
 
-[data-theme="dark"] .gallery-caption h4 {
+.dark .gallery-caption h4,
+[data-theme="dark"] .gallery-caption h4,
+.theme-dark .gallery-caption h4 {
   color: #ffffff;
 }
 
-[data-theme="dark"] .gallery-caption p {
+.dark .gallery-caption p,
+[data-theme="dark"] .gallery-caption p,
+.theme-dark .gallery-caption p {
   color: #d1d5db;
 }
 
