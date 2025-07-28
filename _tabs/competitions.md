@@ -247,16 +247,41 @@ Here's a showcase of my competition experience across quantitative finance, mach
 /* Competition Gallery Styles */
 .competition-gallery {
   margin: 3rem 0;
+  text-align: center;
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
   gap: 2rem;
+  padding: 1rem 0;
   margin-top: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #f1f5f9;
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 4px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
 }
 
 .gallery-item {
+  flex: 0 0 auto;
+  width: 400px;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -272,7 +297,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 .gallery-item img {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -301,13 +326,16 @@ Here's a showcase of my competition experience across quantitative finance, mach
 }
 
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .gallery-item {
+    width: 300px;
   }
   
   .gallery-item img {
     height: 200px;
+  }
+  
+  .gallery-grid {
+    gap: 1rem;
   }
 }
 </style> 
