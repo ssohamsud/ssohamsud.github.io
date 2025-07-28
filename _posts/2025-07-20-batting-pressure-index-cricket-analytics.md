@@ -5,6 +5,7 @@ author: Soham Sud
 categories: [sports-analytics, competitions, misc-maths]
 tags: [cricket, statistics, analytics, pressure-index, batting]
 math: true
+pinned: true
 ---
 
 # Introduction

@@ -5,6 +5,7 @@ author: Soham Sud
 categories: [research, stem-cells, single-cell, biology]
 tags: [stem cells, single-cell RNA-seq, cell fate, intestinal biology, research]
 math: true
+pinned: true
 ---
 
 **[Download the full research paper (PDF)](/M2R%20Research%20Project.pdf)**

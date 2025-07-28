@@ -1,0 +1,9 @@
+---
+layout: page
+---
+
+{% assign pinned_posts = site.posts | where: "pinned", true | sort: "date" | reverse %}
+{% assign regular_posts = site.posts | where: "pinned", nil | sort: "date" | reverse %}
+{% assign all_posts = pinned_posts | concat: regular_posts %}
+
+{% include posts.html posts=all_posts %} 

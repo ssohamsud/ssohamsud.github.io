@@ -5,6 +5,7 @@ author: Soham Sud
 categories: [research, physics, stochastic-processes]
 tags: [stochastic volatility, physics, research, modeling]
 math: false
+pinned: true
 ---
 
 **[Download the full research paper (PDF)](/Stochastic%20Volatility%20Physics.pdf)**
