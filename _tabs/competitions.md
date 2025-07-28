@@ -258,7 +258,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
   padding: 1rem 0;
   margin-top: 1.5rem;
   scrollbar-width: thin;
-  scrollbar-color: #d97706 #f1f5f9;
+  scrollbar-color: #64748b #f1f5f9;
 }
 
 .gallery-grid::-webkit-scrollbar {
@@ -271,28 +271,29 @@ Here's a showcase of my competition experience across quantitative finance, mach
 }
 
 .gallery-grid::-webkit-scrollbar-thumb {
-  background: #d97706;
+  background: #64748b;
   border-radius: 4px;
 }
 
 .gallery-grid::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: #475569;
 }
 
 .gallery-item {
   flex: 0 0 auto;
   width: 400px;
-  background: white;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item img {
@@ -308,7 +309,8 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 .gallery-caption {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
 }
 
 .gallery-caption h4 {
