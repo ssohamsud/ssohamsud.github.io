@@ -14,8 +14,11 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 <div class="competition-section">
   <div class="competition-card quant">
-    <h3>QRT Data Challenge</h3>
+    <h3>QRT Data Challenge (Algothon 2023)</h3>
     <p><strong>Advanced quantitative analysis</strong> - Applied sophisticated statistical methods to financial datasets, demonstrating expertise in data-driven decision making and risk assessment.</p>
+    <div class="competition-image">
+      <img src="/assets/img/qrtdatawin.png" alt="QRT Data Challenge Achievement" />
+    </div>
     <div class="competition-details">
       <span class="competition-type">Quantitative Analysis</span>
       <span class="competition-focus">Financial Modeling</span>
@@ -153,6 +156,24 @@ Here's a showcase of my competition experience across quantitative finance, mach
   color: #475569;
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+.competition-image {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.competition-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.competition-image img:hover {
+  transform: scale(1.02);
 }
 
 .competition-card strong {
