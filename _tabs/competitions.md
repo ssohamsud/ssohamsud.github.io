@@ -127,13 +127,14 @@ Here's a showcase of my competition experience across quantitative finance, mach
 }
 
 .competition-card {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border: 1px solid #4b5563;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #f9fafb;
 }
 
 /* Dark mode support */
@@ -182,7 +183,7 @@ body[data-theme="dark"] .competition-card strong {
 }
 
 .competition-card h3 {
-  color: #1e293b;
+  color: #ffffff;
   margin-bottom: 1rem;
   font-size: 1.3rem;
   font-weight: 600;
@@ -207,7 +208,7 @@ body[data-theme="dark"] .competition-card strong {
 }
 
 .competition-card p {
-  color: #475569;
+  color: #d1d5db;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -215,7 +216,7 @@ body[data-theme="dark"] .competition-card strong {
 
 
 .competition-card strong {
-  color: #1e293b;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -226,30 +227,34 @@ body[data-theme="dark"] .competition-card strong {
 }
 
 .competition-type, .competition-focus {
-  background: #e2e8f0;
-  color: #475569;
+  background: rgba(107, 114, 128, 0.2);
+  color: #9ca3af;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.8rem;
   font-weight: 500;
+  border: 1px solid rgba(107, 114, 128, 0.4);
 }
 
 .competition-card.quant .competition-type,
 .competition-card.quant .competition-focus {
-  background: #dbeafe;
-  color: #1e40af;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
 }
 
 .competition-card.ai .competition-type,
 .competition-card.ai .competition-focus {
-  background: #e9d5ff;
-  color: #7c3aed;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.4);
 }
 
 .competition-card.spring .competition-type,
 .competition-card.spring .competition-focus {
-  background: #d1fae5;
-  color: #047857;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
 }
 
 .competition-card.academic .competition-type,
