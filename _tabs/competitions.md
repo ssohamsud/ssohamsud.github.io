@@ -16,9 +16,6 @@ Here's a showcase of my competition experience across quantitative finance, mach
   <div class="competition-card quant">
     <h3>QRT Data Challenge (Algothon 2023)</h3>
     <p><strong>Advanced quantitative analysis</strong> - Applied sophisticated statistical methods to financial datasets, demonstrating expertise in data-driven decision making and risk assessment.</p>
-    <div class="competition-image">
-      <img src="/assets/img/qrtdatawin.png" alt="QRT Data Challenge Achievement" />
-    </div>
     <div class="competition-details">
       <span class="competition-type">Quantitative Analysis</span>
       <span class="competition-focus">Financial Modeling</span>
@@ -107,6 +104,23 @@ Here's a showcase of my competition experience across quantitative finance, mach
   </div>
 </div>
 
+---
+
+## Competition Gallery 📸
+
+<div class="competition-gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="/assets/img/qrtdatawin.png" alt="QRT Data Challenge Achievement" />
+      <div class="gallery-caption">
+        <h4>QRT Data Challenge</h4>
+        <p>Algothon 2023 - Advanced quantitative analysis</p>
+      </div>
+    </div>
+    <!-- Add more gallery items here as you add more images -->
+  </div>
+</div>
+
 <style>
 .competition-section {
   margin: 2rem 0;
@@ -158,23 +172,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
   margin-bottom: 1rem;
 }
 
-.competition-image {
-  margin: 1rem 0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.competition-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.2s ease;
-}
-
-.competition-image img:hover {
-  transform: scale(1.02);
-}
 
 .competition-card strong {
   color: #1e293b;
@@ -223,6 +221,73 @@ Here's a showcase of my competition experience across quantitative finance, mach
 @media (max-width: 768px) {
   .competition-details {
     flex-direction: column;
+  }
+}
+
+/* Competition Gallery Styles */
+.competition-gallery {
+  margin: 3rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.gallery-caption h4 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.gallery-caption p {
+  color: #475569;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .gallery-item img {
+    height: 200px;
   }
 }
 </style> 
