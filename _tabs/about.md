@@ -59,17 +59,17 @@ I'm a 2nd year Mathematics and Statistics student at Imperial College London, pa
       <div class="project-badge">Featured</div>
       <h4>Cricket Analytics: Batting Pressure Index</h4>
       <p>Advanced statistical analysis of cricket performance using pressure metrics and team dynamics. Features 6 comprehensive visualizations and deep-dive analysis.</p>
-      <a href="/posts/2025-07-20-batting-pressure-index-cricket-analytics/" class="project-link">Read More →</a>
+      <a href="/posts/under-the-helmet-quantifying-pressure-in-ipl-batting/" class="project-link">Read More →</a>
     </div>
     <div class="project-card">
       <h4>Stochastic Volatility Physics</h4>
       <p>Non-technical exploration of diffusing diffusivity models in quantitative finance, making complex financial mathematics accessible.</p>
-      <a href="/posts/2025-04-01-stochastic-volatility-physics/" class="project-link">Read More →</a>
+      <a href="/posts/evaluating-diffusing-diffusivity-models-in-quantitative-finance-a-non-technical-summary/" class="project-link">Read More →</a>
     </div>
     <div class="project-card">
       <h4>Intestinal Cell Fate Mapping</h4>
       <p>Mathematical modeling of single-cell interactions in intestinal development using advanced statistical techniques.</p>
-      <a href="/posts/2025-06-15-intestinal-cell-fate-single-cell/" class="project-link">Read More →</a>
+      <a href="/posts/mapping-the-intestinal-social-network-using-data/" class="project-link">Read More →</a>
     </div>
   </div>
 </div>
