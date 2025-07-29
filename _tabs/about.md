@@ -47,7 +47,7 @@ order: 1
 
 # Hello, I'm Soham 👋
 
-I'm a 2nd year Mathematics and Statistics student at Imperial College London, passionate about quantitative finance, machine learning, and mathematical research.
+I'm a 3rd year Mathematics and Statistics student at Imperial College London, passionate about Statistics and Data-Driven Research.
 
 ---
 
