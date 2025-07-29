@@ -15,7 +15,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-section">
   <div class="competition-card quant">
     <h3>QRT Data Challenge (Algothon 2023)</h3>
-    <p><strong>Advanced quantitative analysis</strong> - Applied sophisticated statistical methods to financial datasets, demonstrating expertise in data-driven decision making and risk assessment.</p>
+    <p>Predicted Electricity Prices, Lost to Masters+PhD student as first years.</p>
     <div class="competition-details">
       <span class="competition-type">Quantitative Analysis</span>
       <span class="competition-focus">Financial Modeling</span>
@@ -24,7 +24,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>G-research Quant Challenge</h3>
-    <p><strong>Algorithmic trading strategies</strong> - Developed and implemented quantitative trading algorithms, showcasing skills in market analysis and automated trading systems.</p>
+    <p>Optimal Transport+Robot Bidding challenges, top 5% in both.</p>
     <div class="competition-details">
       <span class="competition-type">Algorithmic Trading</span>
       <span class="competition-focus">Market Analysis</span>
@@ -33,7 +33,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>IMC Prosperity Challenge</h3>
-    <p><strong>Market making and risk management</strong> - Excelled in market making strategies and risk assessment, demonstrating deep understanding of market microstructure.</p>
+    <p>Top 10 UK, used things like Mean Reversion, Option Volatility Strategies, Statistical Arbitrage, and Spacial Arbitrage.</p>
     <div class="competition-details">
       <span class="competition-type">Market Making</span>
       <span class="competition-focus">Risk Management</span>
@@ -42,7 +42,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>QRT Quant Challenge</h3>
-    <p><strong>Mathematical modeling excellence</strong> - Applied advanced mathematical techniques to solve complex financial problems, showcasing strong quantitative skills.</p>
+    <p>Organised a Quant Challenge with QRT, marked over 200 solutions and helped with logistics.</p>
     <div class="competition-details">
       <span class="competition-type">Mathematics</span>
       <span class="competition-focus">Organisation</span>
@@ -57,7 +57,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-section">
   <div class="competition-card ai">
     <h3>Kaggle AI Competition</h3>
-    <p><strong>"LLMs You Can't Please Them All"</strong> - Participated in a cutting-edge natural language processing challenge, working with large language models and optimization techniques.</p>
+    <p>Used research in adversarial attacks. Generated my own adversarial attacks on LLMs.</p>
     <div class="competition-details">
       <span class="competition-type">Natural Language Processing</span>
       <span class="competition-focus">Model Optimization</span>
