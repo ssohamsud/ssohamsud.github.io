@@ -15,7 +15,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-section">
   <div class="competition-card quant">
     <h3>QRT Data Challenge (Algothon 2023)</h3>
-    <p>3rd place. Tackled electricity price prediction using advanced time series analysis and machine learning.</p>
+    <p><strong>3rd place.</strong> Tackled electricity price prediction using advanced time series analysis and machine learning.</p>
     <div class="competition-details">
       <span class="competition-type">Quantitative Analysis</span>
       <span class="competition-focus">Financial Modeling</span>
@@ -24,7 +24,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>G-research Quant Challenge</h3>
-    <p>Top 5%. Dived deep into optimal transport theory and robot bidding algorithms.</p>
+    <p><strong>Top 5%.</strong> Dived deep into optimal transport theory and robot bidding algorithms.</p>
     <div class="competition-details">
       <span class="competition-type">Algorithmic Trading</span>
       <span class="competition-focus">Market Analysis</span>
@@ -33,7 +33,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>IMC Prosperity Challenge</h3>
-    <p>167th/~10000 teams. Made it to the top 10 in the UK by deploying a mix of mean reversion, option volatility strategies, statistical arbitrage, and spatial arbitrage.</p>
+    <p><strong>167th/~10000 teams.</strong> Made it to the top 10 in the UK by deploying a mix of mean reversion, option volatility strategies, statistical arbitrage, and spatial arbitrage.</p>
     <div class="competition-details">
       <span class="competition-type">Market Making</span>
       <span class="competition-focus">Risk Management</span>
@@ -42,7 +42,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>QRT Quant Challenge</h3>
-    <p>Organizer. Switched from competitor to organizer - helped QRT run their quant challenge, marked over 200 student solutions, and handled all the behind-the-scenes logistics.</p>
+    <p><strong>Organizer (200 participants).</strong> Switched from competitor to organizer - helped QRT run their quant challenge, marked over 200 student solutions, and handled all the behind-the-scenes logistics.</p>
     <div class="competition-details">
       <span class="competition-type">Mathematics</span>
       <span class="competition-focus">Organisation</span>
