@@ -4,7 +4,7 @@ icon: fas fa-trophy
 order: 2
 ---
 
-# Competition Achievements 🏆
+# Competition Achievements
 
 Here's a showcase of my competition experience across quantitative finance, machine learning, and academic challenges.
 
@@ -67,12 +67,11 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 ---
 
-## Spring Week Victories
+## Spring Week Competitions
 
 <div class="competition-section">
   <div class="competition-card spring">
-    <h3>Spring Week Victories</h3>
-    <p><strong>Multiple Competition Wins</strong> - Achieved victories across leading quantitative firms during spring week programs, demonstrating exceptional trading skills, market making abilities, and competitive excellence.</p>
+    <h3>Spring Week Competitions</h3>
     
     <div class="spring-week-details">
       <div class="victory-item">
@@ -113,31 +112,31 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-gallery">
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="/assets/img/qrtdatawin.png" alt="QRT Data Challenge Achievement" />
+      <img src="/assets/img/qrtdatawin.png" alt="Algothon 2023 Achievement" />
       <div class="gallery-caption">
-        <h4>QRT Data Challenge</h4>
-        <p>Caption coming soon...</p>
+        <h4>Algothon 2023</h4>
+        <p>3rd place prize @ Algothon</p>
       </div>
     </div>
     <div class="gallery-item">
       <img src="/assets/img/imcprosperity.png" alt="IMC Prosperity Challenge" />
       <div class="gallery-caption">
         <h4>IMC Prosperity Challenge</h4>
-        <p>Caption coming soon...</p>
+        <p>167th/~10000 teams</p>
       </div>
     </div>
     <div class="gallery-item">
       <img src="/assets/img/qrtquantchallenge.png" alt="QRT Quant Challenge" />
       <div class="gallery-caption">
         <h4>QRT Quant Challenge</h4>
-        <p>Caption coming soon...</p>
+        <p>Winners Photo</p>
       </div>
     </div>
     <div class="gallery-item">
       <img src="/assets/img/qrtchallengeleaderboard.png" alt="QRT Challenge Leaderboard" />
       <div class="gallery-caption">
         <h4>QRT Challenge Leaderboard</h4>
-        <p>Caption coming soon...</p>
+        <p>Final Sharpe Ratios of top teams (sel4)</p>
       </div>
     </div>
   </div>
