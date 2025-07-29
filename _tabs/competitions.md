@@ -15,7 +15,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-section">
   <div class="competition-card quant">
     <h3>QRT Data Challenge (Algothon 2023)</h3>
-    <p>Predicted Electricity Prices, Lost to Masters+PhD student as first years.</p>
+    <p>Tackled electricity price prediction using advanced time series analysis and machine learning. Got absolutely destroyed by Masters and PhD students as first years - but hey, that's how you learn!</p>
     <div class="competition-details">
       <span class="competition-type">Quantitative Analysis</span>
       <span class="competition-focus">Financial Modeling</span>
@@ -24,7 +24,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>G-research Quant Challenge</h3>
-    <p>Optimal Transport+Robot Bidding challenges, top 5% in both.</p>
+    <p>Dived deep into optimal transport theory and robot bidding algorithms. Managed to crack the top 5% in both challenges - not bad for a first-year trying to keep up with the big guns!</p>
     <div class="competition-details">
       <span class="competition-type">Algorithmic Trading</span>
       <span class="competition-focus">Market Analysis</span>
@@ -33,7 +33,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>IMC Prosperity Challenge</h3>
-    <p>Top 10 UK, used things like Mean Reversion, Option Volatility Strategies, Statistical Arbitrage, and Spacial Arbitrage.</p>
+    <p>Made it to the top 10 in the UK by deploying a mix of mean reversion, option volatility strategies, statistical arbitrage, and spatial arbitrage. Basically threw every quant trick in the book at it!</p>
     <div class="competition-details">
       <span class="competition-type">Market Making</span>
       <span class="competition-focus">Risk Management</span>
@@ -42,7 +42,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
   <div class="competition-card quant">
     <h3>QRT Quant Challenge</h3>
-    <p>Organised a Quant Challenge with QRT, marked over 200 solutions and helped with logistics.</p>
+    <p>Switched from competitor to organizer - helped QRT run their quant challenge, marked over 200 student solutions, and handled all the behind-the-scenes logistics. Turns out running competitions is just as fun as competing in them!</p>
     <div class="competition-details">
       <span class="competition-type">Mathematics</span>
       <span class="competition-focus">Organisation</span>
@@ -57,7 +57,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 <div class="competition-section">
   <div class="competition-card ai">
     <h3>Kaggle AI Competition</h3>
-    <p>Used research in adversarial attacks. Generated my own adversarial attacks on LLMs.</p>
+    <p>Dived into the world of adversarial attacks on large language models. Built my own adversarial examples to test model robustness - basically trying to break AI systems to make them stronger!</p>
     <div class="competition-details">
       <span class="competition-type">Natural Language Processing</span>
       <span class="competition-focus">Model Optimization</span>
