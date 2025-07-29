@@ -10,7 +10,7 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 ---
 
-## Quantitative Finance Challenges
+## Trading and Data Challenges
 
 <div class="competition-section">
   <div class="competition-card quant">
@@ -71,11 +71,33 @@ Here's a showcase of my competition experience across quantitative finance, mach
 
 <div class="competition-section">
   <div class="competition-card spring">
-    <h3>Multiple Competition Wins</h3>
-    <p><strong>Spring Week Programs</strong> - Achieved multiple victories during spring week programs, demonstrating leadership, problem-solving skills, and ability to excel under pressure.</p>
+    <h3>Spring Week Victories</h3>
+    <p><strong>Multiple Competition Wins</strong> - Achieved victories across leading quantitative firms during spring week programs, demonstrating exceptional trading skills, market making abilities, and competitive excellence.</p>
+    
+    <div class="spring-week-details">
+      <div class="victory-item">
+        <strong>Jane Street FOCUS Programme:</strong> Won the Estimatathon and took part in probability challenges
+      </div>
+      <div class="victory-item">
+        <strong>Optiver Insight Days:</strong> 1st Place out of all 1st Years and 4th overall out of 40 in live trading game
+      </div>
+      <div class="victory-item">
+        <strong>IMC Launchpad:</strong> Won 2 of 3 Rounds in final market-making game and ranked highly in 30-person Poker Tournament
+      </div>
+      <div class="victory-item">
+        <strong>Citadel Trading Invitational:</strong> One of few participants to complete 4 hour Quant Challenge
+      </div>
+      <div class="victory-item">
+        <strong>SIG Insight Days:</strong> Joint-First in market making game out of 200 participants
+      </div>
+      <div class="victory-item">
+        <strong>DE-Shaw Insight Days:</strong> Finished 2nd/30 teams in Market Making and Hedge Fund trading game
+      </div>
+    </div>
+    
     <div class="competition-details">
-      <span class="competition-type">Leadership</span>
-      <span class="competition-focus">Problem Solving</span>
+      <span class="competition-type">Market Making</span>
+      <span class="competition-focus">Trading Games</span>
     </div>
   </div>
 </div>
@@ -263,6 +285,32 @@ body[data-theme="dark"] .competition-card strong {
   color: #d97706;
 }
 
+/* Spring Week Details Styling */
+.spring-week-details {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+}
+
+.victory-item {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  line-height: 1.5;
+}
+
+.victory-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.victory-item strong {
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .competition-details {
     flex-direction: column;
@@ -307,11 +355,11 @@ body[data-theme="dark"] .competition-card strong {
 .gallery-item {
   flex: 0 0 auto;
   width: 400px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border: 1px solid #4b5563;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
@@ -375,19 +423,20 @@ body[data-theme="dark"] .gallery-caption p {
 
 .gallery-caption {
   padding: 1.5rem;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
+  background: #374151;
+  border-top: 1px solid #4b5563;
+  color: #f9fafb;
 }
 
 .gallery-caption h4 {
-  color: #1e293b;
+  color: #ffffff;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .gallery-caption p {
-  color: #475569;
+  color: #d1d5db;
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
