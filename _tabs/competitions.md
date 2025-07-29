@@ -59,8 +59,8 @@ Here's a showcase of my competition experience across quantitative finance, mach
     <h3>Kaggle AI Competition</h3>
     <p>Dived into the world of adversarial attacks on large language models.</p>
     <div class="competition-details">
-      <span class="competition-type">Natural Language Processing</span>
-      <span class="competition-focus">Model Optimization</span>
+      <span class="competition-type">Adversarial Attacks</span>
+      <span class="competition-focus">Natural Language Processing</span>
     </div>
   </div>
 </div>
