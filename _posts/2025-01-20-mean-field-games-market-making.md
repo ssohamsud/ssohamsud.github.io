@@ -19,11 +19,11 @@ I was reading Terry Tao's blog and a post on mean-field equations sparked an ide
 - **Tight** quotes bring more trades but build **inventory**; **wide** quotes slow trades and reduce risk.
 - Many similar makers interact through the **average behavior** of the crowd (the *mean field*).
 
-Over a trading day \([0,T]\), our solver computes:
+Over a trading day$[0,T]$, our solver computes:
 
-1. a **value function** \(V(t,x)\) — the best expected objective you can still achieve from time \(t\) with inventory \(x\);
-2. **optimal quotes** \(\delta^{b*}(t,x)\) and \(\delta^{a*}(t,x)\);
-3. the evolving **population distribution** \(\rho(t,x)\) of inventories;
+1. a **value function**$V(t,x)$— the best expected objective you can still achieve from time$t$with inventory$x$;
+2. **optimal quotes**$\delta^{b*}(t,x)$and$\delta^{a*}(t,x)$;
+3. the evolving **population distribution**$\rho(t,x)$of inventories;
 4. **actionable metrics** such as average bid/ask, full spread, inventory variance, de-risk probability, and marginal cost.
 
 The interactive dashboard below renders the same objects the solver computes.
@@ -48,10 +48,10 @@ The interactive dashboard below renders the same objects the solver computes.
 ## Micro model: quotes, fills, and inventory
 
 Imagine the apple fair. A big board shows the “mid” price. You set two tags relative to that mid:
-- **ask markup** \( \delta^a_t \ge 0 \) (how far above mid you sell one unit),
-- **bid markdown** \( \delta^b_t \ge 0 \) (how far below mid you buy one unit).
+- **ask markup**$\delta^a_t \ge 0$(how far above mid you sell one unit),
+- **bid markdown**$\delta^b_t \ge 0$(how far below mid you buy one unit).
 
-Tighter tags (smaller \( \delta \)) attract customers; wider tags discourage them.
+Tighter tags (smaller$\delta$) attract customers; wider tags discourage them.
 
 We model fills at your quotes with **Poisson processes**. The intensity (rate) falls off exponentially with your distance from mid. This is standard, simple, and empirically reasonable:
 
@@ -65,8 +65,8 @@ A>0,\ k>0.
 $$
 {% endraw %}
 
-- \( \lambda \) is a **rate**: expected fills per unit time.
-- If you tighten by \( \Delta\delta>0 \), the relative change in rate is:
+-$\lambda$is a **rate**: expected fills per unit time.
+- If you tighten by$\Delta\delta>0$, the relative change in rate is:
 
 {% raw %}
 $$
@@ -74,17 +74,17 @@ $$
 $$
 {% endraw %}
 
-Inventory \( X_t \) changes by single-unit jumps:
-- ask fill (you sell) makes \( X\to X-1 \),
-- bid fill (you buy) makes \( X\to X+1 \).
+Inventory$X_t$changes by single-unit jumps:
+- ask fill (you sell) makes$X\to X-1$,
+- bid fill (you buy) makes$X\to X+1$.
 
-We use **edge accounting** relative to mid: a sell at \(\mathrm{mid}+\delta^a\) earns edge \(\delta^a\); a buy at \(\mathrm{mid}-\delta^b\) also earns edge \(\delta^b\). Mid cancels from the accounting.
+We use **edge accounting** relative to mid: a sell at$\mathrm{mid}+\delta^a$earns edge$\delta^a$; a buy at$\mathrm{mid}-\delta^b$also earns edge$\delta^b$. Mid cancels from the accounting.
 
 ---
 
 ## Objective: edge vs. inventory risk
 
-During the day you accumulate **edge** when fills occur, pay a **running** cost for carrying inventory, and care about ending flat. For a quoting policy \( \pi \):
+During the day you accumulate **edge** when fills occur, pay a **running** cost for carrying inventory, and care about ending flat. For a quoting policy$\pi$:
 
 {% raw %}
 $$
@@ -101,11 +101,11 @@ J^\pi(t,x)
 $$
 {% endraw %}
 
-- \( dN^a_s \) and \( dN^b_s \) are Poisson increments,
-- \( \eta>0 \) penalizes **intra-day** inventory,
-- \( \gamma>0 \) penalizes **terminal** inventory (overnight risk, closing dumps, etc.).
+-$dN^a_s$and$dN^b_s$are Poisson increments,
+-$\eta>0$penalizes **intra-day** inventory,
+-$\gamma>0$penalizes **terminal** inventory (overnight risk, closing dumps, etc.).
 
-The **value function** is the best you can do from \( (t,x) \):
+The **value function** is the best you can do from$(t,x)$:
 
 {% raw %}
 $$
@@ -113,18 +113,18 @@ V(t,x) = \sup_{\pi} J^\pi(t,x).
 $$
 {% endraw %}
 
-Intuition: “From now until close, what’s the maximum expected ‘edge minus risk’ I can still achieve if I currently hold \( x \) baskets?”
+Intuition: “From now until close, what’s the maximum expected ‘edge minus risk’ I can still achieve if I currently hold$x$baskets?”
 
 ---
 
 ## From dynamic programming to the HJB
 
-Look ahead a short time \( h>0 \). Three outcomes can happen over \( [t,t+h] \):
-- **ask fill** with probability \( \lambda^a(\delta^a_t)h + o(h) \): reward \( \delta^a_t \), inventory \( x\to x-1 \);
-- **bid fill** with probability \( \lambda^b(\delta^b_t)h + o(h) \): reward \( \delta^b_t \), inventory \( x\to x+1 \);
-- **no fill** with probability \( 1-(\lambda^a+\lambda^b)h + o(h) \).
+Look ahead a short time$h>0$. Three outcomes can happen over$[t,t+h]$:
+- **ask fill** with probability$\lambda^a(\delta^a_t)h + o(h)$: reward$\delta^a_t$, inventory$x\to x-1$;
+- **bid fill** with probability$\lambda^b(\delta^b_t)h + o(h)$: reward$\delta^b_t$, inventory$x\to x+1$;
+- **no fill** with probability$1-(\lambda^a+\lambda^b)h + o(h)$.
 
-Running cost over that interval is approximately \( -\eta\,x^2 h \). The **Dynamic Programming Principle** gives:
+Running cost over that interval is approximately$-\eta\,x^2 h$. The **Dynamic Programming Principle** gives:
 
 {% raw %}
 $$
@@ -138,7 +138,7 @@ V(t,x) =
 $$
 {% endraw %}
 
-Expand \( V(t+h,\cdot) = V(t,\cdot) + \partial_t V(t,\cdot)\,h + o(h) \). Take expectations, subtract \( V(t,x) \), divide by \( h \), and let \( h\to 0 \). The **Hamilton–Jacobi–Bellman (HJB)** equation is:
+Expand$V(t+h,\cdot) = V(t,\cdot) + \partial_t V(t,\cdot)\,h + o(h)$. Take expectations, subtract$V(t,x)$, divide by$h$, and let$h\to 0$. The **Hamilton–Jacobi–Bellman (HJB)** equation is:
 
 {% raw %}
 $$
@@ -164,7 +164,7 @@ Read each bracket as “instant edge plus change in future value, weighted by ho
 
 ## Optimal quotes in closed form
 
-Inside the HJB, each side can be optimized separately. For the ask side, let \( \Delta V^a(t,x)=V(t,x-1)-V(t,x) \). We maximize:
+Inside the HJB, each side can be optimized separately. For the ask side, let$\Delta V^a(t,x)=V(t,x-1)-V(t,x)$. We maximize:
 
 {% raw %}
 $$
@@ -172,7 +172,7 @@ f(\delta) = \lambda(\delta)\,[\Delta V^a + \delta] = A e^{-k\delta}(\Delta V^a +
 $$
 {% endraw %}
 
-Differentiate and set to \( 0 \):
+Differentiate and set to$0$:
 
 {% raw %}
 $$
@@ -190,13 +190,13 @@ $$
 $$
 {% endraw %}
 
-Intuition: if selling is urgent (you are long near close), \( V(t,x-1)-V(t,x) \) is **very negative**, so \( \delta^{a*} \) becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short), \( \delta^{b*} \) shrinks too. In code we clip \( \delta \) to practical bounds.
+Intuition: if selling is urgent (you are long near close),$V(t,x-1)-V(t,x)$is **very negative**, so$\delta^{a*}$becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short),$\delta^{b*}$shrinks too. In code we clip$\delta$to practical bounds.
 
 ---
 
 ## The crowd: the master equation (Fokker–Planck for jumps)
 
-Let \( \rho(t,x) \) be the fraction of makers at inventory \( x \) and time \( t \). Under the optimal quotes:
+Let$\rho(t,x)$be the fraction of makers at inventory$x$and time$t$. Under the optimal quotes:
 
 {% raw %}
 $$
@@ -210,7 +210,7 @@ $$
 $$
 {% endraw %}
 
-This is a **mass balance**: inflow from neighbors that trade into \( x \) minus outflow from \( x \) that trade away. Probabilities sum to one at each time: \( \sum_x \rho(t,x)=1 \). The **de-risk probability** used in the charts is \( P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x) \).
+This is a **mass balance**: inflow from neighbors that trade into$x$minus outflow from$x$that trade away. Probabilities sum to one at each time:$\sum_x \rho(t,x)=1$. The **de-risk probability** used in the charts is$P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x)$.
 
 ---
 
@@ -232,20 +232,20 @@ $$
 {% endraw %}
 
 Algorithmically we solve a **fixed point**:
-1. Guess \( \bar\delta^a(t) \) and \( \bar\delta^b(t) \).
-2. Solve HJB backward to get \( V \) and \( \delta^{*} \).
-3. Solve the master equation forward to update \( \rho \) and recompute \( \bar\delta \).
-4. Repeat 2–3 until \( \bar\delta \) stabilizes.
+1. Guess$\bar\delta^a(t)$and$\bar\delta^b(t)$.
+2. Solve HJB backward to get$V$and$\delta^{*}$.
+3. Solve the master equation forward to update$\rho$and recompute$\bar\delta$.
+4. Repeat 2–3 until$\bar\delta$stabilizes.
 
 ---
 
 ## Discretization (how the code mirrors the math)
 
-We use a grid: times \( t_n=n\Delta t \) and inventories \( x_i\in\{-X_{\max},\dots,X_{\max}\} \).
+We use a grid: times$t_n=n\Delta t$and inventories$x_i\in\{-X_{\max},\dots,X_{\max}\}$.
 
-**Backward (HJB)** — start from \( V(T,x)=-\gamma x^2 \). For each step \( t_{n+1}\to t_n \), compute \( \delta^{*} \) from the closed forms (with finite differences for \( V(t,x\pm1)-V(t,x) \)), then update \( V \) with a stable backward step.
+**Backward (HJB)** — start from$V(T,x)=-\gamma x^2$. For each step$t_{n+1}\to t_n$, compute$\delta^{*}$from the closed forms (with finite differences for$V(t,x\pm1)-V(t,x)$), then update$V$with a stable backward step.
 
-**Forward (master equation)**
+ **Forward (master equation)** 
 
 {% raw %}
 $$
@@ -260,7 +260,7 @@ $$
 
 ignoring terms that would step outside the inventory grid (reflective/absorbing behavior as chosen). This conserves probability up to numerical error.
 
-**Metrics**
+ **Metrics** 
 
 {% raw %}
 $$
@@ -284,30 +284,30 @@ $$
 
 ## Interpreting the dashboard (through the fair)
 
-- **Value surface** \( V(t,x) \): deepest near \( x=0 \) (safe when flat); rises as \( |x| \) grows; steepens near \( T \) (less time to fix mistakes).
-- **Control surface** \( \delta^{*}(t,x) \): small (tight) where trading is urgent (e.g., long inventory near close); larger (wide) when you want to slow down.
-- **Distribution** \( \rho(t,x) \): the ridge of the crowd funneling toward zero inventory over time—some finish early, others lag.
+- **Value surface**$V(t,x)$: deepest near$x=0$(safe when flat); rises as$|x|$grows; steepens near$T$(less time to fix mistakes).
+- **Control surface**$\delta^{*}(t,x)$: small (tight) where trading is urgent (e.g., long inventory near close); larger (wide) when you want to slow down.
+- **Distribution**$\rho(t,x)$: the ridge of the crowd funneling toward zero inventory over time—some finish early, others lag.
 - **Spreads over time**: average bid and ask and their difference (full spread) reveal competition’s compression during the session.
 - **Variance**: shows where crowding peaks (often mid-session).
-- **De-risk probability**: fraction of makers inside \( |x|<\varepsilon \); if it misses a policy target by \( T \), increase \( \eta \) or \( \gamma \).
-- **Marginal cost** \( \partial_x V(t,0) \): a shadow price for one more unit at flat inventory—useful as a real-time risk budget.
+- **De-risk probability**: fraction of makers inside$|x|<\varepsilon$; if it misses a policy target by$T$, increase$\eta$or$\gamma$.
+- **Marginal cost**$\partial_x V(t,0)$: a shadow price for one more unit at flat inventory—useful as a real-time risk budget.
 
 ---
 
-## Choosing and calibrating \(A\) and \(k\)
+## Choosing and calibrating$A$and$k$
 
-- **Data route:** Poisson regression of fill counts on distance from mid (plus covariates): \( \log \lambda = \log A - k\delta + \text{controls} \).
-- **Operational route:** back-solve from desk targets (e.g., “one tick tighter doubles flow” gives \( k=\ln 2 \); “at mid we expect 20 fills/min” gives \( A=20/\text{min} \)).
-- **Toy route:** pick \( k\in[0.3,1.0] \) per tick and choose \( A \) so \( \lambda\Delta t \) is modest around typical \( \delta \) (keeps the chain active but stable).
+- **Data route:** Poisson regression of fill counts on distance from mid (plus covariates):$\log \lambda = \log A - k\delta + \text{controls}$.
+- **Operational route:** back-solve from desk targets (e.g., “one tick tighter doubles flow” gives$k=\ln 2$; “at mid we expect 20 fills/min” gives$A=20/\text{min}$).
+- **Toy route:** pick$k\in[0.3,1.0]$per tick and choose$A$so$\lambda\Delta t$is modest around typical$\delta$(keeps the chain active but stable).
 
 ---
 
 ## Sanity checks
 
-- **Symmetry ⇒ net spread zero:** with symmetric parameters and centered \( \rho_0 \), the average of bid and ask cancels. Plot **full spread** \( \bar\delta^a-\bar\delta^b \).
-- **De-risk time:** use a Gaussian \( \rho_0 \) and a meaningful \( \varepsilon \) (e.g., \( 0.5 \)). Larger \( \eta,\gamma \) push \( P(|X_t|<\varepsilon) \) higher sooner.
-- **Monotone value slices:** for fixed \( t \), expect \( V(t,0)\ge V(t,\pm1)\ge V(t,\pm2)\cdots \).
-- **Probability conservation:** check \( \sum_i \rho_{n,i}\approx 1 \) and no edge mass accumulation.
+- **Symmetry ⇒ net spread zero:** with symmetric parameters and centered$\rho_0$, the average of bid and ask cancels. Plot **full spread**$\bar\delta^a-\bar\delta^b$.
+- **De-risk time:** use a Gaussian$\rho_0$and a meaningful$\varepsilon$(e.g.,$0.5$). Larger$\eta,\gamma$push$P(|X_t|<\varepsilon)$higher sooner.
+- **Monotone value slices:** for fixed$t$, expect$V(t,0)\ge V(t,\pm1)\ge V(t,\pm2)\cdots$.
+- **Probability conservation:** check$\sum_i \rho_{n,i}\approx 1$and no edge mass accumulation.
 
 ---
 
@@ -317,7 +317,7 @@ $$
 
 {% raw %}
 
-**Poisson intensities**
+ **Poisson intensities** 
 
 $$
 \lambda(\delta)=A e^{-k\delta},
@@ -325,7 +325,7 @@ $$
 \lambda(\delta-\Delta\delta) = e^{k\Delta\delta}\,\lambda(\delta).
 $$
 
-**Objective**
+ **Objective** 
 
 $$
 J^\pi(t,x)
@@ -336,13 +336,13 @@ J^\pi(t,x)
 \right].
 $$
 
-**Value function**
+ **Value function** 
 
 $$
 V(t,x)=\sup_{\pi} J^\pi(t,x).
 $$
 
-**HJB**
+ **HJB** 
 
 $$
 -\partial_t V
@@ -359,7 +359,7 @@ $$
 V(T,x)=-\gamma x^2.
 $$
 
-**Optimal quotes**
+ **Optimal quotes** 
 
 $$
 \delta^{a*}=\frac{1}{k}-[V(t,x-1)-V(t,x)],
@@ -367,7 +367,7 @@ $$
 \delta^{b*}=\frac{1}{k}-[V(t,x+1)-V(t,x)].
 $$
 
-**Population (master equation)**
+ **Population (master equation)** 
 
 $$
 \partial_t \rho
@@ -379,7 +379,7 @@ $$
 \rho(t,x)\big(\lambda^a(\delta^{a*}(t,x))+\lambda^b(\delta^{b*}(t,x))\big).
 $$
 
-**Mean field**
+ **Mean field** 
 
 $$
 \bar\delta^a_t=\sum_x \delta^{a*}(t,x)\rho(t,x),
