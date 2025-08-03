@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFG Market-Making Interactive Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; }
+        .plot-section { margin-bottom: 40px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; }
+        .plot-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #555; }
+        .plot-container { text-align: center; }
+        iframe { border: none; width: 100%; height: 600px; }
+        .metrics-iframe { height: 400px; }
+        .description { margin-bottom: 15px; color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mean-Field Game Market-Making Interactive Dashboard</h1>
+        
+        <div class="plot-section">
+            <div class="plot-title">Complete Dashboard</div>
+            <div class="description">Interactive dashboard showing all key components of the MFG solution.</div>
+            <div class="plot-container">
+                <iframe src="mfg_dashboard.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="plot-section">
+            <div class="plot-title">Value Function (3D)</div>
+            <div class="description">The value function V(t,x) represents the optimal expected profit.</div>
+            <div class="plot-container">
+                <iframe src="value_function_3d.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="plot-section">
+            <div class="plot-title">Mean-Field Distribution (3D)</div>
+            <div class="description">The distribution ρ(t,x) shows how market makers are distributed.</div>
+            <div class="plot-container">
+                <iframe src="distribution_3d.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="plot-section">
+            <div class="plot-title">Bid Control (3D)</div>
+            <div class="description">The bid control δᵇ(t,x) shows buying quotes.</div>
+            <div class="plot-container">
+                <iframe src="bid_control_3d.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="plot-section">
+            <div class="plot-title">Ask Control (3D)</div>
+            <div class="description">The ask control δᵃ(t,x) shows selling quotes.</div>
+            <div class="plot-container">
+                <iframe src="ask_control_3d.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="plot-section">
+            <div class="plot-title">Key Metrics</div>
+            <div class="description">Summary of important metrics.</div>
+            <div class="plot-container">
+                <iframe src="metrics_table.html" class="metrics-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    
