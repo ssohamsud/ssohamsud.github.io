@@ -264,17 +264,22 @@ $$
 \rho(t,x)\,[\lambda^a(\delta^{a*}(t,x)) + \lambda^b(\delta^{b*}(t,x))].
 $$
 
-This is a **mass balance**: inflow from neighbors that trade into $x$ minus outflow from $x$ that trade away.
+This is a mass balance inflow from neighbors that trade into $x$ minus outflow from $x$ that trade away.
 
 Probabilities sum to one at each time: $\sum_x \rho(t,x)=1$.
 
-The **de-risk probability** used in the charts is $P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x)$. 
+The de-risk probability used in the charts is:
+
+$$
+
+P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x)
+$$ 
 
 ---
 
 ## Mean-field coupling: competition
 
-Naturally, customers route to tighter quotes. A simple, tractable way to encode competition is to make intensities depend on **relative** tightness:
+Naturally, customers route to tighter quotes. A simple, tractable way to encode competition is to make intensities depend on relative tightness:
 
 $$
 
@@ -344,11 +349,14 @@ P(|X_{t_n}|<\varepsilon) = \sum_{|x_i|<\varepsilon} \rho_{n,i},
 $$
 
 
+rises as |x| grows; steepens near T (less time to fix mistakes).
 ---
 
 ## Interpreting the dashboard
 
-- **Value surface** $V(t,x)$: deepest near $x=0$ (safe when flat); rises as $|x|$ grows; steepens near $T$ (less time to fix mistakes).
+- **Value surface** $V(t,x)$: deepest near $x=0$ ,safe when flat, rises as $abs(x)$ grows and steepens near $T$ as there is less time fix heavy position
+
+- **Value surface** $V(t,x)$: deepest near $x=0$ (safe when flat),
 
 - **Control surface** $\delta^{*}(t,x)$: small (tight) where trading is urgent (e.g., long inventory near close); larger (wide) when you want to slow down.
 
@@ -358,7 +366,7 @@ $$
 
 - **Variance**: shows where crowding peaks (often mid-session).
 
-- **De-risk probability**: fraction of makers inside $|x|<\varepsilon$; if it misses a policy target by $T$, increase $\eta$ or $\gamma$.
+- **De risk probability**: fraction of makers inside $x<\varepsilon$; if it misses a policy target by $T$, increase $\eta$ or $\gamma$.
 
 - **Marginal cost** $\partial_x V(t,0)$: a shadow price for one more unit at flat inventory—useful as a real-time risk budget.
 
