@@ -8,9 +8,6 @@ math: true
 pinned: false
 ---
 
-
-I was reading Terry Tao's blog and a post on mean-field equations sparked an idea: could we turn mean-field games into a practical market-making model? This article builds that model from first principles, step by step, and keeps a running analogy with a giant **apple fair** (you are a stall-holder, the market is the fair). All formulas are presented in a MathJax-friendly way so they render reliably.
-
 ## Introduction
 I was reading Terry Tao's blog the recently and stumbled across this pretty cool field of maths: Mean Field Games. It's like if game theory and stochastic differential equations had a kid and its fairly new as well. He has some amazing analogies at the start of his blog which I hope he wont mind me copying (he will never see this blog page) to better explain the ideas of Mean Field Games to sort of set the scene for you.
 
@@ -225,7 +222,7 @@ f(\delta) = \lambda(\delta)\,[\Delta V^a + \delta] = A e^{-k\delta}(\Delta V^a +
 $$
 
 
-Differentiate and set to $0$:
+Differentiate and set equal to $0$:
 
 $$
 
@@ -235,7 +232,7 @@ f'(\delta) = A e^{-k\delta}\,[-k(\Delta V^a+\delta) + 1] = 0
 $$
 
 
-Bid is analogous:
+Our bid is analogous:
 
 $$
 
@@ -243,7 +240,7 @@ $$
 $$
 
 
-Intuition: if selling is urgent (you are long near close), $V(t,x-1)-V(t,x)$ is **very negative**, so $\delta^{a \*}$ becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short), $\delta^{b \*}$ shrinks too. In our code we clipped $\delta$ to practical bounds.
+If selling is urgent (you are long near close), $V(t,x-1)-V(t,x)$ is **very negative**, so $\delta^{a \*}$ becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short), $\delta^{b \*}$ shrinks too. In our code we clipped $\delta$ to practical bounds.
 
 $$
 \delta^{a*} \;=\; \frac{1}{k}\;-\;\bigl[V(t,x-1)-V(t,x)\bigr].
@@ -252,7 +249,7 @@ $$
 
 ---
 
-## Everyone Else: the master equation (Fokker–Planck for jumps)
+## Everyone Else: Fokker–Planck
 
 Let $\rho(t,x)$ be the fraction of makers at inventory $x$ and time $t$. Under the optimal quotes:
 
@@ -267,14 +264,17 @@ $$
 \rho(t,x)\,[\lambda^a(\delta^{a*}(t,x)) + \lambda^b(\delta^{b*}(t,x))].
 $$
 
+This is a **mass balance**: inflow from neighbors that trade into $x$ minus outflow from $x$ that trade away.
 
-This is a **mass balance**: inflow from neighbors that trade into $x$ minus outflow from $x$ that trade away. Probabilities sum to one at each time: $\sum_x \rho(t,x)=1$. The **de-risk probability** used in the charts is $P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x)$.
+Probabilities sum to one at each time: $\sum_x \rho(t,x)=1$.
+
+The **de-risk probability** used in the charts is $P(|X_t|<\varepsilon) = \sum_{|x|<\varepsilon} \rho(t,x)$. 
 
 ---
 
 ## Mean-field coupling: competition
 
-Customers route to tighter quotes. A simple, tractable way to encode competition is to make intensities depend on **relative** tightness:
+Naturally, customers route to tighter quotes. A simple, tractable way to encode competition is to make intensities depend on **relative** tightness:
 
 $$
 
@@ -299,13 +299,13 @@ Algorithmically we solve a **fixed point**:
 
 ---
 
-## Discretization (how the code mirrors the math)
+## Discretization
 
-We use a grid: times $t_n=n\Delta t$ and inventories $x_i\in\{-X_{\max},\dots,X_{\max}\}$.
+To solve this system we use a grid: times $t_n=n\Delta t$ and inventories $x_i\in\{-X_{\max},\dots,X_{\max}\}$.
 
 **Backward (HJB)** — start from $V(T,x)=-\gamma x^2$. For each step $t_{n+1}\to t_n$, compute $\delta^{*}$ from the closed forms (with finite differences for $V(t,x\pm1)-V(t,x)$), then update $V$ with a stable backward step.
 
- **Forward (master equation)** 
+ **Forward (Fokker-Planck)** 
 
 $$
 
@@ -346,32 +346,21 @@ $$
 
 ---
 
-## Interpreting the dashboard (through the fair)
+## Interpreting the dashboard
 
 - **Value surface** $V(t,x)$: deepest near $x=0$ (safe when flat); rises as $|x|$ grows; steepens near $T$ (less time to fix mistakes).
+
 - **Control surface** $\delta^{*}(t,x)$: small (tight) where trading is urgent (e.g., long inventory near close); larger (wide) when you want to slow down.
+
 - **Distribution** $\rho(t,x)$: the ridge of the crowd funneling toward zero inventory over time—some finish early, others lag.
+
 - **Spreads over time**: average bid and ask and their difference (full spread) reveal competition’s compression during the session.
+
 - **Variance**: shows where crowding peaks (often mid-session).
+
 - **De-risk probability**: fraction of makers inside $|x|<\varepsilon$; if it misses a policy target by $T$, increase $\eta$ or $\gamma$.
+
 - **Marginal cost** $\partial_x V(t,0)$: a shadow price for one more unit at flat inventory—useful as a real-time risk budget.
-
----
-
-## Choosing and calibrating $A$ and $k$ 
-
-- **Data route:** Poisson regression of fill counts on distance from mid (plus covariates): $\log \lambda = \log A - k\delta + \text{controls}$ .
-- **Operational route:** back-solve from desk targets (e.g., “one tick tighter doubles flow” gives $k=\ln 2$; “at mid we expect 20 fills/min” gives $A=20/\text{min}$ ).
-- **Toy route:** pick $k\in[0.3,1.0]$ per tick and choose $A$ so $\lambda\Delta t$ is modest around typical $\delta$ (keeps the chain active but stable).
-
----
-
-## Sanity checks
-
-- **Symmetry ⇒ net spread zero:** with symmetric parameters and centered $\rho_0$, the average of bid and ask cancels. Plot **full spread** $\bar\delta^a-\bar\delta^b$ .
-- **De-risk time:** use a Gaussian $\rho_0$ and a meaningful $\varepsilon$ (e.g., $0.5$ ). Larger $\eta,\gamma$ push $P(|X_t|<\varepsilon)$ higher sooner.
-- **Monotone value slices:** for fixed $t$, expect $V(t,0)\ge V(t,\pm1)\ge V(t,\pm2)\cdots$ .
-- **Probability conservation:** check $\sum_i \rho_{n,i}\approx 1$ and no edge mass accumulation.
 
 ---
 
@@ -466,8 +455,9 @@ $$
 
 ---
 
-## Closing picture
+## Conclusion
 
-The fair opens. You choose price tags (quotes). Tight tags attract buyers but may pile up baskets; wide tags keep you safe but slow you down. The crowd’s average behavior feeds back into your fortunes: if everyone tightens, bargains abound and your edge shrinks; if the crowd widens, your caution looks wise. The mathematics—Poisson intensities, a clean HJB with closed-form optimal quotes, and a forward equation for the population—turns this story into a solvable loop that yields policy maps and risk-aware schedules a desk can actually use.
+The fair opens. You choose prices (quotes). Tight prices attract buyers but may pile up baskets; wide prices keep you safe but slow you down. The crowd’s average behavior feeds back into your fortunes: if everyone tightens, bargains abound and your edge shrinks; if the crowd widens, your caution looks wise.
 
-Explore the demo, play with the knobs, and watch the fair breathe. The pictures you see—value bowls, control dials, and the crowd’s ridge drifting to zero—are just these equations, painted in color.
+The mathematics: Poisson intensities, a clean HJB with closed-form optimal quotes, and a forward equation for the population—turns this story into a solvable loop that yields policy maps and risk-aware schedules a desk can actually use.
+
