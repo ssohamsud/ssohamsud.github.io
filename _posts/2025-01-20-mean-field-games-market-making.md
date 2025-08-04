@@ -11,20 +11,65 @@ pinned: false
 
 I was reading Terry Tao's blog and a post on mean-field equations sparked an idea: could we turn mean-field games into a practical market-making model? This article builds that model from first principles, step by step, and keeps a running analogy with a giant **apple fair** (you are a stall-holder, the market is the fair). All formulas are presented in a MathJax-friendly way so they render reliably.
 
+## Introduction
+I was reading Terry Tao's blog the recently and stumbled across this pretty cool field of maths: Mean Field Games. It's like if game theory and stochastic differential equations had a kid and its fairly new as well. He has some amazing analogies at the start of his blog which I hope he wont mind me copying (he will never see this blog page) to better explain the ideas of Mean Field Games to sort of set the scene for you.
+
+## Some intuition on Mean Field Games
+You've probably been to some sort of stadium in your life (if you haven't then Ctrl+W right now and go book tickets for some random sporting fixture). Mexican Waves are one of those things that most people want to do but a lot of just don't have the guts to start off that chain in the event of horrific failure and consequential embarrasment. At some point in our life, we have all pondered - "how do we determine our *effort* and *response* to the Mexican Wave headed our way." 
+
+Well, ignoring pyschologists and biologists exist, it definitely makes sense to turn to the mathematician and leave it to them to turn a person into a function with parameters that satisfy some (stochastic) differential equation. What this might leave us with is a scenario in which this effort and response to the wave is governed by some differential equations over a "Mean" (hopefully its clicking now), where the mean is a large number of other "players" of this game. What we ask ourselves is: based on our own functions and parameters such as confidence or response of nearby agents, what is our best response in this game?
+
 ---
+## From Mexican Waves to Market Making
+Market Making is something which I was first exposed to at a spring week I did at Optiver. It took some time to get my head around during that spring week but I managed to understand the general idea behind it after being shouted at multiple times - "YOU CANT BUY A BID!"
 
-## What we’re building
+I'll have a go at explaining market making as best I can with setting the scene of another super common life experience, a bustling fruit market that only sells apples with lots of stalls and lots of customers. In the market place, we consider what the best "ask" of a farmer (seller) is and the best "bid" of an apple buyer is. Intuitively, if these prices lineup/overlap, trades will take place (think someone is selling something for £50 but you are willing to pay £60, you will obviously buy). However, when these prices don't line up and the spread between the two increases more and more, we face a problem called "illiquidity". Trades aren't happening in this marketplace and its neither good for the farmers nor the customers. 
 
-- A **market maker** posts a **bid** (to buy) and **ask** (to sell) around the mid price.
-- **Tight** quotes bring more trades but build **inventory**; **wide** quotes slow trades and reduce risk.
-- Many similar makers interact through the **average behavior** of the crowd (the *mean field*).
+What a market maker (mm) will come and do is tighten that bid-ask spread to provide liquidity to the market to encourage trading and as a result profit on the spread of their bid and ask. A quick example may help to demonstrate this:
+
+No Market Maker Present: Best Ask: £8 a crate, Best Bid: £5 a crate. Result: Super low level of trading
+
+Market Maker Present: MM Ask: £7 a crate, MM Bid: £6 a crate. Result: More trading, market maker profits on £1 spread.
+
+## The Aim of the Project
+
+### Issues with traditional systems
+
+Many of the current models used in market making such as Avellaneda–Stoikov (I'll write a blog about this soon!) assume you are the only agent, you end up optimising your quotes based on exogenous flow (in the apple analogy this translates to "the number of shoppers walking past each minute is fixed by the weather,regardless of how stalls set prices"). In reality, markets witness more endogenous flow: "if all apple stalls cut prices, shoppers run to the cheapest vendors, changing your foot traffic."
+
+Another issue is scalability, simulating hundreds of interacting makers as an N-player stochastic game is intractable; single-agent models can’t capture the feedback loop and N-player models don’t scale reasonably.
+
+### Why is adding Mean Field Games so good?
+
+Mean Field Games (MFG) treats a continuum of small players and treats everyone else with a mean field - this is the distribution of inventories and average quotes.
+
+MFG uses two coupled equations: Hamilton-Jacobi-Bellman (HJB) and Fokker Plank (FP) to capture the loop between making new quotes based on the evolution of other makers distribution.
+
+From a broad angle, the mechanics of the two equations are as follows:
+
+- **HJB** (backward): each maker’s optimal quotes given the crowd.
+- **Fokker–Planck** (forward): how the crowd distribution evolves when everyone follows those quotes.
+
+Solving these equations for their fixed point gives you:
+
+- Endogenous intensities: fill rates depend on your relative tightness to the crowd average—exactly the competitive mechanism.
+- Equilibrium spreads: a time-path for the population’s bid/ask behavior (when spreads naturally compress or widen).
+- Crowd inventory dynamics: when de-risking waves happen, how concentrated inventory becomes, who is likely stuck at the bell.
+
+
+In a world where algorithmic tradings tumps manual trading, ignoring feedback from interacting strategies creates systematically biased expectations for trades, PnL and risk. 
+
+The aim of this project is to implement this theory in the world of market making to hopefully create a system which provides optimal quotes based on the market's trading itself - without us actually knowing what the market is trading and is about.
+
+Below is a quick overview of what we found - mainly for those who don't want to get their hands dirty in the maths and only in results: 
 
 Over a trading day  $[0,T]$, our solver computes:
 
-1. a **value function**  $V(t,x)$  — the best expected objective you can still achieve from time  $t$  with inventory  $x$ ;
-2. **optimal quotes**  $\delta^{b*}(t,x)$  and  $\delta^{a*}(t,x)$ ;
-3. the evolving **population distribution**  $\rho(t,x)$  of inventories;
-4. **actionable metrics** such as average bid/ask, full spread, inventory variance, de-risk probability, and marginal cost.
+1. a **value function**  $V(t,x)$  — the best expected objective you can still achieve from time  $t$  with inventory  $x$ 
+2. **optimal bid**  $\delta^{b*}(t,x)$
+3. **optimal ask**  $\delta^{a*}(t,x)$
+4. the evolving **population distribution**  $\rho(t,x)$  of inventories;
+5. **actionable metrics** such as average bid/ask, full spread, inventory variance, de-risk probability, and marginal cost.
 
 The interactive dashboard below renders the same objects the solver computes.
 
@@ -45,15 +90,16 @@ The interactive dashboard below renders the same objects the solver computes.
 
 ---
 
-## Micro model: quotes, fills, and inventory
+## Modelling the Bid-Ask Spread
 
-Imagine the apple fair. A big board shows the “mid” price. You set two tags relative to that mid:
+Lets go back to the apple market. Imagine that a big board shows the current mid price of the apples. As a market maker, you want to set two prices relative to that mid:
+
 - **ask markup** $\delta^a_t \ge 0$ (how far above mid you sell one unit),
 - **bid markdown** $\delta^b_t \ge 0$ (how far below mid you buy one unit).
 
-Tighter tags (smaller $\delta$ ) attract customers; wider tags discourage them.
+Intuitively: tighter prices (smaller $\delta$ ) attract customers; wider prices discourage them from trading.
 
-We model fills at your quotes with **Poisson processes**. The intensity (rate) falls off exponentially with your distance from mid. This is standard, simple, and empirically reasonable:
+We can model trades at our quotes with **Poisson processes**. The intensity (rate) falls off exponentially with the distance from mid-price. This is standard, simple, and empirically reasonable:
 
 $$
 
@@ -82,9 +128,13 @@ We use **edge accounting** relative to mid: a sell at $\mathrm{mid}+\delta^a$ ea
 
 ---
 
-## Objective: edge vs. inventory risk
+## Edge vs Inventory Risk
+If you have apples at the end of the day, they might go bad overnight or maybe the orange market sees literal overnight success, reducing demand significantly for apples.
 
-During the day you accumulate **edge** when fills occur, pay a **running** cost for carrying inventory, and care about ending flat. For a quoting policy $\pi$:
+Similarly, market makers may try and finish close to a neutral position by market close: this is definitely not always true but this strategy certainly helps reduce risk.
+
+
+During the day you accumulate an **edge** when trades occur, pay a **running** cost for carrying inventory, and care about ending flat. Assume we have some policy $\pi$ such that:
 
 $$
 
@@ -113,18 +163,19 @@ V(t,x) = \sup_{\pi} J^\pi(t,x).
 $$
 
 
-Intuition: “From now until close, what’s the maximum expected ‘edge minus risk’ I can still achieve if I currently hold $x$ baskets?”
+You can think of this as: “from now until close, what’s the maximum expected ‘edge minus risk’ I can still achieve if I currently hold $x$ crates?”
 
 ---
 
 ## From dynamic programming to the HJB
 
-Look ahead a short time $h>0$. Three outcomes can happen over $[t,t+h]$:
+
+Consider a small shift in time $h>0$. Three outcomes can happen over $[t,t+h]$:
 - **ask fill** with probability $\lambda^a(\delta^a_t)h + o(h)$: reward $\delta^a_t$, inventory $x\to x-1$;
 - **bid fill** with probability $\lambda^b(\delta^b_t)h + o(h)$: reward $\delta^b_t$, inventory $x\to x+1$;
 - **no fill** with probability $1-(\lambda^a+\lambda^b)h + o(h)$.
 
-Running cost over that interval is approximately $-\eta\,x^2 h$. The **Dynamic Programming Principle** gives:
+Running cost over that interval is approximately $-\eta\,x^2 h$. We utilise the **Dynamic Programming Principle** to give:
 
 $$
 
@@ -160,7 +211,7 @@ V(T,x) = -\gamma\,x^2.
 $$
 
 
-Read each bracket as “instant edge plus change in future value, weighted by how likely that fill is right now.”
+We can interpret each bracket as the “instant edge plus change in future value, weighted by how likely that trade is right now.”
 
 ---
 
@@ -192,11 +243,16 @@ $$
 $$
 
 
-Intuition: if selling is urgent (you are long near close), $V(t,x-1)-V(t,x)$ is **very negative**, so $\delta^{a*}$ becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short), $\delta^{b*}$ shrinks too. In code we clip $\delta$ to practical bounds.
+Intuition: if selling is urgent (you are long near close), $V(t,x-1)-V(t,x)$ is **very negative**, so $\delta^{a \*}$ becomes **small** — you **tighten** to get hit. If buying back is urgent (you are short), $\delta^{b \*}$ shrinks too. In our code we clipped $\delta$ to practical bounds.
+
+$$
+\delta^{a*} \;=\; \frac{1}{k}\;-\;\bigl[V(t,x-1)-V(t,x)\bigr].
+$$
+
 
 ---
 
-## The crowd: the master equation (Fokker–Planck for jumps)
+## Everyone Else: the master equation (Fokker–Planck for jumps)
 
 Let $\rho(t,x)$ be the fraction of makers at inventory $x$ and time $t$. Under the optimal quotes:
 
