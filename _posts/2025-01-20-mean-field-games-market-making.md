@@ -114,16 +114,15 @@ $$
 \text{Full spread} \;=\; \delta^a_t + \delta^b_t \;=\; (m_t + \delta^a_t) \;-\; (m_t - \delta^b_t) \;=\; \text{ask} \;-\; \text{bid}.
 $$
 
-Intuitively: tighter prices (smaller $\delta$ ) attract customers; wider prices discourage them from trading.
+Intuitively: tighter prices (smaller $\delta$) attract customers; wider prices discourage them from trading.
 
 We can model trades at our quotes with **Poisson processes**. The intensity (rate) falls off exponentially with the distance from mid-price. This is standard, simple, and empirically reasonable:
-
 $$
-\lambda^a(\delta) = A\,e^{-k\delta}, 
+\lambda^a(\delta) \;=\; A\,e^{-k\delta}, 
 \qquad 
-\lambda^b(\delta) = A\,e^{-k\delta},
+\lambda^b(\delta) \;=\; A\,e^{-k\delta},
 \qquad 
-A>0,\ k>0.
+A>0,\; k>0.
 $$
 
 - $\lambda$ is a **rate**: expected fills per unit time.
@@ -133,8 +132,8 @@ $$
 $$
 
 Inventory $X_t$ changes by single-unit jumps:
-- ask fill (you sell) makes $X\to X-1$,
-- bid fill (you buy) makes $X\to X+1$.
+- ask fill (you sell) makes $X \to X-1$,
+- bid fill (you buy) makes $X \to X+1$.
 
 We use **edge accounting** relative to mid: a sell at $\mathrm{mid}+\delta^a$ earns edge $\delta^a$; a buy at $\mathrm{mid}-\delta^b$ also earns edge $\delta^b$. Mid cancels from the accounting.
 
@@ -146,7 +145,6 @@ If you have apples at the end of the day, they might go bad overnight or maybe t
 Similarly, market makers may try and finish close to a neutral position by market close: this is definitely not always true but this strategy certainly helps reduce risk.
 
 During the day you accumulate an **edge** when trades occur, pay a **running** cost for carrying inventory, and care about ending flat. Assume we have some policy $\pi$ such that:
-
 $$
 J^\pi(t,x)
 =
@@ -157,7 +155,7 @@ J^\pi(t,x)
 \big)
 \;-\;
 \gamma\,X_T^2
-\right],
+\right].
 $$
 
 - $dN^a_s$ and $dN^b_s$ are Poisson increments,
@@ -176,20 +174,24 @@ You can think of this as: “from now until close, what’s the maximum expected
 ## From dynamic programming to the HJB
 
 Consider a small shift in time $h>0$. Three outcomes can happen over $[t,t+h]$:
-- **ask fill** with probability $\lambda^a(\delta^a_t)h + o(h)$: reward $\delta^a_t$, inventory $x\to x-1$;
-- **bid fill** with probability $\lambda^b(\delta^b_t)h + o(h)$: reward $\delta^b_t$, inventory $x\to x+1$;
+- **ask fill** with probability $\lambda^a(\delta^a_t)\,h + o(h)$: reward $\delta^a_t$, inventory $x\to x-1$;
+- **bid fill** with probability $\lambda^b(\delta^b_t)\,h + o(h)$: reward $\delta^b_t$, inventory $x\to x+1$;
 - **no fill** with probability $1-(\lambda^a+\lambda^b)h + o(h)$.
 
 Running cost over that interval is approximately $-\eta\,x^2 h$. We utilise the **Dynamic Programming Principle** to give:
+
 $$
-V(t,x) =
+V(t,x)
+=
 \sup_{\delta^a,\delta^b}
 \mathbb{E}\!\left[
-\int_t^{t+h} \big(\delta^a_s\,dN^a_s + \delta^b_s\,dN^b_s - \eta\,x^2\,ds\big)
-+ V(t+h, X_{t+h})
+\int_{t}^{t+h}
+\bigl(\delta^a_s\,dN^a_s + \delta^b_s\,dN^b_s - \eta\,x^2\,ds\bigr)
++ V\bigl(t+h, X_{t+h}\bigr)
 \right]
 + o(h).
 $$
+
 
 Expand $V(t+h,\cdot) = V(t,\cdot) + \partial_t V(t,\cdot)\,h + o(h)$. Take expectations, subtract $V(t,x)$, divide by $h$, and let $h\to 0$. The **Hamilton–Jacobi–Bellman (HJB)** equation is:
 $$
@@ -205,7 +207,7 @@ $$
 \Big\},
 $$
 $$
-V(T,x) = -\gamma\,x^2.
+V(T,x) \;=\; -\gamma\,x^2.
 $$
 
 We can interpret each bracket as the “instant edge plus change in future value, weighted by how likely that trade is right now.”
@@ -216,12 +218,12 @@ We can interpret each bracket as the “instant edge plus change in future value
 
 Inside the HJB, each side can be optimized separately. For the ask side, let $\Delta V^a(t,x)=V(t,x-1)-V(t,x)$. We maximize:
 $$
-f(\delta) \;=\; \lambda(\delta)\,[\Delta V^a + \delta] \;=\; A e^{-k\delta}(\Delta V^a + \delta).
+f(\delta) \;=\; \lambda(\delta)\,[\Delta V^a + \delta] \;=\; A\,e^{-k\delta}\big(\Delta V^a + \delta\big).
 $$
 
 Differentiate and set equal to $0$:
 $$
-f'(\delta) \;=\; A e^{-k\delta}\,[-k(\Delta V^a+\delta) + 1] \;=\; 0
+f'(\delta) \;=\; A\,e^{-k\delta}\,\big[-k(\Delta V^a+\delta) + 1\big] \;=\; 0
 \quad\Rightarrow\quad
 \delta^{a*}(t,x) \;=\; \frac{1}{k} \;-\; \big[V(t,x-1) - V(t,x)\big].
 $$
@@ -240,7 +242,7 @@ $$
 $$
 
 ### Interactive Control Surfaces
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 30px 0%;">
   <iframe src="/assets/demos/mfg-market-making/control_3d.html"
           width="100%"
           height="500"
@@ -251,7 +253,7 @@ $$
   </p>
 </div>
 
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 30px 0%;">
   <iframe src="/assets/demos/mfg-market-making/ask_control_3d.html"
           width="100%"
           height="500"
@@ -262,7 +264,7 @@ $$
   </p>
 </div>
 
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 30px 0%;">
   <iframe src="/assets/demos/mfg-market-making/bid_control_3d.html"
           width="100%"
           height="500"
@@ -281,11 +283,11 @@ Let $\rho(t,x)$ be the fraction of makers at inventory $x$ and time $t$. Under t
 $$
 \partial_t \rho(t,x)
 =
-\rho(t,x+1)\,\lambda^a(\delta^{a*}(t,x+1))
+\rho(t,x+1)\,\lambda^a\!\big(\delta^{a*}(t,x+1)\big)
 +
-\rho(t,x-1)\,\lambda^b(\delta^{b*}(t,x-1))
+\rho(t,x-1)\,\lambda^b\!\big(\delta^{b*}(t,x-1)\big)
 -
-\rho(t,x)\,[\lambda^a(\delta^{a*}(t,x)) + \lambda^b(\delta^{b*}(t,x))].
+\rho(t,x)\,\big[\lambda^a\!\big(\delta^{a*}(t,x)\big) + \lambda^b\!\big(\delta^{b*}(t,x)\big)\big].
 $$
 
 This is a mass balance inflow from neighbors that trade into $x$ minus outflow from $x$ that trade away.
@@ -294,12 +296,12 @@ Probabilities sum to one at each time: $\sum_x \rho(t,x)=1$.
 
 The de-risk probability used in the charts is:
 $$
-P(|X_t|<\varepsilon) \;=\; \sum_{|x|<\varepsilon} \rho(t,x)
+P\big(|X_t|<\varepsilon\big) \;=\; \sum_{|x|<\varepsilon} \rho(t,x)
 $$
-(where the sum runs over grid points with $\mathrm{abs}(x_i)<\varepsilon$ and the appropriate $\Delta x$ weight).
+(where the sum runs over grid points with $\lvert x_i\rvert<\varepsilon$ and the appropriate $\Delta x$ weight).
 
 ### Interactive Population Distribution
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 30px 0%;">
   <iframe src="/assets/demos/mfg-market-making/distribution_3d.html"
           width="100%"
           height="500"
@@ -316,37 +318,37 @@ $$
 
 Naturally, customers route to tighter quotes. A simple, tractable way to encode competition is to make intensities depend on relative tightness:
 $$
-\lambda^a(\delta^a;\,\bar\delta^a_t) \;=\; A\,e^{-k(\delta^a-\bar\delta^a_t)},
+\lambda^a\big(\delta^a;\,\bar{\delta}^a_t\big) \;=\; A\,e^{-k(\delta^a-\bar{\delta}^a_t)},
 \qquad
-\bar\delta^a_t \;=\; \sum_x \delta^{a*}(t,x)\,\rho(t,x),
+\bar{\delta}^a_t \;=\; \sum_x \delta^{a*}(t,x)\,\rho(t,x),
 $$
 $$
-\lambda^b(\delta^b;\,\bar\delta^b_t) \;=\; A\,e^{-k(\delta^b-\bar\delta^b_t)},
+\lambda^b\big(\delta^b;\,\bar{\delta}^b_t\big) \;=\; A\,e^{-k(\delta^b-\bar{\delta}^b_t)},
 \qquad
-\bar\delta^b_t \;=\; \sum_x \delta^{b*}(t,x)\,\rho(t,x).
+\bar{\delta}^b_t \;=\; \sum_x \delta^{b*}(t,x)\,\rho(t,x).
 $$
 
-*Note (functional form):* The form $A\,e^{-k(\delta-\bar\delta)}$ is **invariant to uniform shifts** $\delta \mapsto \delta+\Delta$, $\bar\delta \mapsto \bar\delta+\Delta$. If you want absolute tightness of the crowd to change total flow (e.g. spread compression increases trading), a minimal drop-in is to multiply by a decreasing total-flow term,
+*Note (functional form):* The form $A\,e^{-k(\delta-\bar{\delta})}$ is **invariant to uniform shifts** $\delta \mapsto \delta+\Delta$, $\bar{\delta} \mapsto \bar{\delta}+\Delta$. If you want absolute tightness of the crowd to change total flow (e.g. spread compression increases trading), a minimal drop-in is to multiply by a decreasing total-flow term,
 $$
-\lambda^a(\delta^a;\bar\delta^a_t)
-= \underbrace{\Lambda_{\text{tot}}(\bar\delta^a_t)}_{\text{decreasing in }\bar\delta^a_t}\,
-  e^{-k(\delta^a-\bar\delta^a_t)},
+\lambda^a\big(\delta^a;\,\bar{\delta}^a_t\big)
+= \underbrace{\Lambda_{\text{tot}}\!\big(\bar{\delta}^a_t\big)}_{\text{decreasing in }\bar{\delta}^a_t}\,
+  e^{-k(\delta^a-\bar{\delta}^a_t)},
 \qquad
-\Lambda_{\text{tot}}(\bar\delta)\;=\;A_0\,e^{-k_0 \bar\delta}.
+\Lambda_{\text{tot}}(\bar{\delta})\;=\;A_0\,e^{-k_0 \bar{\delta}}.
 $$
 Alternatively, use a *market-share* split for relative competition,
 $$
-\lambda^a(\delta^a;\bar\delta^a_t)
+\lambda^a\big(\delta^a;\,\bar{\delta}^a_t\big)
 = \Lambda_{\text{tot}}\,
-  \frac{e^{-k\delta^a}}{e^{-k\delta^a} + (N-1)e^{-k\bar\delta^a_t}},
+  \frac{e^{-k\delta^a}}{\,e^{-k\delta^a} + (N-1)\,e^{-k\bar{\delta}^a_t}\,}\,,
 $$
 which preserves demand allocation while keeping overall flow explicit via $\Lambda_{\text{tot}}$.
 
 Algorithmically we solve a **fixed point**:
-1. Guess $\bar\delta^a(t)$ and $\bar\delta^b(t)$.
+1. Guess $\bar{\delta}^a(t)$ and $\bar{\delta}^b(t)$.
 2. Solve HJB backward to get $V$ and $\delta^{*}$.
-3. Solve the master equation forward to update $\rho$ and recompute $\bar\delta$.
-4. Repeat 2–3 until $\bar\delta$ stabilizes.
+3. Solve the master equation forward to update $\rho$ and recompute $\bar{\delta}$.
+4. Repeat 2–3 until $\bar{\delta}$ stabilizes.
 
 ---
 
@@ -356,36 +358,40 @@ To solve this system we use a grid: times $t_n=n\Delta t$ and inventories $x_i\i
 
 **Backward (HJB)** — start from $V(T,x)=-\gamma x^2$. For each step $t_{n+1}\to t_n$, compute $\delta^{*}$ from the closed forms (with finite differences for $V(t,x\pm1)-V(t,x)$), then update $V$ with a stable backward step.
 
-**Forward (Fokker-Planck)** 
+**Forward (Fokker–Planck)**
+
 $$
-\rho_{n+1,i} \;=\; \rho_{n,i}
-+ \Delta t\left(
-\rho_{n,i+1}\lambda^a_{n,i+1}
-+ \rho_{n,i-1}\lambda^b_{n,i-1}
-- \rho_{n,i}(\lambda^a_{n,i}+\lambda^b_{n,i})
-\right),
+\rho_{n+1,i}
+=
+\rho_{n,i}
++\Delta t\,\bigl(
+\rho_{n,i+1}\,\lambda^{a}_{n,i+1}
++\rho_{n,i-1}\,\lambda^{b}_{n,i-1}
+-\rho_{n,i}\,(\lambda^{a}_{n,i}+\lambda^{b}_{n,i})
+\bigr).
 $$
+
 ignoring terms that would step outside the inventory grid (reflective/absorbing behavior as chosen). This conserves probability up to numerical error. We enforce $\rho_{n+1,i} \ge 0$ and renormalise so that $\sum_i \rho_{n+1,i}\,\Delta x = 1$ at each step (numerical mass conservation).
 
 **Metrics** 
 $$
-\bar\delta^{b}(t_n) \;=\; \sum_i \delta^{b*}_{n,i}\,\rho_{n,i},
+\bar{\delta}^{\,b}(t_n) \;=\; \sum_i \delta^{b*}_{n,i}\,\rho_{n,i},
 \qquad
-\bar\delta^{a}(t_n) \;=\; \sum_i \delta^{a*}_{n,i}\,\rho_{n,i},
+\bar{\delta}^{\,a}(t_n) \;=\; \sum_i \delta^{a*}_{n,i}\,\rho_{n,i},
 $$
 $$
-\text{FullSpread}(t_n) \;=\; \bar\delta^{a}(t_n) \;+\; \bar\delta^{b}(t_n),
+\text{FullSpread}(t_n) \;=\; \bar{\delta}^{\,a}(t_n) \;+\; \bar{\delta}^{\,b}(t_n),
 \qquad
-\text{Var}[X](t_n) \;=\; \sum_i (x_i - \bar x_n)^2\,\rho_{n,i},
+\mathrm{Var}[X](t_n) \;=\; \sum_i (x_i - \bar x_n)^2\,\rho_{n,i},
 $$
 $$
-P(|X_{t_n}|<\varepsilon) \;=\; \sum_{\mathrm{abs}(x_i)<\varepsilon} \rho_{n,i},
+P\big(|X_{t_n}|<\varepsilon\big) \;=\; \sum_{\lvert x_i\rvert<\varepsilon} \rho_{n,i},
 \qquad
 \partial_x V(t_n,0) \approx \frac{V(t_n,\Delta x) - V(t_n,-\Delta x)}{2\,\Delta x}.
 $$
 
 ### Interactive Metrics Table
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 30px 0%;">
   <iframe src="/assets/demos/mfg-market-making/metrics_table.html"
           width="100%"
           height="600"
@@ -396,12 +402,13 @@ $$
   </p>
 </div>
 
-rises as $\mathrm{abs}(x)$ grows; steepens near $T$ (less time to fix mistakes).
+rises as $\lvert x\rvert$ grows; steepens near $T$ (less time to fix mistakes).
+
 ---
 
 ## Interpreting the dashboard
 
-- **Value surface** $V(t,x)$: deepest near $x=0$ ,safe when flat, rises as $\mathrm{abs}(x)$ grows and steepens near $T$ as there is less time fix heavy position
+- **Value surface** $V(t,x)$: deepest near $x=0$ ,safe when flat, rises as $\lvert x\rvert$ grows and steepens near $T$ as there is less time fix heavy position
 
 - **Value surface** $V(t,x)$: deepest near $x=0$ (safe when flat),
 
@@ -423,20 +430,24 @@ rises as $\mathrm{abs}(x)$ grows; steepens near $T$ (less time to fix mistakes).
 
 **Poisson intensities** 
 $$
-\lambda(\delta)\;=\;A e^{-k\delta},
+\lambda(\delta)\;=\;A\,e^{-k\delta},
 \qquad
 \lambda(\delta-\Delta\delta) \;=\; e^{k\Delta\delta}\,\lambda(\delta).
 $$
 
-**Objective** 
+**Objective**
+
 $$
 J^\pi(t,x)
 =
 \mathbb{E}_{t,x}^{\pi}\!\left[
-\int_t^{T} \big(\delta^a\,dN^a + \delta^b\,dN^b - \eta\,X^2\,dt\big)
-- \gamma\,X_T^2
+\int_{t}^{T}
+\bigl(\delta^a\,dN^a + \delta^b\,dN^b - \eta\,X^2\,dt\bigr)
+\;-\;
+\gamma\,X_T^2
 \right].
 $$
+
 
 **Value function** 
 $$
@@ -453,7 +464,7 @@ $$
 +
 \lambda^b(\delta^b)\,[\delta^b+V(t,x+1)-V(t,x)]
 -
-\eta x^2
+\eta\,x^2
 \right\},
 \qquad
 V(T,x)=-\gamma x^2.
@@ -461,27 +472,27 @@ $$
 
 **Optimal quotes** 
 $$
-\delta^{a*}\;=\;\frac{1}{k}-[V(t,x-1)-V(t,x)],
+\delta^{a*}\;=\;\frac{1}{k}-\big[V(t,x-1)-V(t,x)\big],
 \qquad
-\delta^{b*}\;=\;\frac{1}{k}-[V(t,x+1)-V(t,x)].
+\delta^{b*}\;=\;\frac{1}{k}-\big[V(t,x+1)-V(t,x)\big].
 $$
 
 **Population (master equation)** 
 $$
 \partial_t \rho
 =
-\rho(t,x+1)\lambda^a(\delta^{a*}(t,x+1))
+\rho(t,x+1)\lambda^a\!\big(\delta^{a*}(t,x+1)\big)
 +
-\rho(t,x-1)\lambda^b(\delta^{b*}(t,x-1))
+\rho(t,x-1)\lambda^b\!\big(\delta^{b*}(t,x-1)\big)
 -
-\rho(t,x)\big(\lambda^a(\delta^{a*}(t,x))+\lambda^b(\delta^{b*}(t,x))\big).
+\rho(t,x)\big(\lambda^a\!\big(\delta^{a*}(t,x)\big)+\lambda^b\!\big(\delta^{b*}(t,x)\big)\big).
 $$
 
 **Mean field** 
 $$
-\bar\delta^a_t=\sum_x \delta^{a*}(t,x)\rho(t,x),
+\bar{\delta}^a_t=\sum_x \delta^{a*}(t,x)\,\rho(t,x),
 \qquad
-\bar\delta^b_t=\sum_x \delta^{b*}(t,x)\rho(t,x).
+\bar{\delta}^b_t=\sum_x \delta^{b*}(t,x)\,\rho(t,x).
 $$
 
 **Consistency checks used in the code.**
@@ -496,4 +507,3 @@ $$
 The fair opens. You choose prices (quotes). Tight prices attract buyers but may pile up baskets; wide prices keep you safe but slow you down. The crowd’s average behavior feeds back into your fortunes: if everyone tightens, bargains abound and your edge shrinks; if the crowd widens, your caution looks wise.
 
 The mathematics: Poisson intensities, a clean HJB with closed-form optimal quotes, and a forward equation for the population—turns this story into a solvable loop that yields policy maps and risk-aware schedules a desk can actually use.
-
