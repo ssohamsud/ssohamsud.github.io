@@ -275,6 +275,15 @@ $$
   </p>
 </div>
 
+<div style="text-align: center; margin: 30px 0;">
+  <img src="/demos/control_slices.png" 
+       alt="Control Slices" 
+       style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+  <p style="margin-top:10px; color:#666; font-size:14px;">
+    Control Slices: Cross-sectional views of optimal spreads at different times and inventory levels
+  </p>
+</div>
+
 ---
 
 ## Everyone Else: Fokker–Planck
@@ -309,6 +318,15 @@ $$
   </iframe>
   <p style="margin-top:10px; color:#666; font-size:14px;">
     3D Population Distribution: Shows how ρ(t,x) evolves over time
+  </p>
+</div>
+
+<div style="text-align: center; margin: 30px 0;">
+  <img src="/demos/density_heatmap.png" 
+       alt="Population Density Heatmap" 
+       style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+  <p style="margin-top:10px; color:#666; font-size:14px;">
+    Population Density Heatmap: 2D view of ρ(t,x) showing the crowd's movement toward zero inventory
   </p>
 </div>
 
