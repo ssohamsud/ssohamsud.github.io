@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFG Market-Making Interactive Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .graphs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .graph-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+        
+        .graph-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .graph-placeholder {
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            border: 2px dashed #ddd;
+        }
+        
+        .graph-description {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .metrics-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 0 30px 30px 30px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .metric-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .graphs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .dashboard-header {
+                padding: 20px;
+            }
+            
+            .dashboard-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Mean-Field Game Market-Making</h1>
+            <p>Interactive Analysis Dashboard</p>
+        </div>
+        
+        <div class="metrics-summary">
+            <h3 style="margin: 0 0 10px 0; color: #2c3e50;">Key Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-value">0.3481</div>
+                    <div class="metric-label">Full Spread E[δᵃ+δᵇ]</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">30</div>
+                    <div class="metric-label">Convergence Iterations</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">3.84e-10</div>
+                    <div class="metric-label">Final ρ Error</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">0.44s</div>
+                    <div class="metric-label">Elapsed Time</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="graphs-grid">
+            <div class="graph-container">
+                <h3 class="graph-title">Density Heatmap ρ(t,x)</h3>
+                <div class="graph-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 15px;">📊</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 10px;">Interactive Density Heatmap</div>
+                        <div style="font-size: 0.9rem; color: #888;">
+                            • Vertical lines at t=0, T/2, T<br>
+                            • Quantile annotations<br>
+                            • Distribution evolution
+                        </div>
+                    </div>
+                </div>
+                <div class="graph-description">
+                    Shows the evolution of the mean-field distribution with key time points marked and quantile information displayed as annotations. The heatmap reveals how the distribution spreads over time under the optimal control strategy.
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <h3 class="graph-title">Control Slices u*(t,x)</h3>
+                <div class="graph-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 15px;">🎛️</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 10px;">Interactive Control Analysis</div>
+                        <div style="font-size: 0.9rem; color: #888;">
+                            • Bid/Ask controls at fixed inventory<br>
+                            • x ∈ {-Xmax/2, 0, +Xmax/2}<br>
+                            • Optimal quote adjustment
+                        </div>
+                    </div>
+                </div>
+                <div class="graph-description">
+                    Optimal controls at three inventory levels showing how market makers adjust their quotes based on their current position. Bid controls are negative, ask controls are positive.
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <h3 class="graph-title">Value Function V(t,x)</h3>
+                <div class="graph-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 15px;">💰</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 10px;">Interactive Value Function</div>
+                        <div style="font-size: 0.9rem; color: #888;">
+                            • Expected optimal cost<br>
+                            • Backward solution<br>
+                            • Terminal condition
+                        </div>
+                    </div>
+                </div>
+                <div class="graph-description">
+                    The value function represents the expected optimal cost-to-go from any state (t,x). Higher values indicate more expensive states, guiding the optimal control strategy.
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <h3 class="graph-title">Convergence History</h3>
+                <div class="graph-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 15px;">📈</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 10px;">Interactive Convergence</div>
+                        <div style="font-size: 0.9rem; color: #888;">
+                            • ρ error, V error, Policy change<br>
+                            • Three-metric tracking<br>
+                            • Stop reason: tolerance_met
+                        </div>
+                    </div>
+                </div>
+                <div class="graph-description">
+                    Convergence tracking with three metrics per iteration: distribution residual (ρ error), value residual (V error), and policy sup-norm change. Shows the iterative solution process.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

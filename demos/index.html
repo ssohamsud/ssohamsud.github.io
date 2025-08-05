@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFG Market-Making Complete Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+        
+        .metrics-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 0 30px 30px 30px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .metric-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .plots-section {
+            padding: 30px;
+        }
+        
+        .plots-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .plot-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+        
+        .plot-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .plot-frame {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .plot-description {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .full-width-plot {
+            grid-column: 1 / -1;
+        }
+        
+        .convergence-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .convergence-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .convergence-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .convergence-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .convergence-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .diagnostic-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .diagnostic-title {
+            font-size: 1.2rem;
+            color: #c0392b;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .diagnostic-note {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .plots-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .dashboard-header {
+                padding: 20px;
+            }
+            
+            .dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Mean-Field Game Market-Making</h1>
+            <p>Complete Interactive Analysis Dashboard</p>
+        </div>
+        
+        <div class="metrics-summary">
+            <h3 style="margin: 0 0 10px 0; color: #2c3e50;">Key Performance Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-value">0.3481</div>
+                    <div class="metric-label">Full Spread E[δᵃ+δᵇ]</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">0.1741</div>
+                    <div class="metric-label">δᵃ Mean (Ask Control)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">0.1741</div>
+                    <div class="metric-label">δᵇ Mean (Bid Control)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">0.00e+00</div>
+                    <div class="metric-label">Spread Consistency</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">1.000</div>
+                    <div class="metric-label">Time to 90% De-risk</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">1.1675</div>
+                    <div class="metric-label">Peak Inventory Variance</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="plots-section">
+            <!-- Convergence Analysis -->
+            <div class="convergence-section">
+                <h3 style="color: #27ae60; margin-bottom: 15px;">🔄 Convergence Analysis</h3>
+                <div class="convergence-metrics">
+                    <div class="convergence-item">
+                        <div class="convergence-value">tolerance_met</div>
+                        <div class="convergence-label">Stop Reason</div>
+                    </div>
+                    <div class="convergence-item">
+                        <div class="convergence-value">30</div>
+                        <div class="convergence-label">Iterations</div>
+                    </div>
+                    <div class="convergence-item">
+                        <div class="convergence-value">3.84e-10</div>
+                        <div class="convergence-label">Final ρ Error</div>
+                    </div>
+                    <div class="convergence-item">
+                        <div class="convergence-value">7.96e-07</div>
+                        <div class="convergence-label">Final V Error</div>
+                    </div>
+                    <div class="convergence-item">
+                        <div class="convergence-value">1.03e-07</div>
+                        <div class="convergence-label">Final Policy Change</div>
+                    </div>
+                    <div class="convergence-item">
+                        <div class="convergence-value">0.44s</div>
+                        <div class="convergence-label">Elapsed Time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Plots Grid -->
+            <div class="plots-grid">
+                <div class="plot-container">
+                    <h3 class="plot-title">Density Heatmap ρ(t,x)</h3>
+                    <iframe src="density_heatmap.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        Shows the evolution of the mean-field distribution with key time points marked and quantile information displayed as annotations. The heatmap reveals how the distribution spreads over time under the optimal control strategy.
+                    </div>
+                </div>
+                
+                <div class="plot-container">
+                    <h3 class="plot-title">Control Slices u*(t,x)</h3>
+                    <iframe src="control_slices.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        Optimal controls at three inventory levels showing how market makers adjust their quotes based on their current position. Bid controls are negative, ask controls are positive.
+                    </div>
+                </div>
+                
+                <div class="plot-container">
+                    <h3 class="plot-title">Value Function V(t,x)</h3>
+                    <iframe src="value_function_3d.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        The value function represents the expected optimal cost-to-go from any state (t,x). Higher values indicate more expensive states, guiding the optimal control strategy.
+                    </div>
+                </div>
+                
+                <div class="plot-container">
+                    <h3 class="plot-title">Distribution Evolution</h3>
+                    <iframe src="distribution_3d.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        The mean-field distribution evolves according to the Fokker-Planck equation. This shows how the probability density spreads over time under the optimal control.
+                    </div>
+                </div>
+                
+                <div class="plot-container">
+                    <h3 class="plot-title">Bid Control Surface</h3>
+                    <iframe src="bid_control_3d.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        The optimal bid control surface shows how market makers adjust their bid quotes based on time and inventory position. Negative values indicate bid prices below mid-price.
+                    </div>
+                </div>
+                
+                <div class="plot-container">
+                    <h3 class="plot-title">Ask Control Surface</h3>
+                    <iframe src="ask_control_3d.html" class="plot-frame"></iframe>
+                    <div class="plot-description">
+                        The optimal ask control surface shows how market makers adjust their ask quotes based on time and inventory position. Positive values indicate ask prices above mid-price.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full Width Plots -->
+            <div class="plot-container full-width-plot">
+                <h3 class="plot-title">Complete MFG Dashboard</h3>
+                <iframe src="mfg_dashboard.html" class="plot-frame" style="height: 600px;"></iframe>
+                <div class="plot-description">
+                    Comprehensive dashboard showing all aspects of the mean-field game solution including value function, controls, distribution, and convergence metrics.
+                </div>
+            </div>
+            
+            <!-- Microstructure Diagnostics -->
+            <div class="diagnostic-box">
+                <div class="diagnostic-title">⚠️ Stylized Microstructure Diagnostic</div>
+                <div class="diagnostic-note">
+                    These metrics are computed post-processing using stylized fill intensity functions and do not feed back into the HJB-FP system.
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">0.2792</div>
+                        <div class="metric-label">Mean Bid Fill Intensity</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">0.2792</div>
+                        <div class="metric-label">Mean Ask Fill Intensity</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">0.0972</div>
+                        <div class="metric-label">Diagnostic Spread Capture</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    

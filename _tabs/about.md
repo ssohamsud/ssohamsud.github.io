@@ -79,7 +79,7 @@ I'm a 3rd year Mathematics and Statistics student at Imperial College London, pa
 - **Academic Excellence:** GCSE Prize, A-Level Prize for best examination grades
 - **Leadership:** Founded Mathematics Society, Mathematics Magazine, Maths Mentor, Hans Woyda team captain
 - **Competitions:** Gold/Medals/Distinction in all UKMT challenges and Olympiads
-- **Extracurricular:** Physics Challenge Gold, Salter's Chemistry Festival, Longitude Explorer Prize, Chess Team, Cricket Team, DofE (Bronze/Silver/Gold)
+- **Extracurricular:** Physics Challenge Gold, Salter's Chemistry Festival, Longitude Explorer Prize, Chess Team, Cricket Team, DofE (Bronze/Silver)
 
 ---
 
@@ -89,7 +89,7 @@ I'm a 3rd year Mathematics and Statistics student at Imperial College London, pa
 - **Experience:** 350+ hours of teaching
 - **Specialization:** Mathematics and admission tests (STEP, MAT, TMUA)
 - **Levels:** GCSEs, A-Levels, University Admission Exams
-- **Success Rate:** All students ended up at Imperial, Oxford, Cambridge, LSE, Warwick
+- **Success Rate:** All students recieved offers from Imperial, Oxford, Cambridge, LSE, Warwick
 
 ---
 
