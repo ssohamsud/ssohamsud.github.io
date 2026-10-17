@@ -2,7 +2,7 @@
 title: "Mapping the Intestinal Social Network using Data"
 date: 2025-06-15 12:00:00 +0000
 author: Soham Sud
-categories: [research, stem-cells, single-cell, biology]
+categories: [Old Stuff, research, stem-cells, single-cell, biology]
 tags: [stem cells, single-cell RNA-seq, cell fate, intestinal biology, research]
 math: true
 pinned: true

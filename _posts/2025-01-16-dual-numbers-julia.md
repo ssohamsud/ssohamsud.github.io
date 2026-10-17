@@ -2,7 +2,7 @@
 title: "Building a Differentiator Using Dual Numbers In Julia"
 date: 2025-01-16 12:00:00 +0000
 author: Soham Sud
-categories: [machine-learning, misc-maths, projects]
+categories: [Old Stuff, machine-learning, misc-maths, projects]
 tags: [julia, math, differentiation, dual-numbers]
 math: true
 ---

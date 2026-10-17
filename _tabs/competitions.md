@@ -4,454 +4,165 @@ icon: fas fa-trophy
 order: 2
 ---
 
-# Competition Achievements
-
-Here's a showcase of my competition experience across quantitative finance, machine learning, and academic challenges.
-
----
-
-## Trading and Data Challenges
-
-<div class="competition-section">
-  <div class="competition-card quant">
-    <h3>QRT Data Challenge (Algothon 2023)</h3>
-    <p><strong>3rd place.</strong> Tackled electricity price prediction using advanced time series analysis and machine learning.</p>
-    <div class="competition-details">
-      <span class="competition-type">Quantitative Analysis</span>
-      <span class="competition-focus">Financial Modeling</span>
-    </div>
-  </div>
-
-  <div class="competition-card quant">
-    <h3>G-research Quant Challenge</h3>
-    <p><strong>Top 5%.</strong> Dived deep into optimal transport theory and robot bidding algorithms.</p>
-    <div class="competition-details">
-      <span class="competition-type">Algorithmic Trading</span>
-      <span class="competition-focus">Market Analysis</span>
-    </div>
-  </div>
-
-  <div class="competition-card quant">
-    <h3>IMC Prosperity Challenge</h3>
-    <p><strong>167th/~10000 teams.</strong> Made it to the top 10 in the UK by deploying a mix of mean reversion, option volatility strategies, statistical arbitrage, and spatial arbitrage.</p>
-    <div class="competition-details">
-      <span class="competition-type">Market Making</span>
-      <span class="competition-focus">Risk Management</span>
-    </div>
-  </div>
-
-  <div class="competition-card quant">
-    <h3>QRT Quant Challenge</h3>
-    <p><strong>Organizer (200 participants).</strong> Switched from competitor to organizer - helped QRT run their quant challenge, marked over 200 student solutions, and handled all the behind-the-scenes logistics.</p>
-    <div class="competition-details">
-      <span class="competition-type">Mathematics</span>
-      <span class="competition-focus">Organisation</span>
-    </div>
-  </div>
-</div>
-
----
-
-## AI & Machine Learning
-
-<div class="competition-section">
-  <div class="competition-card ai">
-    <h3>Kaggle AI Competition</h3>
-    <p>Dived into the world of adversarial attacks on large language models.</p>
-    <div class="competition-details">
-      <span class="competition-type">Adversarial Attacks</span>
-      <span class="competition-focus">Natural Language Processing</span>
-    </div>
-  </div>
-</div>
-
----
-
-## Spring Week Competitions
-
-<div class="competition-section">
-  <div class="competition-card spring">
-    <h3>Spring Week Competitions</h3>
-    
-    <div class="spring-week-details">
-      <div class="victory-item">
-        <strong>Jane Street FOCUS Programme:</strong> Won the Estimatathon and took part in probability challenges
-      </div>
-      <div class="victory-item">
-        <strong>Optiver Insight Days:</strong> 1st Place out of all 1st Years and 4th overall out of 40 in live trading game
-      </div>
-      <div class="victory-item">
-        <strong>IMC Launchpad:</strong> Won 2 of 3 Rounds in final market-making game and ranked highly in 30-person Poker Tournament
-      </div>
-      <div class="victory-item">
-        <strong>Citadel Trading Invitational:</strong> One of few participants to complete 4 hour Quant Challenge
-      </div>
-      <div class="victory-item">
-        <strong>SIG Insight Days:</strong> Joint-First in market making game out of 200 participants
-      </div>
-      <div class="victory-item">
-        <strong>DE-Shaw Insight Days:</strong> Finished 2nd/30 teams in Market Making and Hedge Fund trading game
-      </div>
-    </div>
-    
-    <div class="competition-details">
-      <span class="competition-type">Market Making</span>
-      <span class="competition-focus">Trading Games</span>
-    </div>
-  </div>
-</div>
-
----
-
-
-
----
-
-## Competition Gallery 📸
-
-<div class="competition-gallery">
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="/assets/img/qrtdatawin.png" alt="Algothon 2023 Achievement" />
-      <div class="gallery-caption">
-        <h4>Algothon 2023</h4>
-        <p>3rd place prize @ Algothon</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <img src="/assets/img/imcprosperity.png" alt="IMC Prosperity Challenge" />
-      <div class="gallery-caption">
-        <h4>IMC Prosperity Challenge</h4>
-        <p>167th/~10000 teams</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <img src="/assets/img/qrtquantchallenge.png" alt="QRT Quant Challenge" />
-      <div class="gallery-caption">
-        <h4>QRT Quant Challenge</h4>
-        <p>Winners Photo</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <img src="/assets/img/qrtchallengeleaderboard.png" alt="QRT Challenge Leaderboard" />
-      <div class="gallery-caption">
-        <h4>QRT Challenge Leaderboard</h4>
-        <p>Final Sharpe Ratios of top teams (sel4)</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <style>
-.competition-section {
-  margin: 2rem 0;
+.comp-list {
+  margin: 1rem 0 2rem;
 }
 
-.competition-card {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-  border: 1px solid #4b5563;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #f9fafb;
+.comp {
+  border-top: 1px solid var(--main-border-color);
+  padding: 0.85rem 0;
 }
 
-/* Dark mode support */
-.dark .competition-card,
-[data-theme="dark"] .competition-card,
-.theme-dark .competition-card,
-html[data-theme="dark"] .competition-card,
-body.dark .competition-card,
-body[data-theme="dark"] .competition-card {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%) !important;
-  border: 1px solid #4b5563 !important;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4) !important;
-  color: #f9fafb !important;
+.comp:last-child {
+  border-bottom: 1px solid var(--main-border-color);
 }
 
-.dark .competition-card h3,
-[data-theme="dark"] .competition-card h3,
-.theme-dark .competition-card h3,
-html[data-theme="dark"] .competition-card h3,
-body.dark .competition-card h3,
-body[data-theme="dark"] .competition-card h3 {
-  color: #ffffff !important;
-}
-
-.dark .competition-card p,
-[data-theme="dark"] .competition-card p,
-.theme-dark .competition-card p,
-html[data-theme="dark"] .competition-card p,
-body.dark .competition-card p,
-body[data-theme="dark"] .competition-card p {
-  color: #d1d5db !important;
-}
-
-.dark .competition-card strong,
-[data-theme="dark"] .competition-card strong,
-.theme-dark .competition-card strong,
-html[data-theme="dark"] .competition-card strong,
-body.dark .competition-card strong,
-body[data-theme="dark"] .competition-card strong {
-  color: #ffffff !important;
-}
-
-.competition-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.competition-card h3 {
-  color: #ffffff;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  border-bottom: 2px solid #d97706;
-  padding-bottom: 0.5rem;
-}
-
-.competition-card.quant h3 {
-  border-bottom-color: #3b82f6;
-}
-
-.competition-card.ai h3 {
-  border-bottom-color: #8b5cf6;
-}
-
-.competition-card.spring h3 {
-  border-bottom-color: #10b981;
-}
-
-.competition-card.academic h3 {
-  border-bottom-color: #f59e0b;
-}
-
-.competition-card p {
-  color: #d1d5db;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-
-
-.competition-card strong {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.competition-details {
+.comp-head {
   display: flex;
-  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
+  gap: 0.25rem 1rem;
 }
 
-.competition-type, .competition-focus {
-  background: rgba(107, 114, 128, 0.2);
-  color: #9ca3af;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border: 1px solid rgba(107, 114, 128, 0.4);
-}
-
-.competition-card.quant .competition-type,
-.competition-card.quant .competition-focus {
-  background: rgba(59, 130, 246, 0.2);
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-.competition-card.ai .competition-type,
-.competition-card.ai .competition-focus {
-  background: rgba(139, 92, 246, 0.2);
-  color: #c4b5fd;
-  border: 1px solid rgba(139, 92, 246, 0.4);
-}
-
-.competition-card.spring .competition-type,
-.competition-card.spring .competition-focus {
-  background: rgba(16, 185, 129, 0.2);
-  color: #6ee7b7;
-  border: 1px solid rgba(16, 185, 129, 0.4);
-}
-
-.competition-card.academic .competition-type,
-.competition-card.academic .competition-focus {
-  background: #fed7aa;
-  color: #d97706;
-}
-
-/* Spring Week Details Styling */
-.spring-week-details {
-  margin: 1rem 0;
-  padding: 1rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 8px;
-}
-
-.victory-item {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-  line-height: 1.5;
-}
-
-.victory-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.victory-item strong {
-  color: #6ee7b7;
+.comp-name {
   font-weight: 600;
+  color: var(--heading-color, var(--text-color));
 }
 
-@media (max-width: 768px) {
-  .competition-details {
-    flex-direction: column;
-  }
+.comp-result {
+  font-size: 0.78em;
+  color: var(--text-muted-color);
+  border: 1px solid var(--main-border-color);
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-/* Competition Gallery Styles */
-.competition-gallery {
-  margin: 3rem 0;
-  text-align: center;
+.comp-note {
+  margin-top: 0.3rem;
+  font-size: 0.95em;
+  line-height: 1.55;
 }
 
-.gallery-grid {
+.gallery {
   display: flex;
+  gap: 1rem;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 1rem 0;
-  margin-top: 1.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: #64748b #f1f5f9;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0 1rem;
+  margin-top: 1rem;
 }
 
-.gallery-grid::-webkit-scrollbar {
-  height: 8px;
-}
-
-.gallery-grid::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 4px;
-}
-
-.gallery-grid::-webkit-scrollbar-thumb {
-  background: #64748b;
-  border-radius: 4px;
-}
-
-.gallery-grid::-webkit-scrollbar-thumb:hover {
-  background: #475569;
-}
-
-.gallery-item {
+.gallery figure {
   flex: 0 0 auto;
-  width: 400px;
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-  border: 1px solid #4b5563;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-/* Dark mode support for gallery */
-.dark .gallery-item,
-[data-theme="dark"] .gallery-item,
-.theme-dark .gallery-item,
-html[data-theme="dark"] .gallery-item,
-body.dark .gallery-item,
-body[data-theme="dark"] .gallery-item {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%) !important;
-  border: 1px solid #4b5563 !important;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4) !important;
-}
-
-.dark .gallery-caption,
-[data-theme="dark"] .gallery-caption,
-.theme-dark .gallery-caption,
-html[data-theme="dark"] .gallery-caption,
-body.dark .gallery-caption,
-body[data-theme="dark"] .gallery-caption {
-  background: #374151 !important;
-  border-top: 1px solid #4b5563 !important;
-  color: #f9fafb !important;
-}
-
-.dark .gallery-caption h4,
-[data-theme="dark"] .gallery-caption h4,
-.theme-dark .gallery-caption h4,
-html[data-theme="dark"] .gallery-caption h4,
-body.dark .gallery-caption h4,
-body[data-theme="dark"] .gallery-caption h4 {
-  color: #ffffff !important;
-}
-
-.dark .gallery-caption p,
-[data-theme="dark"] .gallery-caption p,
-.theme-dark .gallery-caption p,
-html[data-theme="dark"] .gallery-caption p,
-body.dark .gallery-caption p,
-body[data-theme="dark"] .gallery-caption p {
-  color: #d1d5db !important;
-}
-
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-caption {
-  padding: 1.5rem;
-  background: #374151;
-  border-top: 1px solid #4b5563;
-  color: #f9fafb;
-}
-
-.gallery-caption h4 {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.gallery-caption p {
-  color: #d1d5db;
+  width: 320px;
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-@media (max-width: 768px) {
-  .gallery-item {
-    width: 300px;
+.gallery figure:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.9em;
+}
+
+.gallery figcaption strong {
+  display: block;
+  color: var(--heading-color, var(--text-color));
+}
+
+.gallery figcaption span {
+  color: var(--text-muted-color);
+}
+
+@media (max-width: 576px) {
+  .gallery figure {
+    width: 260px;
   }
-  
-  .gallery-item img {
-    height: 200px;
-  }
-  
-  .gallery-grid {
-    gap: 1rem;
+
+  .gallery img {
+    height: 180px;
   }
 }
-</style> 
+</style>
+
+Trading, data and machine learning competitions I've taken part in.
+
+<div class="comp-list">
+  <div class="comp">
+    <div class="comp-head">
+      <span class="comp-name">QRT Data Challenge (Algothon 2023)</span>
+      <span class="comp-result">3rd place</span>
+    </div>
+    <div class="comp-note">Electricity price prediction using time series analysis and machine learning.</div>
+  </div>
+  <div class="comp">
+    <div class="comp-head">
+      <span class="comp-name">IMC Prosperity</span>
+      <span class="comp-result">167th of ~10,000 teams</span>
+    </div>
+    <div class="comp-note">Top 10 in the UK, using a mix of mean reversion, options volatility strategies, statistical arbitrage and spatial arbitrage.</div>
+  </div>
+  <div class="comp">
+    <div class="comp-head">
+      <span class="comp-name">G-Research Quant Challenge</span>
+      <span class="comp-result">Top 5%</span>
+    </div>
+    <div class="comp-note">Problems on optimal transport and robot bidding algorithms.</div>
+  </div>
+  <div class="comp">
+    <div class="comp-head">
+      <span class="comp-name">QRT Quant Challenge</span>
+      <span class="comp-result">Organiser</span>
+    </div>
+    <div class="comp-note">Helped QRT run their challenge for 200 participants, marking solutions and handling logistics.</div>
+  </div>
+  <div class="comp">
+    <div class="comp-head">
+      <span class="comp-name">Kaggle AI Competition</span>
+      <span class="comp-result">Participant</span>
+    </div>
+    <div class="comp-note">Adversarial attacks on large language models.</div>
+  </div>
+</div>
+
+## Gallery
+
+<div class="gallery">
+  <figure>
+    <img src="/assets/img/qrtdatawin.png" alt="Algothon 2023 prize" loading="lazy" />
+    <figcaption><strong>Algothon 2023</strong><span>3rd place prize</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/assets/img/imcprosperity.png" alt="IMC Prosperity result" loading="lazy" />
+    <figcaption><strong>IMC Prosperity</strong><span>167th of ~10,000 teams</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/assets/img/qrtquantchallenge.png" alt="QRT Quant Challenge winners" loading="lazy" />
+    <figcaption><strong>QRT Quant Challenge</strong><span>Winners photo</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/assets/img/qrtchallengeleaderboard.png" alt="QRT Quant Challenge leaderboard" loading="lazy" />
+    <figcaption><strong>QRT Quant Challenge</strong><span>Final scores of the top teams</span></figcaption>
+  </figure>
+</div>

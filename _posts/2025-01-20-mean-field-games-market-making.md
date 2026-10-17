@@ -2,7 +2,7 @@
 title: "Mean-Field Market Making"
 date: 2025-08-01 12:00:00 +0000
 author: Soham Sud
-categories: [quantitative-finance, research]
+categories: [Old Stuff, quantitative-finance, research]
 tags: [market making, mean field games, stochastic control, HJB, Poisson processes, quantitative finance]
 math: true
 pinned: false

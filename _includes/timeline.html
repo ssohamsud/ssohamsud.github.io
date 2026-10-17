@@ -1,5 +1,6 @@
 {% comment %}
-  Timeline component for displaying experiences in chronological order
+  Experience timeline. Entries render in the order they appear in the data file.
+  Colours come from the theme's variables so it follows light/dark mode.
   Usage: {% include timeline.html experiences=site.data.experiences %}
 {% endcomment %}
 
@@ -7,28 +8,27 @@
 .timeline-container {
   position: relative;
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
+  margin: 1.5rem auto 0;
+  padding: 10px 0;
 }
 
 .timeline-container::after {
   content: '';
   position: absolute;
-  width: 4px;
-  background: linear-gradient(180deg, #374151 0%, #6b7280 100%);
+  width: 2px;
+  background: var(--main-border-color);
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -2px;
-  border-radius: 2px;
+  margin-left: -1px;
 }
 
 .timeline-item {
-  padding: 10px 40px;
+  padding: 10px 32px;
   position: relative;
   width: 50%;
   box-sizing: border-box;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 .timeline-item:nth-child(odd) {
@@ -42,151 +42,198 @@
 .timeline-item::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #374151;
-  border: 4px solid #4b5563;
+  width: 12px;
+  height: 12px;
+  background: var(--main-bg, var(--card-bg));
+  border: 2px solid var(--text-color);
   border-radius: 50%;
-  top: 15px;
-  box-shadow: 0 0 0 4px #374151;
+  top: 24px;
+  z-index: 1;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .timeline-item:nth-child(odd)::after {
-  right: -10px;
+  right: -6px;
 }
 
 .timeline-item:nth-child(even)::after {
-  left: -10px;
+  left: -6px;
+}
+
+.timeline-item:hover::after {
+  background: var(--text-color);
+  transform: scale(1.2);
 }
 
 .timeline-content {
-  padding: 20px;
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.4);
-  border-left: 4px solid #6b7280;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #f9fafb;
+  position: relative;
+  padding: 16px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.timeline-content:hover {
+/* Small pointer from each panel towards the centre line */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  transition: border-color 0.25s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+  right: -7px;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+  left: -7px;
+  border-right: none;
+  border-top: none;
+  transform: rotate(45deg);
+}
+
+.timeline-item:hover .timeline-content {
   transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(31, 41, 55, 0.5);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+  border-color: var(--text-muted-color);
+}
+
+.timeline-item:hover .timeline-content::before {
+  border-color: var(--text-muted-color);
 }
 
 .timeline-date {
-  font-size: 0.9em;
-  color: #9ca3af;
-  font-weight: 600;
+  display: inline-block;
+  font-size: 0.78em;
+  color: var(--text-muted-color);
+  border: 1px solid var(--main-border-color);
+  border-radius: 999px;
+  padding: 1px 10px;
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3px;
 }
 
-.timeline-date::before {
-  content: '📅';
-  margin-right: 8px;
-  font-size: 1.1em;
+/* Panels fade up as they scroll into view (only when JS is running) */
+.timeline-container.reveal .timeline-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-container.reveal .timeline-item.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-container.reveal .timeline-item,
+  .timeline-content,
+  .timeline-item::after {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .timeline-title {
-  font-size: 1.2em;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 8px;
-  letter-spacing: 0.3px;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--heading-color, var(--text-color));
 }
 
 .timeline-subtitle {
-  font-size: 1em;
-  color: #d1d5db;
-  font-weight: 500;
-  margin-bottom: 12px;
-  font-style: italic;
+  color: var(--text-muted-color);
+  margin-bottom: 4px;
 }
 
 .timeline-description {
-  color: #e5e7eb;
-  line-height: 1.6;
-  margin-bottom: 0;
+  font-size: 0.92em;
+  line-height: 1.55;
+  margin-top: 8px;
 }
 
-.timeline-description strong {
-  color: #d97706 !important;
-  font-weight: 700 !important;
+.timeline-description ul {
+  margin: 0;
+  padding-left: 1.1rem;
 }
 
-.timeline-content .timeline-description strong {
-  color: #d97706 !important;
-  font-weight: 700 !important;
-}
-
-.timeline-tags {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.timeline-tag {
-  background: rgba(107, 114, 128, 0.2);
-  color: #9ca3af;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.8em;
-  font-weight: 500;
-  border: 1px solid rgba(107, 114, 128, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+.timeline-description li {
+  margin-bottom: 2px;
 }
 
 @media (max-width: 768px) {
   .timeline-container::after {
-    left: 31px;
+    left: 15px;
   }
-  
+
   .timeline-item {
     width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+    padding-left: 40px;
+    padding-right: 0;
     left: 0 !important;
   }
-  
+
   .timeline-item::after {
-    left: 21px !important;
+    left: 9px !important;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content::before {
+    right: auto;
+    left: -7px;
+    border: 1px solid var(--main-border-color);
+    border-right: none;
+    border-top: none;
   }
 }
 </style>
 
-<div class="timeline-container">
-  {% assign sorted_experiences = include.experiences | sort: 'date' | reverse %}
-  {% for experience in sorted_experiences %}
+<div class="timeline-container" id="experience-timeline">
+  {% for e in include.experiences %}
     <div class="timeline-item">
       <div class="timeline-content">
-        <div class="timeline-date">
-          {{ experience.date | date: "%B %Y" }}
-        </div>
-        <div class="timeline-title">
-          {{ experience.title }}
-        </div>
-        {% if experience.subtitle %}
-          <div class="timeline-subtitle">
-            {{ experience.subtitle }}
-          </div>
-        {% endif %}
-        <div class="timeline-description">
-          {{ experience.description }}
-        </div>
-        {% if experience.tags %}
-          <div class="timeline-tags">
-            {% for tag in experience.tags %}
-              <span class="timeline-tag">{{ tag }}</span>
-            {% endfor %}
+        <div class="timeline-date">{{ e.dates }}</div>
+        <div class="timeline-title">{{ e.role }}</div>
+        <div class="timeline-subtitle">{{ e.org }}</div>
+        {% if e.note or e.points %}
+          <div class="timeline-description">
+            {% if e.note %}{{ e.note }}{% endif %}
+            {% if e.points %}
+              <ul>
+                {% for p in e.points %}<li>{{ p }}</li>{% endfor %}
+              </ul>
+            {% endif %}
           </div>
         {% endif %}
       </div>
     </div>
   {% endfor %}
-</div> 
+</div>
+
+<script>
+(function () {
+  var tl = document.getElementById('experience-timeline');
+  if (!tl || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  tl.classList.add('reveal');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  tl.querySelectorAll('.timeline-item').forEach(function (el) { io.observe(el); });
+})();
+</script>
