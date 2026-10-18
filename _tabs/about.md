@@ -294,10 +294,6 @@ I use this site to share things I find interesting, the projects I'm working on 
     <p>I'm more into poker theory than actually playing, though I did win the D. E. Shaw annual poker tournament while I was interning.</p>
   </details>
   <details class="drop">
-    <summary>Sports Analytics</summary>
-    <p>I like thinking about how stats and ML can be used to rate players in sport. A lot of alternative stats don't exist commercially yet, and it's a problem <a href="https://www.linkedin.com/in/ashwin-bose-851632282/" target="_blank" rel="noopener">Ashwin</a> and I are really interested in. Big things coming.</p>
-  </details>
-  <details class="drop">
     <summary>Misc</summary>
     <div class="module-year">Trivia</div>
     <p>Nothing serious, I just enjoy it. Mostly geography and Indian history.</p>
