@@ -1,0 +1,4 @@
+# Post authors. The key matches the `author:` value in a post's front matter.
+Soham Sud:
+  name: Soham
+  url: /about/

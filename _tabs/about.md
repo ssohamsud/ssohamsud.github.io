@@ -145,7 +145,12 @@ I use this site to share things I find interesting, the projects I'm working on 
 
 ## Experience
 
+<details class="drop">
+<summary>Timeline</summary>
+
 {% include timeline.html experiences=site.data.experiences %}
+
+</details>
 
 ## Education
 

@@ -1,0 +1,276 @@
+{% comment %}
+  Charts for the October geography challenge post. Place the container divs
+  (#geo-tiles, #geo-daily, #geo-regions, #geo-heat) in the post, then include
+  this file once at the end. Snapshot of the Ultimate Geography deck, 5-17 Oct 2026.
+{% endcomment %}
+
+<style>
+.gx-fig { position: relative; margin: 1.75rem 0; }
+.gx-fig svg { display: block; width: 100%; height: auto; overflow: visible; }
+.gx-title { font-weight: 600; font-size: 0.95em; color: var(--heading-color, var(--text-color)); margin-bottom: 0.15rem; }
+.gx-sub { font-size: 0.82em; color: var(--text-muted-color); margin-bottom: 0.6rem; }
+.gx-grid { stroke: var(--main-border-color); stroke-width: 1; }
+.gx-axis { fill: var(--text-muted-color); font-size: 11px; font-variant-numeric: tabular-nums; }
+.gx-label { fill: var(--text-color); font-size: 12px; font-variant-numeric: tabular-nums; }
+.gx-mark { fill: var(--text-color); opacity: 0.82; transition: opacity 0.15s ease; }
+.gx-mark.dim { opacity: 0.3; }
+.gx-track { fill: var(--main-border-color); opacity: 0.5; }
+.gx-tip {
+  position: absolute; pointer-events: none; opacity: 0; z-index: 2;
+  background: var(--card-bg); color: var(--text-color);
+  border: 1px solid var(--main-border-color); border-radius: 6px;
+  padding: 4px 8px; font-size: 0.8em; white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); transition: opacity 0.1s ease;
+  font-variant-numeric: tabular-nums;
+}
+.gx-data { font-size: 0.85em; margin-top: 0.4rem; }
+.gx-data summary { cursor: pointer; color: var(--text-muted-color); }
+.gx-data table { margin-top: 0.4rem; }
+
+.gx-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 1.5rem 0; }
+.gx-tile { border: 1px solid var(--main-border-color); border-radius: 10px; padding: 0.75rem 0.9rem; background: var(--card-bg); }
+.gx-tile-num { font-size: 1.6em; font-weight: 600; line-height: 1.2; color: var(--heading-color, var(--text-color)); font-variant-numeric: tabular-nums; }
+.gx-tile-lbl { font-size: 0.8em; color: var(--text-muted-color); margin-top: 0.15rem; }
+@media (max-width: 576px) { .gx-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.gx-heat { display: grid; gap: 3px; font-size: 0.82em; font-variant-numeric: tabular-nums; }
+.gx-heat .hd { color: var(--text-muted-color); font-size: 0.92em; padding: 0 0 0.25rem; text-align: center; line-height: 1.2; }
+.gx-heat .rh { color: var(--text-color); display: flex; align-items: center; padding-right: 0.5rem; }
+.gx-cell { border-radius: 4px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: default; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.gx-cell:hover { transform: scale(1.06); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); position: relative; z-index: 1; }
+.gx-cell.empty { border: 1px dashed var(--main-border-color); color: var(--text-muted-color); }
+.gx-cell.low { font-style: italic; }
+.gx-legend { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78em; color: var(--text-muted-color); margin-top: 0.6rem; }
+.gx-legend .bar { width: 120px; height: 8px; border-radius: 4px; border: 1px solid var(--main-border-color);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--text-color) 6%, transparent), color-mix(in srgb, var(--text-color) 85%, transparent)); }
+</style>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, x, y, s, cls, anchor) {
+    var t = el('text', { x: x, y: y, 'class': cls, 'text-anchor': anchor || 'start' }, parent);
+    t.textContent = s;
+    return t;
+  }
+  function tip(fig) {
+    var t = fig.querySelector(':scope > .gx-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'gx-tip'; fig.appendChild(t); }
+    return {
+      show: function (html, x, y) {
+        t.innerHTML = html; t.style.opacity = 1;
+        var w = t.offsetWidth, fw = fig.clientWidth;
+        t.style.left = Math.max(0, Math.min(fw - w, x - w / 2)) + 'px';
+        t.style.top = (y - t.offsetHeight - 10) + 'px';
+      },
+      hide: function () { t.style.opacity = 0; }
+    };
+  }
+  function barPath(x, y, w, h, horizontal) {
+    var r = Math.min(4, horizontal ? h / 2 : w / 2, horizontal ? w : h);
+    if (r <= 0) return '';
+    if (horizontal) {
+      return 'M' + x + ',' + y + 'h' + (w - r) + 'a' + r + ',' + r + ' 0 0 1 ' + r + ',' + r +
+        'v' + (h - 2 * r) + 'a' + r + ',' + r + ' 0 0 1 ' + (-r) + ',' + r + 'h' + (r - w) + 'z';
+    }
+    return 'M' + x + ',' + (y + h) + 'v' + (r - h) + 'a' + r + ',' + r + ' 0 0 1 ' + r + ',' + (-r) +
+      'h' + (w - 2 * r) + 'a' + r + ',' + r + ' 0 0 1 ' + r + ',' + r + 'v' + (h - r) + 'z';
+  }
+  function setup(id, title, sub, tableHead, tableRows) {
+    var fig = document.getElementById(id);
+    if (!fig) return null;
+    if (!fig.dataset.ready) {
+      fig.classList.add('gx-fig');
+      var html = '<div class="gx-title">' + title + '</div><div class="gx-sub">' + sub + '</div><div class="gx-body"></div>';
+      if (tableHead) {
+        html += '<details class="gx-data"><summary>Show data</summary><table><thead><tr>' +
+          tableHead.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>' +
+          tableRows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') +
+          '</tbody></table></details>';
+      }
+      fig.innerHTML = html;
+      fig.dataset.ready = 1;
+    }
+    return fig;
+  }
+
+  // ---------- Stat tiles ----------
+  function drawTiles() {
+    var box = document.getElementById('geo-tiles');
+    if (!box || box.dataset.ready) return;
+    box.className = 'gx-tiles';
+    box.innerHTML = [
+      ['404 / 978', 'cards seen'],
+      ['1,069', 'reviews'],
+      ['10', 'days actually done'],
+      ['95%', 'kept once learned']
+    ].map(function (t) {
+      return '<div class="gx-tile"><div class="gx-tile-num">' + t[0] + '</div><div class="gx-tile-lbl">' + t[1] + '</div></div>';
+    }).join('');
+    box.dataset.ready = 1;
+  }
+
+  // ---------- Reviews per day ----------
+  var DAYS = [
+    ['5 Oct', 63, 58.7], ['6 Oct', 193, 68.4], ['7 Oct', 124, 75.8], ['8 Oct', 79, 67.1],
+    ['9 Oct', 0, null], ['10 Oct', 0, null], ['11 Oct', 0, null],
+    ['12 Oct', 386, 94.0], ['13 Oct', 100, 78.0], ['14 Oct', 4, 0], ['15 Oct', 5, 0],
+    ['16 Oct', 31, 22.6], ['17 Oct', 84, 52.4]
+  ];
+  function drawDaily() {
+    var fig = setup('geo-daily', 'Reviews per day', 'Very consistent, as you can see',
+      ['Day', 'Reviews', 'Correct'],
+      DAYS.map(function (d) { return [d[0], d[1], d[2] === null ? '–' : d[2] + '%']; }));
+    if (!fig) return;
+    var body = fig.querySelector('.gx-body');
+    body.innerHTML = '';
+    var svg = el('svg', {}, body);
+    var W = fig.clientWidth, H = 190, m = { l: 36, r: 8, t: 10, b: 26 };
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var iw = W - m.l - m.r, ih = H - m.t - m.b, max = 400;
+    var y = function (v) { return m.t + (1 - v / max) * ih; };
+    [0, 100, 200, 300, 400].forEach(function (v) {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), 'class': 'gx-grid' }, svg);
+      txt(svg, m.l - 6, y(v) + 4, v, 'gx-axis', 'end');
+    });
+    var slot = iw / DAYS.length, bw = Math.max(4, Math.min(28, slot - 6)), tp = tip(fig), marks = [];
+    DAYS.forEach(function (d, i) {
+      var cx = m.l + slot * (i + 0.5);
+      if (i % (W < 480 ? 2 : 1) === 0) txt(svg, cx, H - 8, d[0].split(' ')[0], 'gx-axis', 'middle');
+      var p = null;
+      if (d[1] > 0) {
+        p = el('path', { d: barPath(cx - bw / 2, y(d[1]), bw, y(0) - y(d[1]), false), 'class': 'gx-mark' }, svg);
+        marks.push(p);
+      }
+      var hit = el('rect', { x: cx - slot / 2, y: m.t, width: slot, height: ih, fill: 'transparent' }, svg);
+      hit.addEventListener('mousemove', function () {
+        marks.forEach(function (q) { q.classList.toggle('dim', q !== p); });
+        var b = d[1] ? '<b>' + d[1] + '</b> reviews, ' + d[2] + '% correct' : 'No reviews';
+        tp.show(d[0] + ': ' + b, cx, body.offsetTop + y(d[1]));
+      });
+      hit.addEventListener('mouseleave', function () {
+        marks.forEach(function (q) { q.classList.remove('dim'); }); tp.hide();
+      });
+    });
+  }
+
+  // ---------- Progress bars (by region, by kind) ----------
+  // Continents count countries only; territories and oceans/seas/continents are their own groups.
+  var REGIONS = [
+    { k: 'Asia', cards: 188, seen: 91 },
+    { k: 'Europe', cards: 204, seen: 97 },
+    { k: 'Africa', cards: 224, seen: 102 },
+    { k: 'Oceania', cards: 64, seen: 24 },
+    { k: 'North America', cards: 92, seen: 34 },
+    { k: 'South America', cards: 48, seen: 17 },
+    { k: 'Territories', cards: 103, seen: 33 },
+    { k: 'Oceans & seas', cards: 55, seen: 6 }
+  ];
+  function drawProgress(id, title, sub, DATA) {
+    var head = ['Group', 'Seen', 'Cards', '%'], rows = DATA.map(function (d) {
+      return [d.k, d.seen, d.cards, Math.round(100 * d.seen / d.cards) + '%'].concat(d.pct ? [d.pct + '%'] : []);
+    });
+    if (DATA[0].pct) head = head.concat(['Correct']);
+    var fig = setup(id, title, sub, head, rows);
+    if (!fig) return;
+    var body = fig.querySelector('.gx-body');
+    body.innerHTML = '';
+    var svg = el('svg', {}, body);
+    var W = fig.clientWidth, bh = 18, gap = 10;
+    var m = { l: Math.min(118, W * 0.34), r: 44, t: 2, b: 2 };
+    var H = m.t + m.b + DATA.length * (bh + gap) - gap;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var iw = W - m.l - m.r, tp = tip(fig), marks = [];
+    DATA.forEach(function (d, i) {
+      var y0 = m.t + i * (bh + gap), pct = d.seen / d.cards, w = pct * iw;
+      txt(svg, m.l - 10, y0 + bh / 2 + 4, d.k, 'gx-label', 'end');
+      el('path', { d: barPath(m.l, y0, iw, bh, true), 'class': 'gx-track' }, svg);
+      var p = el('path', { d: barPath(m.l, y0, w, bh, true), 'class': 'gx-mark' }, svg);
+      txt(svg, m.l + iw + 6, y0 + bh / 2 + 4, Math.round(pct * 100) + '%', 'gx-label');
+      marks.push(p);
+      var hit = el('rect', { x: 0, y: y0 - gap / 2, width: W, height: bh + gap, fill: 'transparent' }, svg);
+      hit.addEventListener('mousemove', function () {
+        marks.forEach(function (q) { q.classList.toggle('dim', q !== p); });
+        tp.show(d.k + ': <b>' + d.seen + '</b> of ' + d.cards + ' cards' + (d.pct ? ', ' + d.pct + '% correct' : ''),
+          m.l + w / 2, body.offsetTop + y0);
+      });
+      hit.addEventListener('mouseleave', function () {
+        marks.forEach(function (q) { q.classList.remove('dim'); }); tp.hide();
+      });
+    });
+  }
+  function drawRegions() {
+    drawProgress('geo-regions', 'How far through each region', '% of cards seen at least once. Continents are countries only', REGIONS);
+  }
+
+
+  // ---------- Heatmap: region x card type ----------
+  var COLS = ['Flag → Country', 'Capital → Country', 'Map → Country', 'Country → Capital'];
+  var COLS_SHORT = ['Flag →<br>Country', 'Capital →<br>Country', 'Map →<br>Country', 'Country →<br>Capital'];
+  // [reviews, % correct] per column
+  var HEAT = [
+    ['Europe',        [[33, 100], [49, 100], [11, 100], [112, 75.9]]],
+    ['Asia',          [[34, 100], [52, 98.1], [11, 90.9], [96, 76.0]]],
+    ['North America', [[14, 100], [22, 81.8], [6, 66.7], [49, 71.4]]],
+    ['South America', [[4, 100], [7, 100], [7, 85.7], [32, 59.4]]],
+    ['Oceania',       [[12, 100], [16, 87.5], [5, 80.0], [51, 51.0]]],
+    ['Africa',        [[49, 98.0], [78, 75.6], [20, 75.0], [205, 47.3]]],
+    ['Territories',   [[11, 90.9], [11, 100], [28, 85.7], [27, 81.5]]],
+    ['Oceans & seas', [null, null, [17, 76.5], null]]
+  ];
+  function drawHeat() {
+    var rows = [];
+    HEAT.forEach(function (r) {
+      r[1].forEach(function (c, j) { if (c) rows.push([r[0], COLS[j], c[0], c[1] + '%']); });
+    });
+    var fig = setup('geo-heat', 'Where I get things wrong',
+      '% correct by region and card type. The stronger the shade, the more I miss. Italic = fewer than 10 reviews, so take with salt.',
+      ['Region', 'Card type', 'Reviews', 'Correct'], rows);
+    if (!fig) return;
+    var body = fig.querySelector('.gx-body');
+    if (body.dataset.ready) return;
+    var rh = fig.clientWidth < 480 ? '84px' : '120px';
+    var g = document.createElement('div');
+    g.className = 'gx-heat';
+    g.style.gridTemplateColumns = rh + ' repeat(4, minmax(0, 1fr))';
+    var html = '<div></div>' + COLS_SHORT.map(function (c) { return '<div class="hd">' + c + '</div>'; }).join('');
+    HEAT.forEach(function (r) {
+      html += '<div class="rh">' + r[0] + '</div>';
+      r[1].forEach(function (c, j) {
+        if (!c) { html += '<div class="gx-cell empty" title="Map cards only">–</div>'; return; }
+        var miss = (100 - c[1]) / 100;
+        var a = Math.round(6 + Math.min(1, miss / 0.55) * 79);
+        var ink = a > 50 ? 'var(--main-bg, var(--card-bg))' : 'var(--text-color)';
+        html += '<div class="gx-cell' + (c[0] < 10 ? ' low' : '') + '" data-tip="' + r[0] + ', ' + COLS[j] + ': <b>' + c[1] + '%</b> of ' + c[0] + ' reviews" ' +
+          'style="background: color-mix(in srgb, var(--text-color) ' + a + '%, transparent); color: ' + ink + '">' + Math.round(c[1]) + '%</div>';
+      });
+    });
+    g.innerHTML = html;
+    body.appendChild(g);
+    var leg = document.createElement('div');
+    leg.className = 'gx-legend';
+    leg.innerHTML = '<span>100% right</span><span class="bar"></span><span>~45% right</span>';
+    body.appendChild(leg);
+    var tp = tip(fig);
+    g.querySelectorAll('.gx-cell:not(.empty)').forEach(function (cell) {
+      cell.addEventListener('mouseenter', function () {
+        tp.show(cell.dataset.tip, cell.offsetLeft + cell.offsetWidth / 2, cell.offsetTop);
+      });
+      cell.addEventListener('mouseleave', tp.hide);
+    });
+    body.dataset.ready = 1;
+  }
+
+  function drawAll() { drawTiles(); drawDaily(); drawRegions(); drawHeat(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', drawAll);
+  else drawAll();
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { drawDaily(); drawRegions(); }, 150); });
+})();
+</script>
