@@ -100,7 +100,7 @@
     return fig;
   }
 
-  // ---------- Stat tiles ----------
+  /* ---------- Stat tiles ---------- */
   function drawTiles() {
     var box = document.getElementById('geo-tiles');
     if (!box || box.dataset.ready) return;
@@ -116,7 +116,7 @@
     box.dataset.ready = 1;
   }
 
-  // ---------- Reviews per day ----------
+  /* ---------- Reviews per day ---------- */
   var DAYS = [
     ['5 Oct', 63, 58.7], ['6 Oct', 193, 68.4], ['7 Oct', 124, 75.8], ['8 Oct', 79, 67.1],
     ['9 Oct', 0, null], ['10 Oct', 0, null], ['11 Oct', 0, null],
@@ -160,8 +160,8 @@
     });
   }
 
-  // ---------- Progress bars (by region, by kind) ----------
-  // Continents count countries only; territories and oceans/seas/continents are their own groups.
+  /* ---------- Progress bars (by region, by kind) ---------- */
+  /* Continents count countries only; territories and oceans/seas/continents are their own groups. */
   var REGIONS = [
     { k: 'Asia', cards: 188, seen: 91 },
     { k: 'Europe', cards: 204, seen: 97 },
@@ -210,10 +210,10 @@
   }
 
 
-  // ---------- Heatmap: region x card type ----------
+  /* ---------- Heatmap: region x card type ---------- */
   var COLS = ['Flag → Country', 'Capital → Country', 'Map → Country', 'Country → Capital'];
   var COLS_SHORT = ['Flag →<br>Country', 'Capital →<br>Country', 'Map →<br>Country', 'Country →<br>Capital'];
-  // [reviews, % correct] per column
+  /* [reviews, % correct] per column */
   var HEAT = [
     ['Europe',        [[33, 100], [49, 100], [11, 100], [112, 75.9]]],
     ['Asia',          [[34, 100], [52, 98.1], [11, 90.9], [96, 76.0]]],
